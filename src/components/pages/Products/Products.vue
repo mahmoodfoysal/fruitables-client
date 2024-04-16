@@ -1,6 +1,22 @@
 <script>
+import axios from 'axios';
 export default {
-    name: 'Products'
+    name: 'Products',
+    data() {
+        return {
+            categoryData: []
+        }
+    },
+    mounted() {
+        this.loadCategory();
+    },
+    methods: {
+        async loadCategory() {
+            const result = await axios.get('http://localhost:3000/category');
+            this.categoryData = result.data;
+            console.log(result.data);
+        }
+    }
 }
 </script>
 
@@ -20,6 +36,8 @@ export default {
                                 <span class="text-dark" style="width: 130px;">All Products</span>
                             </a>
                         </li>
+
+                        
                         <li class="nav-item">
                             <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
                                 <span class="text-dark" style="width: 130px;">Vegetables</span>
