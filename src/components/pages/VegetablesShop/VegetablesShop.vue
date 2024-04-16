@@ -28,7 +28,7 @@ export default {
     <!-- Vesitable Shop Start-->
     <div class="container-fluid vesitable py-5">
         <div class="container py-5">
-            <h1 class="mb-0">Fresh Organic Vegetables</h1>
+            <h1 class="mb-5">Fresh Organic Vegetables</h1>
             <swiper :pagination="{
                 type: 'fraction',
             }" :navigation="true" :modules="modules" :slidesPerView="4" :spaceBetween="30" :autoplay="{

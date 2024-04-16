@@ -1,0 +1,22 @@
+[
+    {
+        "cat_id": 0,
+        "cat_name": "All Products"
+    },
+    {
+        "cat_id": 1,
+        "cat_name": "vegetable"
+    },
+    {
+        "cat_id": 2,
+        "cat_name": "Fruits"
+    },
+    {
+        "cat_id": 3,
+        "cat_name": "Bread"
+    },
+    {
+        "cat_id": 4,
+        "cat_name": "Meat"
+    }
+]
