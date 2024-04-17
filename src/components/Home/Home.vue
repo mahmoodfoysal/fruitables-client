@@ -6,7 +6,8 @@ import OfferFeatures from '../pages/OfferFeatures/OfferFeatures.vue';
 import VegetablesShop from '../pages/VegetablesShop/VegetablesShop.vue';
 import MiddleBanner from '../pages/MiddleBanner/MiddleBanner.vue';
 import BestProductSell from '../pages/BestProductSell/BestProductSell.vue';
-import Testimonial from '../pages/Testimonial/Testimonial.vue';
+import Fact from '../pages/Fact/Fact.vue';
+import ClientReview from '../pages/ClientReview/ClientReview.vue';
 export default {
     name: 'Home',
     components: {
@@ -17,7 +18,8 @@ export default {
         VegetablesShop,
         MiddleBanner,
         BestProductSell,
-        Testimonial
+        Fact,
+        ClientReview
     }
 }
 </script>
@@ -35,7 +37,8 @@ export default {
     <VegetablesShop></VegetablesShop>
     <MiddleBanner></MiddleBanner>
     <BestProductSell></BestProductSell>
-    <Testimonial></Testimonial>
+    <Fact></Fact>
+    <ClientReview></ClientReview>
 </template>
 
 <style scoped></style>

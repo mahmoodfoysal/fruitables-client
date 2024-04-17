@@ -1,12 +1,11 @@
 <script>
+import {RouterView} from 'vue-router'
 import Navigation from '../src/components/shared/Navigation/Navigation.vue';
-import Home from '../src/components/Home/Home.vue';
 import Footer from '../src/components/shared/Footer/Footer.vue';
 export default {
   name: 'App',
   components: {
     Navigation,
-    Home,
     Footer
   }
 }
@@ -14,7 +13,7 @@ export default {
 
 <template>
 <Navigation></Navigation>
-<Home></Home>
+<RouterView></RouterView>
 <Footer></Footer>
 
 <!-- Back to Top -->

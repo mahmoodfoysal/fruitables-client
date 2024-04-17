@@ -15,7 +15,7 @@ export default {
         <div class="fruite-img">
             <img :src="product?.pro_image" class="img-fluid w-100 rounded-top" alt="">
         </div>
-        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits
+        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{ product?.cat_name }}
         </div>
         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
             <h4>{{ product?.pro_name }}</h4>

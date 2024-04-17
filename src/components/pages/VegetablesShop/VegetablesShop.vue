@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import axios from 'axios';
 export default {
     name: 'VegetablesShop',
     components: {
@@ -19,6 +20,29 @@ export default {
     data() {
         return {
             modules: [Pagination, Navigation, Autoplay],
+            productsData: [],
+            filterData: [],
+        }
+    },
+    mounted() {
+        this.loadProducts().then(() => {
+            this.filterProducts();
+        });
+    },
+    methods: {
+        async loadProducts() {
+            try {
+                const result = await axios.get('http://localhost:3000/products')
+                this.productsData = result.data;
+                // console.log('vegetables data',result.data);
+            }
+            catch(error) {
+
+            }
+        },
+        filterProducts() {
+            this.filterData = this.productsData.filter(product => product?.cat_name === 'Vegetable')
+            console.log('filter vegetables', this.filterData);
         }
     }
 }
@@ -35,16 +59,19 @@ export default {
                 delay: 2500,
                 disableOnInteraction: false,
             }" class="mySwiper">
-                <swiper-slide v-for="n in 10">
+                <swiper-slide 
+                v-for="(data, index) in filterData"
+                :key="index"
+                >
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="/src/assets/img/vegetable-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
+                            <img :src="data?.pro_image" class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; right: 10px;">Vegetable</div>
+                            style="top: 10px; right: 10px;">{{ data?.cat_name }}</div>
                         <div class="p-4 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                            <h4>{{ data?.pro_name }}</h4>
+                            <p>{{ data?.pro_description }}</p>
                             <div class="d-flex justify-content-between flex-lg-wrap">
                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                 <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
