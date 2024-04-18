@@ -6,6 +6,11 @@ export default {
             type: Object,
             default: null
         }
+    },
+    methods: {
+        handleProductDetails() {
+            console.log("Click")
+        }
     }
 }
 </script>
@@ -17,17 +22,29 @@ export default {
         </div>
         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{ product?.cat_name }}
         </div>
-        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+        <div 
+        @click="handleProductDetails"
+        class="p-4 border border-secondary border-top-0 rounded-bottom">
             <h4>{{ product?.pro_name }}</h4>
             <p>{{ product?.pro_description }}</p>
-            <div class="d-flex justify-content-between flex-lg-wrap">
-                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+            <div class="">
+                <p class="text-dark fs-5 fw-bold mb-0 d-flex justify-content-center">${{ product?.pro_price }} / {{ product?.pro_quantity }}</p>
+                <div class="d-flex justify-content-center">
+                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                         class="fa fa-shopping-bag me-2 text-primary"></i> Add to
                     cart</a>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.fruite-img img {
+    height: 178px;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+</style>

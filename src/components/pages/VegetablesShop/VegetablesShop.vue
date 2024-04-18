@@ -42,7 +42,7 @@ export default {
         },
         filterProducts() {
             this.filterData = this.productsData.filter(product => product?.cat_name === 'Vegetable')
-            console.log('filter vegetables', this.filterData);
+            // console.log('filter vegetables', this.filterData);
         }
     }
 }
