@@ -21,13 +21,19 @@ export default {
         return {
             modules: [Pagination, Navigation, Autoplay],
             productsData: [],
-            filterData: []
+            filterData: [],
+            filterRelatedData: []
         }
     },
-    mounted() {
-        this.loadProducts().then(() => {
-            this.filterProduct();
-        });
+    async mounted() {
+        // this.loadProducts().then(() => {
+        //     this.filterProduct().then(() => {
+        //         this.filterRelatedProducts()
+        //     });
+        // });
+        await this.loadProducts();
+        await this.filterProduct();
+        await this.filterRelatedProducts();
     },
     methods: {
         async loadProducts() {
@@ -42,6 +48,10 @@ export default {
         filterProduct() {
             this.filterData = this.productsData.filter(product => product?.pro_id == parseInt(this.$route?.params?.id));
             console.log(this.filterData)
+        },
+        filterRelatedProducts() {
+            this.filterRelatedData = this.productsData.filter(product => product?.cat_id === this.filterData[0]?.cat_id)
+            console.log(this.filterRelatedData);
         }
     }
 }

@@ -10,9 +10,8 @@ export default {
         }
     },
     methods: {
-        handleProductDetails(product) {
-            console.log("Click", product);
-            this.$emit('handle-product-details', product);
+        handleAddToCart(product) {
+            localStorage.setItem('cart-products', JSON.stringify(product))
         }
     }
 }
@@ -35,11 +34,11 @@ export default {
             <div class="">
                 <p class="text-dark fs-5 fw-bold mb-0 d-flex justify-content-center">${{ product?.pro_price }} / {{ product?.pro_quantity }}</p>
                 <div class="d-flex justify-content-center">
-                    <a 
+                    <button 
                     @click="handleAddToCart(product)"
-                    href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                    href="" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                         class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a>
+                    cart</button>
                 </div>
             </div>
         </div>

@@ -7,25 +7,13 @@ export default {
   components: {
     Navigation,
     Footer
-  },
-  data() {
-    return {
-      productDetails: []
-    }
-  },
-  methods: {
-    handleProductDetails(product) {
-      console.log(product);
-      this.productDetails = product;
-    }
   }
 }
 </script>
 
 <template>
   <Navigation></Navigation>
-  <RouterView 
-  ></RouterView>
+  <RouterView ></RouterView>
   <Footer></Footer>
 
   <!-- Back to Top -->
