@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import axios from 'axios';
 export default {
     name: 'ProductDetails',
     components: {
@@ -19,6 +20,28 @@ export default {
     data() {
         return {
             modules: [Pagination, Navigation, Autoplay],
+            productsData: [],
+            filterData: []
+        }
+    },
+    mounted() {
+        this.loadProducts().then(() => {
+            this.filterProduct();
+        });
+    },
+    methods: {
+        async loadProducts() {
+            try {
+                const result = await axios.get('http://localhost:3000/products');
+                this.productsData = result.data;
+            }
+            catch(error) {
+
+            }
+        },
+        filterProduct() {
+            this.filterData = this.productsData.filter(product => product?.pro_id == parseInt(this.$route?.params?.id));
+            console.log(this.filterData)
         }
     }
 }
@@ -46,14 +69,14 @@ export default {
                             <div class="col-lg-6">
                                 <div class="border rounded">
                                     <a href="#">
-                                        <img src="/src/assets/img/single-item.jpg" class="img-fluid rounded" alt="Image">
+                                        <img :src="filterData[0]?.pro_image" class="img-fluid rounded" alt="Image">
                                     </a>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <h4 class="fw-bold mb-3">Brocoli</h4>
-                                <p class="mb-3">Category: Vegetables</p>
-                                <h5 class="fw-bold mb-3">3,35 $</h5>
+                                <h4 class="fw-bold mb-3">{{ filterData[0]?.pro_name }}</h4>
+                                <p class="mb-3">Category: {{ filterData[0]?.cat_name }}</p>
+                                <h5 class="fw-bold mb-3">${{ filterData[0]?.pro_price }}</h5>
                                 <div class="d-flex mb-4">
                                     <i class="fa fa-star text-secondary"></i>
                                     <i class="fa fa-star text-secondary"></i>
@@ -61,8 +84,7 @@ export default {
                                     <i class="fa fa-star text-secondary"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
-                                <p class="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish</p>
+                                <p class="mb-4">{{ filterData[0]?.pro_description }}</p>
                                 <div class="input-group quantity mb-5" style="width: 100px;">
                                     <div class="input-group-btn">
                                         <button class="btn btn-sm btn-minus rounded-circle bg-light border" >

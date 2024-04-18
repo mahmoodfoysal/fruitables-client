@@ -24,6 +24,9 @@ export default {
             catch(error) {
 
             }
+        },
+        handleProductDetails(product) {
+            this.$emit('handle-product-details', product);
         }
     }
 }
@@ -233,6 +236,7 @@ export default {
                                 class="col-md-6 col-lg-6 col-xl-4">
                                     <ProductCard
                                     :product="product"
+                                    @handle-product-details="handleProductDetails"
                                     ></ProductCard>
                                 </div>
                             </div>
