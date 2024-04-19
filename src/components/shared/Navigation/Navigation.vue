@@ -1,7 +1,16 @@
 <script>
+import { useStore } from '@/components/store/taskStore';
 import {RouterLink} from 'vue-router'
 export default {
-    name: 'Navigation'
+    name: 'Navigation',
+    data() {
+        return {
+            store: useStore()
+        }
+    },
+    created() {
+        console.log(this.store.cartItem)
+    }
 }
 </script>
 
@@ -59,7 +68,7 @@ export default {
                         <RouterLink :to="{name: 'Cart'}">
                             <i class="fa fa-shopping-bag fa-2x"></i>
                         </RouterLink>
-                        <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                        <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{ store.cartItem.length }}</span>
                     </a>
                     <a href="#" class="my-auto">
                         <i class="fas fa-user fa-2x"></i>

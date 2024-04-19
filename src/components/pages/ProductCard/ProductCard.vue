@@ -1,4 +1,5 @@
 <script>
+import { useStore } from '@/components/store/taskStore';
 import { RouterLink } from 'vue-router';
 
 export default {
@@ -9,9 +10,32 @@ export default {
             default: null
         }
     },
+    data() {
+        return {
+            store: useStore(),
+            
+        }
+    },
     methods: {
         handleAddToCart(product) {
-            localStorage.setItem('cart-products', JSON.stringify(product))
+            let cart = this.getDB() || {};
+
+            if(cart[product.pro_id]){
+                cart[product.pro_id].quantity += 1
+            }
+            else {
+                product.quantity = 1;
+                cart[product.pro_id] = product;
+            }
+            this.updateDB(cart);
+        },
+        getDB() {
+            const cartData = localStorage.getItem('shopping_cart');
+            return cartData ? JSON.parse(cartData) : null;
+        },
+        updateDB(cart) {
+            localStorage.setItem('shopping_cart', JSON.stringify(cart));
+            this.store.setCartItem(cart)
         }
     }
 }
