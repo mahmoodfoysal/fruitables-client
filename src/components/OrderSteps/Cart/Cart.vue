@@ -1,5 +1,6 @@
 <script>
-import { useStore } from '../store/taskStore';
+import { useStore } from '@/components/store/taskStore';
+
 export default {
     name: 'Cart',
     data() {

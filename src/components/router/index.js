@@ -24,12 +24,17 @@ const routes = [
     {
         path: '/cart',
         name: 'Cart',
-        component: () => import('../Cart/Cart.vue')
+        component: () => import('../OrderSteps/Cart/Cart.vue')
     },
     {
         path: '/product/:id',
         name: 'ProductDetails',
         component: () => import('../ProductDetails/ProductDetails.vue')
+    },
+    {
+        path: '/check-out',
+        name: 'CheckOut',
+        component: () => import('../OrderSteps/CheckOut/CheckOut.vue')
     },
     {
         path: '/:pathMatch(.*)*',
