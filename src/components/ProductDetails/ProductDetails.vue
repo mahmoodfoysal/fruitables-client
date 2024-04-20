@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import axios from 'axios';
+import { RouterLink } from 'vue-router';
 export default {
     name: 'ProductDetails',
     components: {
@@ -34,6 +35,17 @@ export default {
         await this.loadProducts();
         await this.filterProduct();
         await this.filterRelatedProducts();
+    },
+    watch: {
+        '$route.params.id': {
+            immediate: true, // This ensures that the watcher is triggered immediately when the component is mounted
+            handler(newValue, oldValue) {
+                // Check if the ID has changed
+                if (newValue !== oldValue) {
+                    this.filterProduct();
+                }
+            }
+        },
     },
     methods: {
         async loadProducts() {
@@ -444,9 +456,11 @@ export default {
                 :key="index"
                 >
                     <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
+                        <RouterLink :to="{name: 'ProductDetails', params: {id: product?.pro_id}}">
+                            <div class="vesitable-img">
                             <img :src="product?.pro_image" class="img-fluid w-100 rounded-top" alt="">
                         </div>
+                        </RouterLink>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
                             style="top: 10px; right: 10px;">{{ product?.cat_name }}</div>
                         <div class="p-4 rounded-bottom">
