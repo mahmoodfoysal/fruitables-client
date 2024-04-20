@@ -1,6 +1,54 @@
 <script>
+import { useStore } from '../store/taskStore';
 export default {
-    name: 'Cart'
+    name: 'Cart',
+    data() {
+        return {
+            store: useStore(),
+        }
+    },
+    methods: {
+        handleQuantityIncrement(item) {
+            let cartData = this.getDB() || {};
+            if(cartData[item?.pro_id]) {
+                cartData[item?.pro_id].quantity += 1;
+            }
+            this.updateDB(cartData);
+        },
+        handleQuantityDecrement(item) {
+            let cartData = this.getDB() || {};
+            if(cartData[item?.pro_id]) {
+                if(cartData[item?.pro_id].quantity > 1) {
+                    cartData[item?.pro_id].quantity -= 1;
+                }
+            }
+            this.updateDB(cartData);
+        },
+        handleRemoveItem(item) {
+            let cartData = this.getDB() || {};
+            const text = 'Are You Sure Want to Delete This Item';
+                if(cartData[item?.pro_id]) {
+                    if(confirm(text) == true) {
+                        delete cartData[item?.pro_id]
+                    }
+                
+            }
+            this.updateDB(cartData);
+        },
+        getDB() {
+            const cartData = localStorage.getItem('shopping_cart')
+            return cartData ? JSON.parse(cartData) : null
+        },
+        updateDB(cart) {
+            localStorage.setItem('shopping_cart', JSON.stringify(cart));
+            this.store.setCartItem(cart);
+        }
+    },
+    computed: {
+        cartItems() {
+            return this.store.cartItem;
+        }
+    }
 }
 </script>
 
@@ -33,28 +81,36 @@ export default {
                           </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr 
+                            v-for="(item, index) in cartItems"
+                            :key="index"
+                            >
                                 <th scope="row">
                                     <div class="d-flex align-items-center">
-                                        <img src="/src/assets/img/vegetable-item-3.png" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                        <img :src="item?.pro_image" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
                                     </div>
                                 </th>
                                 <td>
-                                    <p class="mb-0 mt-4">Big Banana</p>
+                                    <p class="mb-0 mt-4">{{ item?.pro_name }}</p>
                                 </td>
                                 <td>
-                                    <p class="mb-0 mt-4">2.99 $</p>
+                                    <p class="mb-0 mt-4">${{  item?.pro_price}}</p>
                                 </td>
                                 <td>
                                     <div class="input-group quantity mt-4" style="width: 100px;">
                                         <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-minus rounded-circle bg-light border" >
+                                            <button 
+                                            @click="handleQuantityDecrement(item)"
+                                            class="btn btn-sm btn-minus rounded-circle bg-light border" >
                                             <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
-                                        <input type="text" class="form-control form-control-sm text-center border-0" value="1">
+                                        <!-- {{  }} -->
+                                        <input type="text" class="form-control form-control-sm text-center border-0" :value="item?.quantity" disabled>
                                         <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                            <button 
+                                            @click="handleQuantityIncrement(item)"
+                                            class="btn btn-sm btn-plus rounded-circle bg-light border">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>
@@ -64,13 +120,16 @@ export default {
                                     <p class="mb-0 mt-4">2.99 $</p>
                                 </td>
                                 <td>
-                                    <button class="btn btn-md rounded-circle bg-light border mt-4" >
+                                    <button 
+                                    @click="handleRemoveItem(item)"
+                                    class="btn btn-md rounded-circle bg-light border mt-4" >
                                         <i class="fa fa-times text-danger"></i>
                                     </button>
                                 </td>
                             
                             </tr>
-                            <tr>
+
+                            <!-- <tr>
                                 <th scope="row">
                                     <div class="d-flex align-items-center">
                                         <img src="/src/assets/img/vegetable-item-5.jpg" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="" >
@@ -141,7 +200,7 @@ export default {
                                         <i class="fa fa-times text-danger"></i>
                                     </button>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>

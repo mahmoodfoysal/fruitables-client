@@ -19,7 +19,7 @@ export default {
             try {
                 const result = await axios.get('http://localhost:3000/products');
                 this.productsData = result?.data;
-                console.log(result?.data);
+                // console.log(result?.data);
             }
             catch(error) {
 
