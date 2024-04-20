@@ -10,7 +10,7 @@ export default {
         }
     },
     created() {
-        console.log(this.store.cartItem)
+        // console.log(this.store.cartItem)
     },
     computed: {
         cartCount() {
