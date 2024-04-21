@@ -124,29 +124,29 @@ export default {
             // You can also emit an event here if needed
         },
         async handlePostReview() {
-            if(!this.fullName, !this.email, !this.comment, !this.currentRating) {
+            if (!this.fullName, !this.email, !this.comment, !this.currentRating) {
                 alert('Please Fill The Required Field');
                 return;
             }
             const text = 'Are You Sure? Want To Post This Review';
-            if(confirm(text) == true) {
+            if (confirm(text) == true) {
                 const result = await axios.post('http://localhost:3000/review', {
-                fullName: this.fullName,
-                email: this.email,
-                comment: this.comment,
-                rating: this.currentRating,
-                product: this.filterData,
-                date: Date()
-                
-            });
-            console.log(result)
-            if(result.status === 201) {
-                alert('Thanks For Your Review!!!');
-                this.fullName='';
-                this.email='';
-                this.comment='';
-                this.currentRating= '';
-            }
+                    fullName: this.fullName,
+                    email: this.email,
+                    comment: this.comment,
+                    rating: this.currentRating,
+                    product_id: this.filterData[0]?.pro_id,
+                    date: Date()
+
+                });
+                console.log(result)
+                if (result.status === 201) {
+                    alert('Thanks For Your Review!!!');
+                    this.fullName = '';
+                    this.email = '';
+                    this.comment = '';
+                    this.currentRating = '';
+                }
             }
         },
         async loadReview() {
@@ -155,12 +155,12 @@ export default {
                 this.reviewData = result.data;
                 console.log(result.data);
             }
-            catch(error) {
+            catch (error) {
 
             }
         },
         filterRelatedReview() {
-            this.filterReviewData = this.reviewData.filter(review => review?.pro_id == parseInt(this.$route?.params?.id));
+            this.filterReviewData = this.reviewData.filter(review => review?.product_id == parseInt(this.$route?.params?.id));
             console.log(this.filterReviewData)
         }
     },
@@ -307,46 +307,25 @@ export default {
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="tab-pane" id="nav-mission" role="tabpanel"
                                     aria-labelledby="nav-mission-tab">
-                                    <div class="d-flex">
+
+                                    <div v-for="(review, index) in filterReviewData" class="d-flex">
                                         <img src="/src/assets/img/avatar.jpg" class="img-fluid rounded-circle p-3"
                                             style="width: 100px; height: 100px;" alt="">
-                                        <div class="">
-                                            <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
+                                        <div>
+                                            <p class="mb-2" style="font-size: 14px;">{{ review?.date }}</p>
                                             <div class="d-flex justify-content-between">
-                                                <h5>Jason Smith</h5>
+                                                <h5>{{ review?.fullName }}</h5>
                                                 <div class="d-flex mb-3">
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star"></i>
+                                                    <template v-for="i in 5">
+                                                        <i
+                                                        :class="{ 'fa': true, 'fa-star': true, 'text-gray': i > review.rating, 'text-yellow': i <= review.rating }"></i>
+                                                    </template>
                                                 </div>
                                             </div>
-                                            <p>The generated Lorem Ipsum is therefore always free from repetition
-                                                injected humour, or non-characteristic
-                                                words etc. Susp endisse ultricies nisi vel quam suscipit </p>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <img src="/src/assets/img/avatar.jpg" class="img-fluid rounded-circle p-3"
-                                            style="width: 100px; height: 100px;" alt="">
-                                        <div class="">
-                                            <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
-                                            <div class="d-flex justify-content-between">
-                                                <h5>Sam Peters</h5>
-                                                <div class="d-flex mb-3">
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <p class="text-dark">The generated Lorem Ipsum is therefore always free from
-                                                repetition injected humour, or non-characteristic
-                                                words etc. Susp endisse ultricies nisi vel quam suscipit </p>
+                                            <p>{{ review?.comment }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -365,24 +344,21 @@ export default {
                             <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input 
-                                        v-model="fullName"
-                                        type="text" class="form-control border-0 me-4" placeholder="Enter Your Full Name *">
+                                        <input v-model="fullName" type="text" class="form-control border-0 me-4"
+                                            placeholder="Enter Your Full Name *">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input 
-                                        v-model="email"
-                                        type="email" class="form-control border-0" placeholder="Enter Your Email *">
+                                        <input v-model="email" type="email" class="form-control border-0"
+                                            placeholder="Enter Your Email *">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="border-bottom rounded my-4">
-                                        <textarea
-                                        v-model="comment"
-                                        name="" id="" class="form-control border-0" cols="30" rows="8"
-                                            placeholder="Please Enter Your Valuable Comment *" spellcheck="false"></textarea>
+                                        <textarea v-model="comment" name="" id="" class="form-control border-0"
+                                            cols="30" rows="8" placeholder="Please Enter Your Valuable Comment *"
+                                            spellcheck="false"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -392,15 +368,12 @@ export default {
                                             <div class="d-flex align-items-center rating-style"
                                                 style="font-size: 12px;">
                                                 <i v-for="index in 5" :key="index" class="fa fa-star" :class="{
-                                                    'star': index <= currentRating,
-                                                    'star-o': index > currentRating
-                                                }"
-                                                @click="rate(index)"></i>
+                                        'star': index <= currentRating,
+                                        'star-o': index > currentRating
+                                    }" @click="rate(index)"></i>
                                             </div>
                                         </div>
-                                        <button 
-                                        @click="handlePostReview"
-                                        type="button"
+                                        <button @click="handlePostReview" type="button"
                                             class="btn border border-secondary text-primary rounded-pill px-4 py-3">
                                             Post Comment</button>
                                     </div>
@@ -605,7 +578,8 @@ export default {
                                 </div>
                             </RouterLink>
                             <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                                style="top: 10px; right: 10px;">{{ product?.cat_name }}</div>
+                                style="top: 10px; right: 10px;">
+                                {{ product?.cat_name }}</div>
                             <div class="p-4 rounded-bottom">
                                 <h4>{{ product?.pro_name }}</h4>
                                 <p>{{ product?.pro_description }}</p>
@@ -645,5 +619,11 @@ export default {
 
 .star-o {
     color: gray;
+}
+.text-yellow {
+  color: #FFB524;
+}
+.text-gray {
+    color: gray !important;
 }
 </style>
