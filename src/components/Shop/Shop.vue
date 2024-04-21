@@ -1,7 +1,13 @@
 <script>
 import axios from 'axios';
 import ProductCard from '../pages/ProductCard/ProductCard.vue';
-import ShopSideBar from './ShopSideBar.vue';
+import SearchBar from '../FiltersAndFeatures/SearchBar/SearchBar.vue';
+import Categories from '../FiltersAndFeatures/Categories/Categories.vue';
+import PriceFilter from '../FiltersAndFeatures/PriceFilter/PriceFilter.vue';
+import Additional from '../FiltersAndFeatures/Additional/Additional.vue';
+import FeaturedProducts from '../FiltersAndFeatures/FeaturedProducts/FeaturedProducts.vue';
+import PromotionalBanner from '../FiltersAndFeatures/PromotionalBanner/PromotionalBanner.vue';
+
 export default {
     name: 'Shop',
     data() {
@@ -11,7 +17,13 @@ export default {
     },
     components: {
         ProductCard,
-        ShopSideBar
+        SearchBar,
+        Categories,
+        PriceFilter,
+        Additional,
+        FeaturedProducts,
+        PromotionalBanner
+        
     },
     mounted() {
         this.loadProducts();
@@ -23,7 +35,7 @@ export default {
                 this.productsData = result?.data;
                 // console.log(result?.data);
             }
-            catch(error) {
+            catch (error) {
 
             }
         },
@@ -50,12 +62,7 @@ export default {
                 <div class="col-lg-12">
                     <div class="row g-4">
                         <div class="col-xl-3">
-                            <div class="input-group w-100 mx-auto d-flex">
-                                <input type="search" class="form-control p-3" placeholder="keywords"
-                                    aria-describedby="search-icon-1">
-                                <span id="search-icon-1" class="input-group-text p-3"><i
-                                        class="fa fa-search"></i></span>
-                            </div>
+                            <SearchBar></SearchBar>
                         </div>
                         <div class="col-6"></div>
                         <div class="col-xl-3">
@@ -73,18 +80,34 @@ export default {
                     </div>
                     <div class="row g-4">
                         <div class="col-lg-3">
-                           <ShopSideBar></ShopSideBar>
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <Categories></Categories>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <PriceFilter></PriceFilter>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <Additional></Additional>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <FeaturedProducts></FeaturedProducts>
+                                </div>
+                                <div class="col-lg-12">
+                                   <PromotionalBanner></PromotionalBanner>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-lg-9">
                             <div class="row g-4 justify-content-center">
-                                <div 
-                                v-for="(product, index) in productsData"
-                                :key="index"
-                                class="col-md-6 col-lg-6 col-xl-4">
-                                    <ProductCard
-                                    :product="product"
-                                    ></ProductCard>
+                                <div v-for="(product, index) in productsData" :key="index"
+                                    class="col-md-6 col-lg-6 col-xl-4">
+                                    <ProductCard :product="product"></ProductCard>
                                 </div>
                             </div>
                         </div>
