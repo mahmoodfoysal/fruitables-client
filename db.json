@@ -1,186 +1,309 @@
 {
-    "products": [
-        {
-            "cat_id": 1,
-            "pro_id": 1,
-            "pro_image": "https://i.ibb.co/S0Rshvj/leaft-vegetables.jpg",
-            "cat_name": "Vegetable",
-            "pro_name": "Leafy vegetables",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 4.99,
-            "pro_quantity": "1KG"
+  "products": [
+    {
+      "cat_id": 1,
+      "pro_id": 1,
+      "pro_image": "https://i.ibb.co/S0Rshvj/leaft-vegetables.jpg",
+      "cat_name": "Vegetable",
+      "pro_name": "Leafy vegetables",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 4.99,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 1,
+      "pro_id": 2,
+      "pro_image": "https://i.ibb.co/YRBdsvm/fruite-item-4.jpg",
+      "cat_name": "Vegetable",
+      "pro_name": "Pumpkin",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 3.99,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 1,
+      "pro_id": 3,
+      "pro_image": "https://i.ibb.co/0CXS3Gd/root-vegetables.jpg",
+      "cat_name": "Vegetable",
+      "pro_name": "Root vegetables",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 5.2,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 1,
+      "pro_id": 4,
+      "pro_image": "https://i.ibb.co/GxjHRb4/beetroot.jpg",
+      "cat_name": "Vegetable",
+      "pro_name": "Beetroot",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 5.99,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 2,
+      "pro_id": 5,
+      "pro_image": "https://i.ibb.co/NTvVLwL/fruite-item-6.jpg",
+      "cat_name": "Fruits",
+      "pro_name": "Apple",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 2.99,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 2,
+      "pro_id": 6,
+      "pro_image": "https://i.ibb.co/d0NVrGr/fruite-item-1.jpg",
+      "cat_name": "Fruits",
+      "pro_name": "Orange",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 3.99,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 2,
+      "pro_id": 7,
+      "pro_image": "https://i.ibb.co/MDNgB1w/mango.jpg",
+      "cat_name": "Fruits",
+      "pro_name": "Mango",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 6.99,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 2,
+      "pro_id": 8,
+      "pro_image": "https://i.ibb.co/N2pgHyp/fruite-item-5.jpg",
+      "cat_name": "Fruits",
+      "pro_name": "Grapes",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 3.5,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 2,
+      "pro_id": 9,
+      "pro_image": "https://i.ibb.co/tCxHRf6/fruite-item-2.jpg",
+      "cat_name": "Fruits",
+      "pro_name": "Apricots",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 4.5,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 3,
+      "pro_id": 10,
+      "pro_image": "https://i.ibb.co/xGjjwJZ/bagels.jpg",
+      "cat_name": "Bread",
+      "pro_name": "Bagels",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 1.5,
+      "pro_quantity": "1Pound"
+    },
+    {
+      "cat_id": 3,
+      "pro_id": 11,
+      "pro_image": "https://i.ibb.co/tKjDX92/cake.jpg",
+      "cat_name": "Bread",
+      "pro_name": "Cakes",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 2.5,
+      "pro_quantity": "1Pound"
+    },
+    {
+      "cat_id": 3,
+      "pro_id": 12,
+      "pro_image": "https://i.ibb.co/9hBzbzB/muffin.jpg",
+      "cat_name": "Bread",
+      "pro_name": "Muffins",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 7.5,
+      "pro_quantity": "1Pound"
+    },
+    {
+      "cat_id": 3,
+      "pro_id": 13,
+      "pro_image": "https://i.ibb.co/2qB61FH/rolls-bread.jpg",
+      "cat_name": "Bread",
+      "pro_name": "Bread rolls",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 4.99,
+      "pro_quantity": "1Pound"
+    },
+    {
+      "cat_id": 4,
+      "pro_id": 14,
+      "pro_image": "https://i.ibb.co/ZMDnRkK/organic-beef-dice-1.jpg",
+      "cat_name": "Meet",
+      "pro_name": "Beef",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 4.99,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 4,
+      "pro_id": 15,
+      "pro_image": "https://i.ibb.co/JqZQj7L/mutton.jpg",
+      "cat_name": "Meet",
+      "pro_name": "Mutton",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 5.99,
+      "pro_quantity": "1KG"
+    },
+    {
+      "cat_id": 4,
+      "pro_id": 16,
+      "pro_image": "https://i.ibb.co/nB1027G/checken-organic.jpg",
+      "cat_name": "Meet",
+      "pro_name": "Checken",
+      "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+      "pro_price": 1.99,
+      "pro_quantity": "1KG"
+    }
+  ],
+  "category": [
+    {
+      "cat_id": 0,
+      "cat_name": "All Products"
+    },
+    {
+      "cat_id": 1,
+      "cat_name": "vegetable"
+    },
+    {
+      "cat_id": 2,
+      "cat_name": "Fruits"
+    },
+    {
+      "cat_id": 3,
+      "cat_name": "Bread"
+    },
+    {
+      "cat_id": 4,
+      "cat_name": "Meat"
+    }
+  ],
+  "orders": [
+    {
+      "id": "24d5",
+      "fullName": "aanjhkfnjk",
+      "companyName": "MononSoft ltd",
+      "address": "297/298 sayed garden, uttar badda, sadhinata sarani,",
+      "city": "Dhaka",
+      "zip": 1212,
+      "country": "Bangladesh",
+      "phoneNumber": 1714226177,
+      "email": "foysal@test.com",
+      "notes": "dghghvgv",
+      "orderList": {
+        "2": {
+          "cat_id": 1,
+          "pro_id": 2,
+          "pro_image": "https://i.ibb.co/YRBdsvm/fruite-item-4.jpg",
+          "cat_name": "Vegetable",
+          "pro_name": "Pumpkin",
+          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+          "pro_price": 3.99,
+          "pro_quantity": "1KG",
+          "id": "b744",
+          "quantity": 3
         },
-        {
-            "cat_id": 1,
-            "pro_id": 2,
-            "pro_image": "https://i.ibb.co/YRBdsvm/fruite-item-4.jpg",
-            "cat_name": "Vegetable",
-            "pro_name": "Pumpkin",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 3.99,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 1,
-            "pro_id": 3,
-            "pro_image": "https://i.ibb.co/0CXS3Gd/root-vegetables.jpg",
-            "cat_name": "Vegetable",
-            "pro_name": "Root vegetables",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 5.2,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 1,
-            "pro_id": 4,
-            "pro_image": "https://i.ibb.co/GxjHRb4/beetroot.jpg",
-            "cat_name": "Vegetable",
-            "pro_name": "Beetroot",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 5.99,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 2,
-            "pro_id": 5,
-            "pro_image": "https://i.ibb.co/NTvVLwL/fruite-item-6.jpg",
-            "cat_name": "Fruits",
-            "pro_name": "Apple",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 2.99,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 2,
-            "pro_id": 6,
-            "pro_image": "https://i.ibb.co/d0NVrGr/fruite-item-1.jpg",
-            "cat_name": "Fruits",
-            "pro_name": "Orange",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 3.99,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 2,
-            "pro_id": 7,
-            "pro_image": "https://i.ibb.co/MDNgB1w/mango.jpg",
-            "cat_name": "Fruits",
-            "pro_name": "Mango",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 6.99,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 2,
-            "pro_id": 8,
-            "pro_image": "https://i.ibb.co/N2pgHyp/fruite-item-5.jpg",
-            "cat_name": "Fruits",
-            "pro_name": "Grapes",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 3.5,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 2,
-            "pro_id": 9,
-            "pro_image": "https://i.ibb.co/tCxHRf6/fruite-item-2.jpg",
-            "cat_name": "Fruits",
-            "pro_name": "Apricots",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 4.5,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 3,
-            "pro_id": 10,
-            "pro_image": "https://i.ibb.co/xGjjwJZ/bagels.jpg",
-            "cat_name": "Bread",
-            "pro_name": "Bagels",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 1.5,
-            "pro_quantity": "1Pound"
-        },
-        {
-            "cat_id": 3,
-            "pro_id": 11,
-            "pro_image": "https://i.ibb.co/tKjDX92/cake.jpg",
-            "cat_name": "Bread",
-            "pro_name": "Cakes",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 2.5,
-            "pro_quantity": "1Pound"
-        },
-        {
-            "cat_id": 3,
-            "pro_id": 12,
-            "pro_image": "https://i.ibb.co/9hBzbzB/muffin.jpg",
-            "cat_name": "Bread",
-            "pro_name": "Muffins",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 7.5,
-            "pro_quantity": "1Pound"
-        },
-        {
-            "cat_id": 3,
-            "pro_id": 13,
-            "pro_image": "https://i.ibb.co/2qB61FH/rolls-bread.jpg",
-            "cat_name": "Bread",
-            "pro_name": "Bread rolls",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 4.99,
-            "pro_quantity": "1Pound"
-        },
-        {
-            "cat_id": 4,
-            "pro_id": 14,
-            "pro_image": "https://i.ibb.co/ZMDnRkK/organic-beef-dice-1.jpg",
-            "cat_name": "Meet",
-            "pro_name": "Beef",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 4.99,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 4,
-            "pro_id": 15,
-            "pro_image": "https://i.ibb.co/JqZQj7L/mutton.jpg",
-            "cat_name": "Meet",
-            "pro_name": "Mutton",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 5.99,
-            "pro_quantity": "1KG"
-        },
-        {
-            "cat_id": 4,
-            "pro_id": 16,
-            "pro_image": "https://i.ibb.co/nB1027G/checken-organic.jpg",
-            "cat_name": "Meet",
-            "pro_name": "Checken",
-            "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-            "pro_price": 1.99,
-            "pro_quantity": "1KG"
+        "3": {
+          "cat_id": 1,
+          "pro_id": 3,
+          "pro_image": "https://i.ibb.co/0CXS3Gd/root-vegetables.jpg",
+          "cat_name": "Vegetable",
+          "pro_name": "Root vegetables",
+          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+          "pro_price": 5.2,
+          "pro_quantity": "1KG",
+          "id": "45d7",
+          "quantity": 4
         }
-    ],
-    "category": [
-        {
-            "cat_id": 0,
-            "cat_name": "All Products"
+      },
+      "subTotal": 32.77,
+      "shipping": 2,
+      "grossTotal": 34.77
+    },
+    {
+      "id": "faf7",
+      "fullName": "adadad",
+      "companyName": "MononSoft ltd",
+      "address": "297/298 sayed garden, uttar badda, sadhinata sarani,",
+      "city": "Dhaka",
+      "zip": 1212,
+      "country": "Bangladesh",
+      "phoneNumber": 1714226177,
+      "email": "foysal@test.com",
+      "notes": null,
+      "orderList": {
+        "2": {
+          "cat_id": 1,
+          "pro_id": 2,
+          "pro_image": "https://i.ibb.co/YRBdsvm/fruite-item-4.jpg",
+          "cat_name": "Vegetable",
+          "pro_name": "Pumpkin",
+          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+          "pro_price": 3.99,
+          "pro_quantity": "1KG",
+          "id": "b744",
+          "quantity": 3
         },
-        {
-            "cat_id": 1,
-            "cat_name": "vegetable"
-        },
-        {
-            "cat_id": 2,
-            "cat_name": "Fruits"
-        },
-        {
-            "cat_id": 3,
-            "cat_name": "Bread"
-        },
-        {
-            "cat_id": 4,
-            "cat_name": "Meat"
+        "3": {
+          "cat_id": 1,
+          "pro_id": 3,
+          "pro_image": "https://i.ibb.co/0CXS3Gd/root-vegetables.jpg",
+          "cat_name": "Vegetable",
+          "pro_name": "Root vegetables",
+          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+          "pro_price": 5.2,
+          "pro_quantity": "1KG",
+          "id": "45d7",
+          "quantity": 4
         }
-    ]
+      },
+      "subTotal": 32.77,
+      "shipping": 2,
+      "grossTotal": 34.77
+    },
+    {
+      "id": "cb66",
+      "fullName": "dfgdcvh",
+      "companyName": "MononSoft ltd",
+      "address": "297/298 sayed garden, uttar badda, sadhinata sarani,",
+      "city": "Dhaka",
+      "zip": 1212,
+      "country": "Bangladesh",
+      "phoneNumber": 1714226177,
+      "email": "foysal@test.com",
+      "notes": null,
+      "orderList": {
+        "1": {
+          "cat_id": 1,
+          "pro_id": 1,
+          "pro_image": "https://i.ibb.co/S0Rshvj/leaft-vegetables.jpg",
+          "cat_name": "Vegetable",
+          "pro_name": "Leafy vegetables",
+          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+          "pro_price": 4.99,
+          "pro_quantity": "1KG",
+          "quantity": 1
+        },
+        "2": {
+          "cat_id": 1,
+          "pro_id": 2,
+          "pro_image": "https://i.ibb.co/YRBdsvm/fruite-item-4.jpg",
+          "cat_name": "Vegetable",
+          "pro_name": "Pumpkin",
+          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
+          "pro_price": 3.99,
+          "pro_quantity": "1KG",
+          "quantity": 3
+        }
+      },
+      "subTotal": 16.96,
+      "shipping": 2,
+      "grossTotal": 18.96
+    }
+  ]
 }
