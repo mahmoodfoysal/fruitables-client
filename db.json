@@ -183,127 +183,47 @@
       "cat_name": "Meat"
     }
   ],
-  "orders": [
+  "orders": [],
+  "review": [
     {
-      "id": "24d5",
-      "fullName": "aanjhkfnjk",
-      "companyName": "MononSoft ltd",
-      "address": "297/298 sayed garden, uttar badda, sadhinata sarani,",
-      "city": "Dhaka",
-      "zip": 1212,
-      "country": "Bangladesh",
-      "phoneNumber": 1714226177,
+      "id": "275e",
+      "fullName": "jh,hkh",
       "email": "foysal@test.com",
-      "notes": "dghghvgv",
-      "orderList": {
-        "2": {
+      "comment": "dadadad",
+      "rating": 3,
+      "product": [
+        {
           "cat_id": 1,
-          "pro_id": 2,
-          "pro_image": "https://i.ibb.co/YRBdsvm/fruite-item-4.jpg",
+          "pro_id": 4,
+          "pro_image": "https://i.ibb.co/GxjHRb4/beetroot.jpg",
           "cat_name": "Vegetable",
-          "pro_name": "Pumpkin",
+          "pro_name": "Beetroot",
           "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-          "pro_price": 3.99,
-          "pro_quantity": "1KG",
-          "id": "b744",
-          "quantity": 3
-        },
-        "3": {
-          "cat_id": 1,
-          "pro_id": 3,
-          "pro_image": "https://i.ibb.co/0CXS3Gd/root-vegetables.jpg",
-          "cat_name": "Vegetable",
-          "pro_name": "Root vegetables",
-          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-          "pro_price": 5.2,
-          "pro_quantity": "1KG",
-          "id": "45d7",
-          "quantity": 4
+          "pro_price": 5.99,
+          "pro_quantity": "1KG"
         }
-      },
-      "subTotal": 32.77,
-      "shipping": 2,
-      "grossTotal": 34.77
+      ],
+      "date": "Sun Apr 21 2024 17:09:11 GMT+0600 (Bangladesh Standard Time)"
     },
     {
-      "id": "faf7",
-      "fullName": "adadad",
-      "companyName": "MononSoft ltd",
-      "address": "297/298 sayed garden, uttar badda, sadhinata sarani,",
-      "city": "Dhaka",
-      "zip": 1212,
-      "country": "Bangladesh",
-      "phoneNumber": 1714226177,
+      "id": "bb65",
+      "fullName": "xbxbxb",
       "email": "foysal@test.com",
-      "notes": null,
-      "orderList": {
-        "2": {
+      "comment": "daafndsfg",
+      "rating": 4,
+      "product": [
+        {
           "cat_id": 1,
-          "pro_id": 2,
-          "pro_image": "https://i.ibb.co/YRBdsvm/fruite-item-4.jpg",
+          "pro_id": 4,
+          "pro_image": "https://i.ibb.co/GxjHRb4/beetroot.jpg",
           "cat_name": "Vegetable",
-          "pro_name": "Pumpkin",
+          "pro_name": "Beetroot",
           "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-          "pro_price": 3.99,
-          "pro_quantity": "1KG",
-          "id": "b744",
-          "quantity": 3
-        },
-        "3": {
-          "cat_id": 1,
-          "pro_id": 3,
-          "pro_image": "https://i.ibb.co/0CXS3Gd/root-vegetables.jpg",
-          "cat_name": "Vegetable",
-          "pro_name": "Root vegetables",
-          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-          "pro_price": 5.2,
-          "pro_quantity": "1KG",
-          "id": "45d7",
-          "quantity": 4
+          "pro_price": 5.99,
+          "pro_quantity": "1KG"
         }
-      },
-      "subTotal": 32.77,
-      "shipping": 2,
-      "grossTotal": 34.77
-    },
-    {
-      "id": "cb66",
-      "fullName": "dfgdcvh",
-      "companyName": "MononSoft ltd",
-      "address": "297/298 sayed garden, uttar badda, sadhinata sarani,",
-      "city": "Dhaka",
-      "zip": 1212,
-      "country": "Bangladesh",
-      "phoneNumber": 1714226177,
-      "email": "foysal@test.com",
-      "notes": null,
-      "orderList": {
-        "1": {
-          "cat_id": 1,
-          "pro_id": 1,
-          "pro_image": "https://i.ibb.co/S0Rshvj/leaft-vegetables.jpg",
-          "cat_name": "Vegetable",
-          "pro_name": "Leafy vegetables",
-          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-          "pro_price": 4.99,
-          "pro_quantity": "1KG",
-          "quantity": 1
-        },
-        "2": {
-          "cat_id": 1,
-          "pro_id": 2,
-          "pro_image": "https://i.ibb.co/YRBdsvm/fruite-item-4.jpg",
-          "cat_name": "Vegetable",
-          "pro_name": "Pumpkin",
-          "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
-          "pro_price": 3.99,
-          "pro_quantity": "1KG",
-          "quantity": 3
-        }
-      },
-      "subTotal": 16.96,
-      "shipping": 2,
-      "grossTotal": 18.96
+      ],
+      "date": "2024-04-21T11:11:43.279Z"
     }
   ]
 }

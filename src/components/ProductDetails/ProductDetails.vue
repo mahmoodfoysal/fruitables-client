@@ -27,7 +27,10 @@ export default {
             filterData: [],
             filterRelatedData: [],
             store: useStore(),
-            // quantity: null,
+            currentRating: 0,
+            fullName: null,
+            email: null,
+            comment: null,
         }
     },
     async mounted() {
@@ -73,7 +76,7 @@ export default {
         handleAddToCart(product) {
             let cart = this.getDB() || {};
 
-            if(cart[product.pro_id]){
+            if (cart[product.pro_id]) {
                 cart[product.pro_id].quantity += 1
             }
             else {
@@ -84,7 +87,7 @@ export default {
         },
         handleQuantityIncrement(product) {
             let cart = this.getDB() || {};
-            if(cart[product?.pro_id]) {
+            if (cart[product?.pro_id]) {
                 cart[product?.pro_id].quantity += 1;
             }
             else {
@@ -94,11 +97,11 @@ export default {
         },
         handleQuantityDecrement(product) {
             let cart = this.getDB() || {};
-            if(cart[product?.pro_id]) {
-                if(cart[product?.pro_id].quantity > 1) {
+            if (cart[product?.pro_id]) {
+                if (cart[product?.pro_id].quantity > 1) {
                     cart[product?.pro_id].quantity -= 1;
                 }
-                
+
             }
             this.updateDB(cart);
         },
@@ -108,8 +111,40 @@ export default {
         },
         updateDB(cart) {
             localStorage.setItem('shopping_cart', JSON.stringify(cart));
-            this.store.setCartItem(cart); 
+            this.store.setCartItem(cart);
         },
+        rate(rating) {
+            // Update the current rating when a star is clicked
+            this.currentRating = rating;
+            console.log(rating)
+            // You can also emit an event here if needed
+        },
+        async handlePostReview() {
+            if(!this.fullName, !this.email, !this.comment, !this.currentRating) {
+                alert('Please Fill The Required Field');
+                return;
+            }
+            const text = 'Are You Sure? Want To Post This Review';
+            if(confirm(text) == true) {
+                const result = await axios.post('http://localhost:3000/review', {
+                fullName: this.fullName,
+                email: this.email,
+                comment: this.comment,
+                rating: this.currentRating,
+                product: this.filterData,
+                date: Date()
+                
+            });
+            console.log(result)
+            if(result.status === 201) {
+                alert('Thanks For Your Review!!!');
+                this.fullName='';
+                this.email='';
+                this.comment='';
+                this.currentRating= '';
+            }
+            }
+        }
     },
     computed: {
         quantity() {
@@ -118,8 +153,8 @@ export default {
                 return item[this.$route.params.id].quantity; // Access quantity of the specific item
             }
             return null;
-        } 
-    }
+        }
+    },
 }
 </script>
 
@@ -163,24 +198,22 @@ export default {
                             <p class="mb-4">{{ filterData[0]?.pro_description }}</p>
                             <div class="input-group quantity mb-5" style="width: 100px;">
                                 <div class="input-group-btn">
-                                    <button 
-                                    @click="handleQuantityDecrement(filterData[0])"
-                                    class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                    <button @click="handleQuantityDecrement(filterData[0])"
+                                        class="btn btn-sm btn-minus rounded-circle bg-light border">
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input v-model="quantity" type="text" class="form-control form-control-sm text-center border-0" value="" disabled>
+                                <input v-model="quantity" type="text"
+                                    class="form-control form-control-sm text-center border-0" value="" disabled>
                                 <div class="input-group-btn">
-                                    <button 
-                                    @click="handleQuantityIncrement(filterData[0])"
-                                    class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                    <button @click="handleQuantityIncrement(filterData[0])"
+                                        class="btn btn-sm btn-plus rounded-circle bg-light border">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
                             </div>
-                            <button 
-                            @click="handleAddToCart(filterData[0])"
-                            href="" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
+                            <button @click="handleAddToCart(filterData[0])" href=""
+                                class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
                                     class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
                         </div>
                         <div class="col-lg-12">
@@ -314,35 +347,44 @@ export default {
                             <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input type="text" class="form-control border-0 me-4" placeholder="Yur Name *">
+                                        <input 
+                                        v-model="fullName"
+                                        type="text" class="form-control border-0 me-4" placeholder="Enter Your Full Name *">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input type="email" class="form-control border-0" placeholder="Your Email *">
+                                        <input 
+                                        v-model="email"
+                                        type="email" class="form-control border-0" placeholder="Enter Your Email *">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="border-bottom rounded my-4">
-                                        <textarea name="" id="" class="form-control border-0" cols="30" rows="8"
-                                            placeholder="Your Review *" spellcheck="false"></textarea>
+                                        <textarea
+                                        v-model="comment"
+                                        name="" id="" class="form-control border-0" cols="30" rows="8"
+                                            placeholder="Please Enter Your Valuable Comment *" spellcheck="false"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="d-flex justify-content-between py-3 mb-5">
                                         <div class="d-flex align-items-center">
                                             <p class="mb-0 me-3">Please rate:</p>
-                                            <div class="d-flex align-items-center" style="font-size: 12px;">
-                                                <i class="fa fa-star text-muted"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                            <div class="d-flex align-items-center rating-style"
+                                                style="font-size: 12px;">
+                                                <i v-for="index in 5" :key="index" class="fa fa-star" :class="{
+                                                    'star': index <= currentRating,
+                                                    'star-o': index > currentRating
+                                                }"
+                                                @click="rate(index)"></i>
                                             </div>
                                         </div>
-                                        <a href="#"
+                                        <button 
+                                        @click="handlePostReview"
+                                        type="button"
                                             class="btn border border-secondary text-primary rounded-pill px-4 py-3">
-                                            Post Comment</a>
+                                            Post Comment</button>
                                     </div>
                                 </div>
                             </div>
@@ -532,7 +574,8 @@ export default {
             <div class="vesitable">
                 <swiper :pagination="{
                                         type: 'fraction',
-                                    }" :navigation="true" :modules="modules" :slidesPerView="4" :spaceBetween="30" :autoplay="{
+                                    }" :navigation="true" :modules="modules" :slidesPerView="4" :spaceBetween="30"
+                    :autoplay="{
                                         delay: 2500,
                                         disableOnInteraction: false,
                                     }" class="mySwiper">
@@ -551,13 +594,11 @@ export default {
                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                     <p class="text-dark fs-5 fw-bold mb-0">${{ product?.pro_price }} / {{
                                         product?.pro_quantity }}</p>
-                                    <button 
-                                    @click="handleAddToCart(product)" 
-                                    href=""
-                                    class="btn border border-secondary rounded-pill px-3 text-primary">
-                                    <i class="fa fa-shopping-bag me-2 text-primary">
-                                    </i> 
-                                    Add to cart
+                                    <button @click="handleAddToCart(product)" href=""
+                                        class="btn border border-secondary rounded-pill px-3 text-primary">
+                                        <i class="fa fa-shopping-bag me-2 text-primary">
+                                        </i>
+                                        Add to cart
                                     </button>
                                 </div>
                             </div>
@@ -570,4 +611,21 @@ export default {
     <!-- Single Product End -->
 </template>
 
-<style scoped></style>
+<style scoped>
+.rating-style {
+    cursor: pointer;
+}
+
+.rating-style i:hover {
+    cursor: pointer;
+    color: #FFB524;
+}
+
+.star {
+    color: gold;
+}
+
+.star-o {
+    color: gray;
+}
+</style>
