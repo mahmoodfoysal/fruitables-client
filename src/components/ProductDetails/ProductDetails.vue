@@ -31,6 +31,8 @@ export default {
             fullName: null,
             email: null,
             comment: null,
+            reviewData: [],
+            filterReviewData: []
         }
     },
     async mounted() {
@@ -42,6 +44,8 @@ export default {
         await this.loadProducts();
         await this.filterProduct();
         await this.filterRelatedProducts();
+        await this.loadReview();
+        await this.filterRelatedReview();
     },
     watch: {
         '$route.params.id': {
@@ -144,6 +148,20 @@ export default {
                 this.currentRating= '';
             }
             }
+        },
+        async loadReview() {
+            try {
+                const result = await axios.get('http://localhost:3000/review');
+                this.reviewData = result.data;
+                console.log(result.data);
+            }
+            catch(error) {
+
+            }
+        },
+        filterRelatedReview() {
+            this.filterReviewData = this.reviewData.filter(review => review?.pro_id == parseInt(this.$route?.params?.id));
+            console.log(this.filterReviewData)
         }
     },
     computed: {
