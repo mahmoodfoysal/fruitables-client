@@ -1,5 +1,5 @@
 <script>
-import { useStore } from '@/components/store/taskStore';
+import { useStore } from '../../../store/taskStore.js';
 import { RouterLink } from 'vue-router';
 
 export default {
@@ -77,4 +77,4 @@ export default {
     cursor: pointer;
 }
 
-</style>
+</style>@/store/taskStore

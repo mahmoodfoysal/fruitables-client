@@ -1,4 +1,5 @@
 <script>
+
 import { useStore } from '@/components/store/taskStore';
 import axios from 'axios';
 
@@ -260,4 +261,4 @@ export default {
 .table-style {
     height: 450px;
 }
-</style>
+</style>@/store/taskStore

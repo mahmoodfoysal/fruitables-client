@@ -1,5 +1,6 @@
 <script>
-import { useStore } from '@/components/store/taskStore';
+
+import { useStore } from '../../../store/taskStore.js';
 import { RouterLink } from 'vue-router';
 
 export default {
@@ -183,4 +184,4 @@ export default {
     <!-- Cart Page End -->
 </template>
 
-<style scoped></style>
+<style scoped></style>@/store/taskStore

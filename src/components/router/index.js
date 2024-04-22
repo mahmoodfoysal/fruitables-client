@@ -37,6 +37,16 @@ const routes = [
         component: () => import('../OrderSteps/CheckOut/CheckOut.vue')
     },
     {
+        path: '/registration',
+        name: 'Registration',
+        component: () => import('../Authentication/Registration/Registration.vue')
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: () => import('../Authentication/Login/Login.vue')
+    },
+    {
         path: '/:pathMatch(.*)*',
         name: 'NotFound',
         component: () => import('../NotFound/NotFound.vue')

@@ -12,11 +12,12 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import axios from 'axios';
 import { RouterLink } from 'vue-router';
-import { useStore } from '../store/taskStore';
+
 import SearchBar from '../FiltersAndFeatures/SearchBar/SearchBar.vue';
 import FeaturedProducts from '../FiltersAndFeatures/FeaturedProducts/FeaturedProducts.vue';
 import Categories from '../FiltersAndFeatures/Categories/Categories.vue';
 import PromotionalBanner from '../FiltersAndFeatures/PromotionalBanner/PromotionalBanner.vue';
+import { useStore } from '../store/taskStore';
 
 export default {
     name: 'ProductDetails',
@@ -348,7 +349,7 @@ export default {
                             </div>
                         </div>
                         <form action="#">
-                            <h4 class="mb-5 fw-bold">Leave a Reply</h4>
+                            <h4 class="mb-5 fw-bold">Leave a Review</h4>
                             <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
@@ -383,7 +384,7 @@ export default {
                                         </div>
                                         <button @click="handlePostReview" type="button"
                                             class="btn border border-secondary text-primary rounded-pill px-4 py-3">
-                                            Post Comment</button>
+                                            Post Review</button>
                                     </div>
                                 </div>
                             </div>
@@ -472,4 +473,4 @@ export default {
 .text-gray {
     color: gray !important;
 }
-</style>
+</style>../../store/taskStore

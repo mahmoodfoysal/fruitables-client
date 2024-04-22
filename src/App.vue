@@ -2,18 +2,52 @@
 import { RouterView } from 'vue-router'
 import Navigation from '../src/components/shared/Navigation/Navigation.vue';
 import Footer from '../src/components/shared/Footer/Footer.vue';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import initilizationAuthentication from './firebase/firebase.init';
+import { useStore } from '../src/store/taskStore.js';
+initilizationAuthentication();
+const auth = getAuth();
 export default {
   name: 'App',
   components: {
     Navigation,
     Footer
-  }
+  },
+  data() {
+    return {
+      store: useStore(),
+    }
+  },
+  mounted() {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.store.setUser(user);
+        console.log(user)
+        const uid = user.uid;
+      } else {
+
+      }
+    });
+  },
+  created() {
+        // Watch for changes in authentication state
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
+            const uid = user.uid;
+            this.store.setUser(user);
+            this.$router.push({name: 'Home'})
+        } else {
+            // User is signed out
+            // ...
+        }
+    });
+    },
 }
 </script>
 
 <template>
   <Navigation></Navigation>
-  <RouterView ></RouterView>
+  <RouterView></RouterView>
   <Footer></Footer>
 
   <!-- Back to Top -->

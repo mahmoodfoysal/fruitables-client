@@ -1,6 +1,10 @@
 <script>
-import { useStore } from '@/components/store/taskStore';
-import {RouterLink} from 'vue-router'
+import { useStore } from '../../../store/taskStore.js';
+import { RouterLink } from 'vue-router'
+import { getAuth, signOut } from "firebase/auth";
+import initilizationAuthentication from '@/firebase/firebase.init';
+initilizationAuthentication()
+const auth = getAuth();
 export default {
     name: 'Navigation',
     data() {
@@ -12,6 +16,16 @@ export default {
     created() {
         // console.log(this.store.cartItem)
     },
+    methods: {
+        handleLogOut() {
+            signOut(auth).then(() => {
+                sessionStorage.removeItem('user');
+                this.store.setUser(null);
+            }).catch((error) => {
+
+            });
+        }
+    },
     computed: {
         cartCount() {
             return Object.values(this.store.cartItem).length || 0
@@ -21,72 +35,87 @@ export default {
 </script>
 
 <template>
-<!-- Navbar start -->
-<div class="container-fluid fixed-top">
-    <div class="container topbar bg-primary d-none d-lg-block">
-        <div class="d-flex justify-content-between">
-            <div class="top-info ps-2">
-                <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">123 Rajshahi, Bangladesh</a></small>
-                <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">fmahmood081@gmail.com</a></small>
-            </div>
-            <div class="top-link pe-2">
-                <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
-                <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
-                <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+    <!-- Navbar start -->
+    <div class="container-fluid fixed-top">
+        <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#"
+                            class="text-white">123 Rajshahi, Bangladesh</a></small>
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#"
+                            class="text-white">fmahmood081@gmail.com</a></small>
+                </div>
+                <div class="top-link pe-2">
+                    <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container px-0">
-        <nav class="navbar navbar-light bg-white navbar-expand-xl">
-            <RouterLink :to="{name: 'Home'}">
-                <a href="" class="navbar-brand"><h1 class="text-primary display-6">FruitBazar</h1></a>
-            </RouterLink>
-            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars text-primary"></span>
-            </button>
-            <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                <div class="navbar-nav mx-auto">
-                    <RouterLink :to="{name: 'Home'}">
-                        <a href="" class="nav-item nav-link active">Home</a>
-                    </RouterLink>
-                    <RouterLink :to="{name: 'Shop'}">
-                        <a href="" class="nav-item nav-link">Shop</a>
-                    </RouterLink>
-                    <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                            <a href="cart.html" class="dropdown-item">Cart</a>
-                            <a href="chackout.html" class="dropdown-item">Chackout</a>
-                            <RouterLink :to="{name: 'Testimonial'}">
-                                <a href="" class="dropdown-item">Testimonial</a>
-                            </RouterLink>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div>
-                    <RouterLink :to="{name: 'Contact'}">
-                        <a href="" class="nav-item nav-link">Contact</a>
-                    </RouterLink>
-                </div>
-                <div class="d-flex m-3 me-0">
-                    <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                    <a href="#" class="position-relative me-4 my-auto">
-                        <RouterLink :to="{name: 'Cart'}">
-                            <i class="fa fa-shopping-bag fa-2x"></i>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <RouterLink :to="{ name: 'Home' }">
+                    <a href="" class="navbar-brand">
+                        <h1 class="text-primary display-6">FruitBazar</h1>
+                    </a>
+                </RouterLink>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <RouterLink :to="{ name: 'Home' }">
+                            <a href="" class="nav-item nav-link active">Home</a>
                         </RouterLink>
-                        <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{ cartCount }}</span>
-                    </a>
-                    <a href="#" class="my-auto">
-                        <i class="fas fa-user fa-2x"></i>
-                    </a>
+                        <RouterLink :to="{ name: 'Shop' }">
+                            <a href="" class="nav-item nav-link">Shop</a>
+                        </RouterLink>
+                        <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                <a href="cart.html" class="dropdown-item">Cart</a>
+                                <a href="chackout.html" class="dropdown-item">Chackout</a>
+                                <RouterLink :to="{ name: 'Testimonial' }">
+                                    <a href="" class="dropdown-item">Testimonial</a>
+                                </RouterLink>
+                                <a href="404.html" class="dropdown-item">404 Page</a>
+                            </div>
+                        </div>
+                        <RouterLink :to="{ name: 'Contact' }">
+                            <a href="" class="nav-item nav-link">Contact</a>
+                        </RouterLink>
+                    </div>
+                    <div class="d-flex m-3 me-0">
+                        <button
+                            class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                            data-bs-toggle="modal" data-bs-target="#searchModal"><i
+                                class="fas fa-search text-primary"></i></button>
+                        <a href="#" class="position-relative me-4 my-auto">
+                            <RouterLink :to="{ name: 'Cart' }">
+                                <i class="fa fa-shopping-bag fa-2x"></i>
+                            </RouterLink>
+                            <span
+                                class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                                style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{ cartCount }}</span>
+                        </a>
+                        <a href="#" class="my-auto">
+                            <div v-if="this.store.user === null">
+                                <RouterLink :to="{ name: 'Login' }">
+                                    <i class="fas fa-user fa-2x"></i>
+                                </RouterLink>
+                            </div>
+                            
+                            <h6 v-else @click="handleLogOut">Log Out</h6>
+
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
-</div>
-<!-- Navbar End -->
+    <!-- Navbar End -->
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>@/store/taskStore
