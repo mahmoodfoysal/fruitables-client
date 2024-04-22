@@ -1,9 +1,10 @@
 <script>
-import { getAuth, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import initilizationAuthentication from '../../../firebase/firebase.init.js';
 import { useStore } from "@/store/taskStore";
 initilizationAuthentication();
 const auth = getAuth();
+const googleProvider = new GoogleAuthProvider();
 
 export default {
     name: 'Registration',
@@ -29,27 +30,52 @@ export default {
                     })
                     this.store.setUser(user);
                     sessionStorage.setItem('user', JSON.stringify(user));
-                    this.$router.push({name: 'Home'})
+                    this.$router.push({ name: 'Home' })
                     console.log(user);
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                 });
+        },
+        handleGoogleLogin() {
+            signInWithPopup(auth, googleProvider)
+                .then((result) => {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    // The signed-in user info.
+                    const user = result.user;
+                    this.store.setUser(user);
+                    sessionStorage.setItem('user',JSON.stringify(user));
+                    // IdP data available using getAdditionalUserInfo(result)
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = GoogleAuthProvider.credentialFromError(error);
+                    // ...
+                });
         }
     },
     created() {
         // Watch for changes in authentication state
         onAuthStateChanged(auth, (user) => {
-        if (user) {
-            const uid = user.uid;
-            this.store.setUser(user);
-            this.$router.push({name: 'Home'})
-        } else {
-            // User is signed out
-            // ...
-        }
-    });
+            if (user) {
+                const uid = user.uid;
+                this.store.setUser(user);
+                if (sessionStorage.getItem('user') || this.store.user) {
+                    this.$router.push({ name: 'Home' })
+                }
+            } else {
+                // User is signed out
+                // ...
+            }
+        });
     },
 }
 </script>

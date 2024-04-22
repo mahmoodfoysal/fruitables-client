@@ -35,7 +35,10 @@ export default {
         if (user) {
             const uid = user.uid;
             this.store.setUser(user);
-            this.$router.push({name: 'Home'})
+            // if(sessionStorage.getItem('user') || this.store.user) {
+            //   this.$router.push({name: 'Home'})
+            // }
+            
         } else {
             // User is signed out
             // ...

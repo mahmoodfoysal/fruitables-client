@@ -17,7 +17,8 @@ import SearchBar from '../FiltersAndFeatures/SearchBar/SearchBar.vue';
 import FeaturedProducts from '../FiltersAndFeatures/FeaturedProducts/FeaturedProducts.vue';
 import Categories from '../FiltersAndFeatures/Categories/Categories.vue';
 import PromotionalBanner from '../FiltersAndFeatures/PromotionalBanner/PromotionalBanner.vue';
-import { useStore } from '../store/taskStore';
+import { useStore } from '@/store/taskStore.js';
+
 
 export default {
     name: 'ProductDetails',
@@ -39,6 +40,7 @@ export default {
             currentRating: 0,
             fullName: null,
             email: null,
+            photo: null,
             comment: null,
             reviewData: [],
             filterReviewData: []
@@ -140,8 +142,9 @@ export default {
             const text = 'Are You Sure? Want To Post This Review';
             if (confirm(text) == true) {
                 const result = await axios.post('http://localhost:3000/review', {
-                    fullName: this.fullName,
-                    email: this.email,
+                    fullName: this.store?.user?.displayName,
+                    email: this.store?.user?.email,
+                    photo: this.store?.user?.photoURL,
                     comment: this.comment,
                     rating: this.currentRating,
                     product_id: this.filterData[0]?.pro_id,
@@ -320,8 +323,11 @@ export default {
                                 <div class="tab-pane" id="nav-mission" role="tabpanel"
                                     aria-labelledby="nav-mission-tab">
 
-                                    <div v-for="(review, index) in filterReviewData" class="d-flex">
-                                        <img src="/src/assets/img/avatar.jpg" class="img-fluid rounded-circle p-3"
+                                    <div 
+                                    v-for="(review, index) in filterReviewData" 
+                                    :key="index"
+                                    class="d-flex">
+                                        <img :src="review?.photo" class="img-fluid rounded-circle p-3"
                                             style="width: 100px; height: 100px;" alt="">
                                         <div>
                                             <p class="mb-2" style="font-size: 14px;">{{ review?.date }}</p>
@@ -353,14 +359,14 @@ export default {
                             <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input v-model="fullName" type="text" class="form-control border-0 me-4"
-                                            placeholder="Enter Your Full Name *">
+                                        <input v-model="store.user.displayName" type="text" class="form-control border-0 me-4"
+                                            placeholder="Enter Your Full Name *" required disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input v-model="email" type="email" class="form-control border-0"
-                                            placeholder="Enter Your Email *">
+                                        <input v-model="store.user.email" type="email" class="form-control border-0"
+                                            placeholder="Enter Your Email *" required disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
