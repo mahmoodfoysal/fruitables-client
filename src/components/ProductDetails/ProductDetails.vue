@@ -12,10 +12,7 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import axios from 'axios';
 import { RouterLink } from 'vue-router';
-
-import SearchBar from '../FiltersAndFeatures/SearchBar/SearchBar.vue';
 import FeaturedProducts from '../FiltersAndFeatures/FeaturedProducts/FeaturedProducts.vue';
-import Categories from '../FiltersAndFeatures/Categories/Categories.vue';
 import PromotionalBanner from '../FiltersAndFeatures/PromotionalBanner/PromotionalBanner.vue';
 import { useStore } from '@/store/taskStore.js';
 
@@ -25,9 +22,7 @@ export default {
     components: {
         Swiper,
         SwiperSlide,
-        SearchBar,
         FeaturedProducts,
-        Categories,
         PromotionalBanner
     },
     data() {
@@ -357,14 +352,14 @@ export default {
                             <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input v-model="store.user.displayName" type="text"
+                                        <input :value="store.user ? store.user.displayName: 'Please Login First'" type="text"
                                             class="form-control border-0 me-4" placeholder="Enter Your Full Name *"
                                             required disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input v-model="store.user.email" type="email" class="form-control border-0"
+                                        <input :value="store.user ? store.user.email: 'Please Login First'" type="email" class="form-control border-0"
                                             placeholder="Enter Your Email *" required disabled>
                                     </div>
                                 </div>
@@ -398,12 +393,7 @@ export default {
                 </div>
                 <div class="col-lg-4 col-xl-3">
                     <div class="row g-4 fruite">
-                        <div class="col-lg-12">
-                            <SearchBar></SearchBar>
-                            <div class="mb-4">
-                                <Categories></Categories>
-                            </div>
-                        </div>
+
                         <div class="col-lg-12">
                             <FeaturedProducts></FeaturedProducts>
                         </div>

@@ -13,6 +13,8 @@ export default {
     data() {
         return {
             productsData: [],
+            catID: 0,
+            filterData: [],
         }
     },
     components: {
@@ -26,7 +28,9 @@ export default {
         
     },
     mounted() {
-        this.loadProducts();
+        this.loadProducts().then(() => {
+            this.filterProducts();
+        });
     },
     methods: {
         async loadProducts() {
@@ -39,6 +43,20 @@ export default {
 
             }
         },
+        handleSpecificCategory(id) {
+            this.catID = parseInt(id);
+
+            this.filterProducts(this.catID);
+        },
+        filterProducts(id) {
+            if(this.catID === 0) {
+                this.filterData = this.productsData;
+            }
+            else {
+                this.filterData = this.productsData.filter(product => product.cat_id === id)
+            }
+            console.log('specific-category', id)
+        }
     }
 }
 </script>
@@ -83,7 +101,9 @@ export default {
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <Categories></Categories>
+                                        <Categories
+                                        @handle-specific-category="handleSpecificCategory"
+                                        ></Categories>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -105,7 +125,7 @@ export default {
 
                         <div class="col-lg-9">
                             <div class="row g-4 justify-content-center">
-                                <div v-for="(product, index) in productsData" :key="index"
+                                <div v-for="(product, index) in filterData" :key="index"
                                     class="col-md-6 col-lg-6 col-xl-4">
                                     <ProductCard :product="product"></ProductCard>
                                 </div>
