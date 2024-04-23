@@ -1,6 +1,6 @@
 <script>
 
-import { useStore } from '@/components/store/taskStore';
+import { useStore } from '@/store/taskStore.js';
 import axios from 'axios';
 
 export default {

@@ -56,7 +56,7 @@ export default {
         await this.filterProduct();
         await this.filterRelatedProducts();
         await this.loadReview();
-        await this.filterRelatedReview();
+        await this.filterRelatedReview()
     },
     watch: {
         '$route.params.id': {
@@ -65,6 +65,7 @@ export default {
                 // Check if the ID has changed
                 if (newValue !== oldValue) {
                     this.filterProduct();
+                    this.filterRelatedReview();
                 }
             }
         },
@@ -323,10 +324,7 @@ export default {
                                 <div class="tab-pane" id="nav-mission" role="tabpanel"
                                     aria-labelledby="nav-mission-tab">
 
-                                    <div 
-                                    v-for="(review, index) in filterReviewData" 
-                                    :key="index"
-                                    class="d-flex">
+                                    <div v-for="(review, index) in filterReviewData" :key="index" class="d-flex">
                                         <img :src="review?.photo" class="img-fluid rounded-circle p-3"
                                             style="width: 100px; height: 100px;" alt="">
                                         <div>
@@ -336,7 +334,7 @@ export default {
                                                 <div class="d-flex mb-3">
                                                     <template v-for="i in 5">
                                                         <i
-                                                        :class="{ 'fa': true, 'fa-star': true, 'text-gray': i > review.rating, 'text-yellow': i <= review.rating }"></i>
+                                                            :class="{ 'fa': true, 'fa-star': true, 'text-gray': i > review?.rating, 'text-yellow': i <= review?.rating }"></i>
                                                     </template>
                                                 </div>
                                             </div>
@@ -359,8 +357,9 @@ export default {
                             <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input v-model="store.user.displayName" type="text" class="form-control border-0 me-4"
-                                            placeholder="Enter Your Full Name *" required disabled>
+                                        <input v-model="store.user.displayName" type="text"
+                                            class="form-control border-0 me-4" placeholder="Enter Your Full Name *"
+                                            required disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -402,11 +401,11 @@ export default {
                         <div class="col-lg-12">
                             <SearchBar></SearchBar>
                             <div class="mb-4">
-                               <Categories></Categories>
+                                <Categories></Categories>
                             </div>
                         </div>
                         <div class="col-lg-12">
-                           <FeaturedProducts></FeaturedProducts>
+                            <FeaturedProducts></FeaturedProducts>
                         </div>
                         <div class="col-lg-12">
                             <PromotionalBanner></PromotionalBanner>
@@ -473,9 +472,11 @@ export default {
 .star-o {
     color: gray;
 }
+
 .text-yellow {
-  color: #FFB524;
+    color: #FFB524;
 }
+
 .text-gray {
     color: gray !important;
 }

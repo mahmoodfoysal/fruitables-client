@@ -4,52 +4,52 @@ const routes = [
     {
         path: '/',
         name: 'Home',
-        component: () => import('../Home/Home.vue')
+        component: () => import('../components/Home/Home.vue')
     },
     {
         path: '/shop',
         name: 'Shop',
-        component: () => import('../Shop/Shop.vue')
+        component: () => import('../components/Shop/Shop.vue')
     },
     {
         path: '/contact',
         name: 'Contact',
-        component: () => import('../Contact/Contact.vue')
+        component: () => import('../components/Contact/Contact.vue')
     },
     {
         path: '/testimonial',
         name: 'Testimonial',
-        component: () => import('../Testimonial/Testimonial.vue')
+        component: () => import('../components/Testimonial/Testimonial.vue')
     },
     {
         path: '/cart',
         name: 'Cart',
-        component: () => import('../OrderSteps/Cart/Cart.vue')
+        component: () => import('../components/OrderSteps/Cart/Cart.vue')
     },
     {
         path: '/product/:id',
         name: 'ProductDetails',
-        component: () => import('../ProductDetails/ProductDetails.vue')
+        component: () => import('../components/ProductDetails/ProductDetails.vue')
     },
     {
         path: '/check-out',
         name: 'CheckOut',
-        component: () => import('../OrderSteps/CheckOut/CheckOut.vue')
+        component: () => import('../components/OrderSteps/CheckOut/CheckOut.vue')
     },
     {
         path: '/registration',
         name: 'Registration',
-        component: () => import('../Authentication/Registration/Registration.vue')
+        component: () => import('../components/Authentication/Registration/Registration.vue')
     },
     {
         path: '/login',
         name: 'Login',
-        component: () => import('../Authentication/Login/Login.vue')
+        component: () => import('../components/Authentication/Login/Login.vue')
     },
     {
         path: '/:pathMatch(.*)*',
         name: 'NotFound',
-        component: () => import('../NotFound/NotFound.vue')
+        component: () => import('../components/NotFound/NotFound.vue')
     }
 ]
 
