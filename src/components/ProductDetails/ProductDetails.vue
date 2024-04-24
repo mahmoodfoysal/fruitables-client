@@ -131,7 +131,7 @@ export default {
             // You can also emit an event here if needed
         },
         async handlePostReview() {
-            if (!this.fullName, !this.email, !this.comment, !this.currentRating) {
+            if (!this.store?.user?.displayName, !this.store?.user?.email, !this.comment, !this.currentRating) {
                 alert('Please Fill The Required Field');
                 return;
             }
@@ -352,14 +352,14 @@ export default {
                             <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input :value="store.user ? store.user.displayName: 'Please Login First'" type="text"
+                                        <input :value="store.user ? store.user.displayName : ''" type="text"
                                             class="form-control border-0 me-4" placeholder="Enter Your Full Name *"
                                             required disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input :value="store.user ? store.user.email: 'Please Login First'" type="email" class="form-control border-0"
+                                        <input :value="store.user ? store.user.email : ''" type="email" class="form-control border-0"
                                             placeholder="Enter Your Email *" required disabled>
                                     </div>
                                 </div>
