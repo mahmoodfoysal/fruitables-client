@@ -15,6 +15,9 @@ export default {
             productsData: [],
             catID: 0,
             filterData: [],
+            page: 1,
+            itemsPerPage: 8,
+            priceRange: { min: 0, max: Infinity } // Added priceRange data property
         }
     },
     components: {
@@ -25,37 +28,66 @@ export default {
         Additional,
         FeaturedProducts,
         PromotionalBanner
-        
+
     },
     mounted() {
-        this.loadProducts().then(() => {
-            this.filterProducts();
-        });
+        this.loadProducts();
     },
     methods: {
         async loadProducts() {
             try {
                 const result = await axios.get('http://localhost:3000/products');
-                this.productsData = result?.data;
-                // console.log(result?.data);
+                const shuffledProducts = this.shuffleArray(result.data); // Shuffle the array
+                this.productsData = shuffledProducts;
+                this.filterProducts();
             }
             catch (error) {
-
+                console.error('Error loading products:', error);
             }
+        },
+        shuffleArray(array) {
+            // Fisher-Yates (aka Knuth) Shuffle Algorithm
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
         },
         handleSpecificCategory(id) {
             this.catID = parseInt(id);
-
-            this.filterProducts(this.catID);
+            this.filterProducts();
         },
-        filterProducts(id) {
-            if(this.catID === 0) {
-                this.filterData = this.productsData;
+        handlePriceRange(range) {
+            this.priceRange = range; // Update priceRange
+            this.filterProducts();
+        },
+        filterProducts() {
+            let filtered = this.productsData;
+
+            if (this.catID !== 0) {
+                filtered = filtered.filter(product => product.cat_id === this.catID);
             }
-            else {
-                this.filterData = this.productsData.filter(product => product.cat_id === id)
+
+            if (this.priceRange.min < this.priceRange.max) {
+                filtered = filtered.filter((product) => product.pro_price >= this.priceRange.min && product.pro_price <= this.priceRange.max);
             }
-            console.log('specific-category', id)
+
+            this.filterData = filtered;
+        },
+        goToPage(newPage) {
+            if (newPage >= 1 && newPage <= this.totalPages) {
+                this.page = newPage;
+            }
+        }
+    },
+    computed: {
+        totalPages() {
+            return Math.ceil(this.filterData.length / this.itemsPerPage);
+        },
+        paginatedProducts() {
+            const startIndex = (this.page - 1) * this.itemsPerPage;
+            const endIndex = startIndex + this.itemsPerPage;
+            return this.filterData.slice(startIndex, endIndex);
         }
     }
 }
@@ -101,13 +133,13 @@ export default {
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <Categories
-                                        @handle-specific-category="handleSpecificCategory"
-                                        ></Categories>
+                                        <Categories @handle-specific-category="handleSpecificCategory">
+                                        </Categories>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <PriceFilter></PriceFilter>
+                                    <PriceFilter @handle-price-range="handlePriceRange">
+                                    </PriceFilter>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="mb-3">
@@ -118,18 +150,46 @@ export default {
                                     <FeaturedProducts></FeaturedProducts>
                                 </div>
                                 <div class="col-lg-12">
-                                   <PromotionalBanner></PromotionalBanner>
+                                    <PromotionalBanner></PromotionalBanner>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-9">
                             <div class="row g-4 justify-content-center">
-                                <div v-for="(product, index) in filterData" :key="index"
+                                <div v-for="(product, index) in paginatedProducts" :key="index"
                                     class="col-md-6 col-lg-6 col-xl-4">
                                     <ProductCard :product="product"></ProductCard>
                                 </div>
                             </div>
+                            <!-- pagination start  -->
+                            <div class="pagination-style mt-3">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li @click="goToPage(page - 1)" :disabled="page === 1" class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li @click="goToPage(1)" :disabled="page === 1" class="page-item"><a
+                                                class="page-link" href="#">1</a>
+                                        </li>
+                                        <li @click="goToPage(2)" :disabled="page === 2" class="page-item"><a
+                                                class="page-link" href="#">2</a>
+                                        </li>
+                                        <li @click="goToPage(3)" :disabled="page === 3" class="page-item"><a
+                                                class="page-link" href="#">3</a>
+                                        </li>
+                                        <li @click="goToPage(page + 1)" :disabled="page === totalPages"
+                                            class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- pagination end  -->
                         </div>
                     </div>
                 </div>
@@ -139,4 +199,9 @@ export default {
     <!-- Fruits Shop End-->
 </template>
 
-<style scoped></style>
+<style scoped>
+.pagination-style {
+    display: flex;
+    justify-content: center;
+}
+</style>

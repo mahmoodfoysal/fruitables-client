@@ -22,7 +22,7 @@ export default {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         this.store.setUser(user);
-        console.log(user)
+        // console.log(user)
         const uid = user.uid;
       } else {
 
