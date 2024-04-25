@@ -44,7 +44,7 @@ export default {
         async loadProducts() {
             try {
                 const result = await axios.get('http://localhost:3000/products');
-                const shuffledProducts = (result.data); // Shuffle the array
+                const shuffledProducts = this.shuffleArray(result.data); // Shuffle the array
                 this.productsData = shuffledProducts;
                 this.filterProducts();
             }

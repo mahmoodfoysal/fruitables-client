@@ -66,7 +66,7 @@ export default {
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
                         <RouterLink :to="{ name: 'Home' }">
-                            <a href="" class="nav-item nav-link active">Home</a>
+                            <a href="" class="nav-item nav-link">Home</a>
                         </RouterLink>
                         <RouterLink :to="{ name: 'Shop' }">
                             <a href="" class="nav-item nav-link">Shop</a>
@@ -118,4 +118,8 @@ export default {
     <!-- Navbar End -->
 </template>
 
-<style scoped></style>@/store/taskStore
+<style scoped>
+.active-link-style {
+    color: #81c408 !important;
+}
+</style>

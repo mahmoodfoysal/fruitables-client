@@ -1,3 +1,4 @@
+import { getAuth } from 'firebase/auth';
 import { createWebHistory, createRouter } from 'vue-router'
 
 const routes = [
@@ -34,7 +35,8 @@ const routes = [
     {
         path: '/check-out',
         name: 'CheckOut',
-        component: () => import('../components/OrderSteps/CheckOut/CheckOut.vue')
+        component: () => import('../components/OrderSteps/CheckOut/CheckOut.vue'),
+        meta: { requiresAuth: true },
     },
     {
         path: '/registration',
@@ -56,6 +58,21 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
-})
+    linkActiveClass: 'active-link-style'
+});
+
+router.beforeEach((to, from, next) => {
+    const auth = getAuth();
+    if (to.meta.requiresAuth) {
+      if (auth.currentUser) {
+        next();
+      } 
+      else {
+        next('/login');
+      }
+    } else {
+      next();
+    }
+  });
 
 export default router;
