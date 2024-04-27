@@ -36,7 +36,22 @@ export default {
             <swiper 
             :pagination="{
                 type: 'fraction',
-            }" :navigation="true" :modules="modules" :slidesPerView="2" :spaceBetween="30" :autoplay="{
+            }"
+            :breakpoints="{
+                '640': {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                '768': {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                '1024': {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+            }"
+            :navigation="true" :modules="modules" :autoplay="{
                 delay: 2500,
                 disableOnInteraction: false,
             }" class="mySwiper">

@@ -359,8 +359,9 @@ export default {
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input :value="store.user ? store.user.email : ''" type="email" class="form-control border-0"
-                                            placeholder="Enter Your Email *" required disabled>
+                                        <input :value="store.user ? store.user.email : ''" type="email"
+                                            class="form-control border-0" placeholder="Enter Your Email *" required
+                                            disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -407,8 +408,20 @@ export default {
             <div class="vesitable">
                 <swiper :pagination="{
                                         type: 'fraction',
-                                    }" :navigation="true" :modules="modules" :slidesPerView="4" :spaceBetween="30"
-                    :autoplay="{
+                                    }" :breakpoints="{
+                                        '640': {
+                                            slidesPerView: 1,
+                                            spaceBetween: 20,
+                                        },
+                                        '768': {
+                                            slidesPerView: 2,
+                                            spaceBetween: 20,
+                                        },
+                                        '1024': {
+                                            slidesPerView: 4,
+                                            spaceBetween: 30,
+                                        },
+                                    }" :navigation="true" :modules="modules" :autoplay="{
                                         delay: 2500,
                                         disableOnInteraction: false,
                                     }" class="mySwiper">

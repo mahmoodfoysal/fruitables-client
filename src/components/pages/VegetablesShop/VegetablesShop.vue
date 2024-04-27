@@ -38,7 +38,7 @@ export default {
                 this.productsData = result.data;
                 // console.log('vegetables data',result.data);
             }
-            catch(error) {
+            catch (error) {
 
             }
         },
@@ -55,19 +55,30 @@ export default {
     <div class="container-fluid vesitable py-5">
         <div class="container py-5">
             <h1 class="mb-5">Fresh Organic Vegetables</h1>
-            <swiper :pagination="{
+            <swiper 
+            :pagination="{
                 type: 'fraction',
-            }" :navigation="true" :modules="modules" :slidesPerView="4" :spaceBetween="30" :autoplay="{
+            }"
+            :breakpoints="{
+                '640': {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                '768': {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                '1024': {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+            }"
+            :navigation="true" :modules="modules" :autoplay="{
                 delay: 2500,
                 disableOnInteraction: false,
             }" class="mySwiper">
-                <swiper-slide 
-                v-for="(product, index) in filterData"
-                :key="index"
-                >
-               <ProductCard
-                :product="product"
-               ></ProductCard>
+                <swiper-slide v-for="(product, index) in filterData" :key="index">
+                    <ProductCard :product="product"></ProductCard>
                 </swiper-slide>
             </swiper>
         </div>
