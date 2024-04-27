@@ -24,10 +24,10 @@ export default {
                 </div>
                 <div class="col-lg-3">
                     <div class="d-flex justify-content-end pt-3">
-                        <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a target="_blank" class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.facebook.com/foysal.mahmood.1/"><i class="fab fa-facebook-f"></i></a>
+                        <a target="_blank" class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://github.com/mahmoodfoysal"><i class="fab fa-github"></i></a>
+                        <a target="_blank" class="btn btn-outline-secondary btn-md-square rounded-circle me-2" href="https://www.linkedin.com/in/foysalmahmood/"><i class="fab fa-linkedin-in"></i></a>
+                        <a target="_blank" class="btn btn-outline-secondary btn-md-square rounded-circle me-2" href="https://twitter.com/mahmoodfoysal"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
@@ -66,9 +66,9 @@ export default {
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="text-light mb-3">Contact</h4>
-                    <p>Address: 1429 Netus Rd, NY 48247</p>
-                    <p>Email: Example@gmail.com</p>
-                    <p>Phone: +0123 4567 8910</p>
+                    <p>Address: 123, Rajshahi, Bangladesh</p>
+                    <p>Email: fmahmood081@gmail.com</p>
+                    <p>Phone: 151111111</p>
                     <p>Payment Accepted</p>
                     <img src="/src/assets/img/payment.png" class="img-fluid" alt="">
                 </div>

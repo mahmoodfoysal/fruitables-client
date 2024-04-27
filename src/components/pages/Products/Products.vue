@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
 import ProductCard from '../ProductCard/ProductCard.vue';
-
+import { loadCategory } from '@/utlities/utlities.js';
 export default {
     name: 'Products',
     components: {
@@ -33,14 +33,23 @@ export default {
     },
     methods: {
         async loadCategory() {
-            try {
-                const result = await axios.get('http://localhost:3000/category');
-                this.categoryData = result.data;
-                // console.log(result.data);
-            } catch (error) {
+        try {
+            const categoryData = await loadCategory();
+            this.categoryData = categoryData;
+        } catch (error) {
+            console.error("Error loading category:", error);
+        }
+    },
+        // async loadCategory() {
+        //     try {
+        //         const result = await axios.get('http://localhost:3000/category');
+        //         this.categoryData = result.data;
+        //         // console.log(result.data);
+        //     } catch (error) {
 
-            }
-        },
+        //     }
+        // },
+
         async loadProducts() {
             try {
                 const result = await axios.get('http://localhost:3000/products');

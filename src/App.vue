@@ -29,22 +29,30 @@ export default {
       }
     });
   },
-  created() {
-        // Watch for changes in authentication state
-        onAuthStateChanged(auth, (user) => {
-        if (user) {
-            const uid = user.uid;
-            this.store.setUser(user);
-            // if(sessionStorage.getItem('user') || this.store.user) {
-            //   this.$router.push({name: 'Home'})
-            // }
-            
-        } else {
-            // User is signed out
-            // ...
-        }
-    });
+  methods: {
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
     },
+  },
+  created() {
+    // Watch for changes in authentication state
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        this.store.setUser(user);
+        // if(sessionStorage.getItem('user') || this.store.user) {
+        //   this.$router.push({name: 'Home'})
+        // }
+
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+  },
 }
 </script>
 
@@ -54,8 +62,14 @@ export default {
   <Footer></Footer>
 
   <!-- Back to Top -->
-  <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i
-      class="fa fa-arrow-up"></i></a>
+  <button 
+  @click="scrollToTop" 
+  type="button" 
+  class="btn btn-primary border-3 border-primary rounded-circle back-to-top">
+  <i
+  class="fa fa-arrow-up"
+  ></i>
+  </button>
 
 </template>
 
