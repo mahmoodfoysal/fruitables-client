@@ -68,7 +68,7 @@ export default {
     methods: {
         async loadProducts() {
             try {
-                const result = await axios.get('http://localhost:3000/products');
+                const result = await axios.get('http://localhost:5000/products');
                 this.productsData = result.data;
             }
             catch (error) {
@@ -137,7 +137,7 @@ export default {
             }
             const text = 'Are You Sure? Want To Post This Review';
             if (confirm(text) == true) {
-                const result = await axios.post('http://localhost:3000/review', {
+                const result = await axios.post('http://localhost:5000/reviews', {
                     fullName: this.store?.user?.displayName,
                     email: this.store?.user?.email,
                     photo: this.store?.user?.photoURL,
@@ -148,7 +148,7 @@ export default {
 
                 });
                 console.log(result)
-                if (result.status === 201) {
+                if (result.status === 200) {
                     alert('Thanks For Your Review!!!');
                     this.fullName = '';
                     this.email = '';
@@ -159,7 +159,7 @@ export default {
         },
         async loadReview() {
             try {
-                const result = await axios.get('http://localhost:3000/review');
+                const result = await axios.get('http://localhost:5000/review');
                 this.reviewData = result.data;
                 console.log(result.data);
             }

@@ -28,7 +28,7 @@ export default {
             }
             const text = "Are Sure Want To Confirm Order?";
             if (confirm(text) == true) {
-                const result = await axios.post('http://localhost:3000/orders', {
+                const result = await axios.post('http://localhost:5000/orders', {
                     fullName: this.fullName,
                     companyName: this.companyName,
                     address: this.address,
@@ -44,7 +44,7 @@ export default {
                     grossTotal: this.grossTotal
                 });
                 console.log(result)
-                if(result.status === 201) {
+                if(result.status === 200) {
                     alert("Your Order Place Successfully");
                     this.fullName='';
                     this.address='';

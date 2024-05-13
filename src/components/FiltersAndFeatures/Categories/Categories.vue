@@ -16,7 +16,7 @@ export default {
     methods: {
         async loadCategories() {
             try {
-                const result = await axios.get('http://localhost:3000/category');
+                const result = await axios.get('http://localhost:5000/category');
                 this.categoriesData = result.data;
             } catch (error) {
                 console.error('Error loading categories:', error);
@@ -24,7 +24,7 @@ export default {
         },
         async loadProducts() {
             try {
-                const result = await axios.get('http://localhost:3000/products');
+                const result = await axios.get('http://localhost:5000/products');
                 this.productsData = result.data;
             } catch (error) {
                 console.error('Error loading products:', error);
