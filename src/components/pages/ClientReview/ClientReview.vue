@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 export default {
     name: 'ClientReview',
     components: {
@@ -18,7 +18,7 @@ export default {
     },
     data() {
         return {
-            modules: [Pagination, Navigation],
+            modules: [ Navigation],
         }
     }
 }
@@ -48,6 +48,18 @@ export default {
                 },
                 '1024': {
                     slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                '1440': {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                '1920': {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                '2560': {
+                    slidesPerView: 4,
                     spaceBetween: 30,
                 },
             }"
