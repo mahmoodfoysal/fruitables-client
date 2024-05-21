@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
+    "emailjs-com": "^3.2.0",
     "firebase": "^10.11.0",
     "json-server": "^1.0.0-alpha.23",
     "pinia": "^2.1.7",

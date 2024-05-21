@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBz6UQuvEeCIkn1dEebJvDdGLxqB9EwWdI",
-    authDomain: "e-commerce-fruit.firebaseapp.com",
-    projectId: "e-commerce-fruit",
-    storageBucket: "e-commerce-fruit.appspot.com",
-    messagingSenderId: "130830870688",
-    appId: "1:130830870688:web:209db6371e6054f99581c5"
+    apiKey: import.meta.env.VITE_APP_API_KEY,
+    authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_APP_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_APP_ID
   };
 
   export default firebaseConfig;

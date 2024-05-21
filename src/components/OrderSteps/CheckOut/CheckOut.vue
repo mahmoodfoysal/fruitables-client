@@ -38,10 +38,11 @@ export default {
                     phoneNumber: this.phoneNumber,
                     email: this.email,
                     notes: this.notes,
-                    orderList: this.cartItems,
+                    orderList: [this.cart],
                     subTotal: this.subTotal,
                     shipping: this.shipping,
-                    grossTotal: this.grossTotal
+                    grossTotal: this.grossTotal,
+                    status: "P"
                 });
                 console.log(result)
                 if(result.status === 200) {
