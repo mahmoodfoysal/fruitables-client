@@ -159,7 +159,7 @@ export default {
         },
         async loadReview() {
             try {
-                const result = await axios.get('http://localhost:5000/review');
+                const result = await axios.get('http://localhost:5000/reviews');
                 this.reviewData = result.data;
                 console.log(result.data);
             }
@@ -178,7 +178,7 @@ export default {
             if (item && item[this.$route.params.id]) {
                 return item[this.$route.params.id].quantity; // Access quantity of the specific item
             }
-            return null;
+            return 0;
         }
     },
 }

@@ -1,6 +1,12 @@
 <script>
+import { loadPosterProduct } from '@/utilities/utilities.js';
 export default {
-    name: 'MiddleBanner'
+    name: 'MiddleBanner',
+    mounted() {
+    },
+    methods: {
+        
+    }
 }
 </script>
 
@@ -23,7 +29,7 @@ export default {
                     <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute" style="width: 140px; height: 140px; top: 0; left: 0;">
                         <h1 style="font-size: 100px;">1</h1>
                         <div class="d-flex flex-column">
-                            <span class="h2 mb-0">50$</span>
+                            <span class="h2 mb-0">$50</span>
                             <span class="h4 text-muted mb-0">kg</span>
                         </div>
                     </div>

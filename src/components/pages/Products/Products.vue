@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
 import ProductCard from '../ProductCard/ProductCard.vue';
-import { loadCategory } from '@/utlities/utlities.js';
+import { loadCategory } from '@/utilities/utilities.js';
 export default {
     name: 'Products',
     components: {
@@ -175,4 +175,4 @@ export default {
     display: flex;
     justify-content: center;
 }
-</style>
+</style>@/utlities/utilities.js

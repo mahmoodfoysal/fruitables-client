@@ -33,4 +33,14 @@ export const shuffleArray = (array) => {
     return array;
 };
 
+export const loadPosterProduct = async () => {
+    try {
+        const result = await axios.get('http://localhost:5000/bannerOffer');
+        return result.data;
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
 
