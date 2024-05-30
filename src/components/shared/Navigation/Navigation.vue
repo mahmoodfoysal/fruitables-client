@@ -72,7 +72,7 @@ export default {
                         <RouterLink :to="{ name: 'Shop' }">
                             <a href="" class="nav-item nav-link">Shop</a>
                         </RouterLink>
-                        <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
+                        <a href="#" class="nav-item nav-link">About Us</a>
                         <!-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">

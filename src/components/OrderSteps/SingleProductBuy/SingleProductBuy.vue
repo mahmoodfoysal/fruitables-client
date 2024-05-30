@@ -1,103 +1,110 @@
 <script>
-
 import { useStore } from '@/store/taskStore.js';
 import axios from 'axios';
-
 export default {
-    name: 'CheckOut',
+    name: 'SingleProductBuy',
     data() {
         return {
+            product: [],
             store: useStore(),
             fullName: null,
+            email: null,
             address: null,
             city: null,
             zip: null,
             country: null,
             phoneNumber: null,
-            email: null,
             notes: null,
             orderList: null,
         }
     },
+    mounted() {
+        this.loadOfferProduct();
+    },
     methods: {
+        async loadOfferProduct() {
+            try {
+                const result = await axios.get('http://localhost:5000/bannerOffer');
+                this.product = result.data;
+            }
+            catch (error) {
+                console.log(error)
+            }
+        },
         async handlePlaceOrder() {
-            if (!this.store?.user?.displayName, !this.store?.user?.email, !this.city, !this.zip, !this.country, !this.phoneNumber, !this.email) {
-                alert("Please Fill All Required Field");
+            if (!this.address, !this.city, !this.zip, !this.country, !this.phoneNumber) {
+                alert("Please Fill All The Require Field");
                 return;
             }
-            const text = "Are Sure Want To Confirm Order?";
-            if (confirm(text) == true) {
-                const result = await axios.post('http://localhost:5000/orders', {
-                    fullName: this.store?.user?.displayName,
-                    address: this.store?.user?.email,
-                    city: this.city,
-                    zip: this.zip,
-                    country: this.country,
-                    phoneNumber: this.phoneNumber,
-                    email: this.email,
-                    notes: this.notes,
-                    orderList: [this.cart],
-                    subTotal: this.subTotal,
-                    shipping: this.shipping,
-                    grossTotal: this.grossTotal,
-                    status: "P",
-                    date: Date()
-                });
-                console.log(result)
-                if(result.status === 200) {
-                    alert("Your Order Place Successfully");
-                    this.fullName='';
-                    this.address='';
-                    this.city='';
-                    this.zip='';
-                    this.country='';
-                    this.phoneNumber='';
-                    this.email='';
-                    this.notes='';
-                    this.$router.push({name: 'Home'})
-                    localStorage.removeItem('shopping_cart');
-                    this.store.setCartItem([])
+            else if (!this.store?.user?.displayName, !this.store?.user?.email) {
+                alert("Please Login First Before Place Order");
+                return;
+            }
+            else {
+                const text = "Are Sure Want To Confirm Order?";
+                if (confirm(text) === true) {
+                    const result = await axios.post('http://localhost:5000/orders', {
+                        fullName: this.store?.user?.displayName,
+                        companyName: this.companyName,
+                        address: this.address,
+                        city: this.city,
+                        zip: this.zip,
+                        country: this.country,
+                        phoneNumber: this.phoneNumber,
+                        email: this.store?.user?.email,
+                        notes: this.notes,
+                        orderList: [
+                        this.product[0]
+                        ],
+                        subTotal: this.subTotal,
+                        shipping: this.shipping,
+                        grossTotal: this.total,
+                        status: "P",
+                        date: Date()
+                    });
+                    console.log(result)
+                    if (result.status === 200) {
+                        alert("Your Order Place Successfully");
+                        this.fullName = '';
+                        this.address = '';
+                        this.city = '';
+                        this.zip = '';
+                        this.country = '';
+                        this.phoneNumber = '';
+                        this.email = '';
+                        this.notes = '';
+                        this.$router.push({ name: 'Home' })
+                    }
                 }
             }
-
         }
     },
     computed: {
-        cartItems() {
-            return this.store.cartItem;
-        },
-        cart() {
-            return Object.values(this.store.cartItem);
+        shipping() {
+            return 1.2
         },
         subTotal() {
-            const totalQuantityWithPrice = this.cart.reduce((total, item) => {
-                return total + (item?.pro_price * item?.quantity);
-            }, 0)
-            return totalQuantityWithPrice
+            return this.product[0]?.price
         },
-        shipping() {
-            return 2
-        },
-        grossTotal() {
-            return this.subTotal + this.shipping;
+        total() {
+            return this.shipping + this.subTotal
         }
-
     }
 }
 </script>
 
 <template>
+
     <!-- Single Page Header start -->
     <div class="container-fluid page-header py-5">
-        <h1 class="text-center text-white display-6">Checkout</h1>
+        <h1 class="text-center text-white display-6">Buy Now</h1>
         <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Pages</a></li>
-            <li class="breadcrumb-item active text-white">Checkout</li>
+            <li class="breadcrumb-item active text-white">Buy Now</li>
         </ol>
     </div>
     <!-- Single Page Header End -->
-
 
     <!-- Checkout Page Start -->
     <div class="container-fluid py-5">
@@ -110,13 +117,15 @@ export default {
                             <div class="col-md-12 col-lg-12">
                                 <div class="form-item w-100">
                                     <label class="form-label my-3">Full Name<sup>*</sup></label>
-                                    <input :value="this.store?.user?.displayName" type="text" class="form-control" disabled >
+                                    <input :value="store.user ? store.user.displayName : ''" type="text"
+                                        class="form-control" placeholder="Please Login First" disabled>
                                 </div>
                             </div>
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Email Address<sup>*</sup></label>
-                            <input :value="this.store?.user?.email" type="email" class="form-control" disabled >
+                            <input :value="store.user ? store.user.email : ''" type="email" class="form-control"
+                                placeholder="Please Login First" disabled>
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Address <sup>*</sup></label>
@@ -125,31 +134,28 @@ export default {
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Town/City<sup>*</sup></label>
-                            <input v-model="city" type="text" class="form-control">
+                            <input v-model="city" type="text" class="form-control" placeholder="City Name">
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Country<sup>*</sup></label>
-                            <input v-model="country" type="text" class="form-control">
+                            <input v-model="country" type="text" class="form-control" placeholder="Country Name">
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Postcode/Zip<sup>*</sup></label>
-                            <input v-model.number="zip" type="text" class="form-control">
+                            <input v-model="zip" type="text" class="form-control" placeholder="Enter Zip No">
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Mobile<sup>*</sup></label>
-                            <input v-model.number="phoneNumber" type="tel" class="form-control">
+                            <input v-model="phoneNumber" type="tel" class="form-control" placeholder="Mobile Number">
                         </div>
 
-
-
-                        <div class="form-item">
-                            <label class="form-label my-3">Order Notes<sup></sup></label>
+                        <div class="form-item my-3">
                             <textarea v-model="notes" name="text" class="form-control" spellcheck="false" cols="30"
                                 rows="11" placeholder="Oreder Notes (Optional)"></textarea>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-6 col-xl-5">
-                        <div class="table-responsive table-style">
+                        <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -161,17 +167,17 @@ export default {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(item, index) in cartItems" :key="index">
+                                    <tr>
                                         <th scope="row">
                                             <div class="d-flex align-items-center mt-2">
-                                                <img :src="item?.pro_image" class="img-fluid rounded-circle"
+                                                <img :src="product[0]?.img" class="img-fluid rounded-circle"
                                                     style="width: 90px; height: 90px;" alt="">
                                             </div>
                                         </th>
-                                        <td class="py-5">{{ item?.pro_name }}</td>
-                                        <td class="py-5">${{ item?.pro_price }}</td>
-                                        <td class="py-5">{{ item?.quantity }}</td>
-                                        <td class="py-5">${{ (item?.pro_price * item?.quantity).toFixed(2) }}</td>
+                                        <td class="py-5">{{ product[0]?.posterText1 }}</td>
+                                        <td class="py-5">${{ product[0]?.price }}</td>
+                                        <td class="py-5">{{ product[0]?.quantity }} {{ product[0]?.measureMent }}</td>
+                                        <td class="py-5">${{ product[0]?.price }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -184,19 +190,19 @@ export default {
                                         </h1>
                                         <div class="d-flex justify-content-between mb-4">
                                             <h5 class="mb-0 me-4">Subtotal:</h5>
-                                            <p class="mb-0">${{ subTotal.toFixed(2) }}</p>
+                                            <p class="mb-0">${{ subTotal }}</p>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <h5 class="mb-0 me-4">Shipping</h5>
                                             <div class="">
-                                                <p class="mb-0">Flat rate: ${{ shipping.toFixed(2) }}</p>
+                                                <p class="mb-0">Flat rate: ${{ shipping }}</p>
                                             </div>
                                         </div>
                                         <!-- <p class="mb-0 text-end">Shipping to Ukraine.</p> -->
                                     </div>
                                     <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                                         <h5 class="mb-0 ps-4 me-4">Total</h5>
-                                        <p class="mb-0 pe-4">${{ grossTotal.toFixed(2) }}</p>
+                                        <p class="mb-0 pe-4">${{ total }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -252,6 +258,7 @@ export default {
         </div>
     </div>
     <!-- Checkout Page End -->
+
 </template>
 
 <style scoped>

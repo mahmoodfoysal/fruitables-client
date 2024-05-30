@@ -36,9 +36,8 @@ export default {
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="text-light mb-3">Why People Like us!</h4>
-                    <p class="mb-4">typesetting, remaining essentially unchanged. It was 
-                        popularised in the 1960s with the like Aldus PageMaker including of Lorem Ipsum.</p>
-                    <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a>
+                    <p class="mb-4">FruitBazar is one of most popular and authentic e-commerce site for selling fruits and vegetables. We sell organic fruits and vegetables. We delever our product in the client hand a short time period.</p>
+                    <!-- <a href="#" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a> -->
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -66,9 +65,9 @@ export default {
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="text-light mb-3">Contact</h4>
-                    <p>Address: 123, Rajshahi, Bangladesh</p>
-                    <p>Email: fmahmood081@gmail.com</p>
-                    <p>Phone: 151111111</p>
+                    <p>Address: Dhaka, Bangladesh</p>
+                    <p>Email: foysalcse033@gmail.com</p>
+                    <p>Phone: 01714226177</p>
                     <p>Payment Accepted</p>
                     <img src="/src/assets/img/payment.png" class="img-fluid" alt="">
                 </div>

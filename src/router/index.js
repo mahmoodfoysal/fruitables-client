@@ -33,6 +33,11 @@ const routes = [
         component: () => import('../components/ProductDetails/ProductDetails.vue')
     },
     {
+        path: '/buy-now/:id',
+        name: 'BuyNow',
+        component: () => import('../components/OrderSteps/SingleProductBuy/SingleProductBuy.vue')
+    },
+    {
         path: '/check-out',
         name: 'CheckOut',
         component: () => import('../components/OrderSteps/CheckOut/CheckOut.vue'),

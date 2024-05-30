@@ -33,7 +33,7 @@ export const shuffleArray = (array) => {
     return array;
 };
 
-export const loadPosterProduct = async () => {
+export const loadPosterProduct = async (result) => {
     try {
         const result = await axios.get('http://localhost:5000/bannerOffer');
         return result.data;
@@ -41,6 +41,7 @@ export const loadPosterProduct = async () => {
     catch(error) {
         console.log(error);
     }
+    console.log(result)
 }
 
 
