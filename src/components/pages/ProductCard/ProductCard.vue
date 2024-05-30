@@ -56,7 +56,7 @@ export default {
             <h4>{{ product?.pro_name }}</h4>
             <p>{{ product?.pro_description }}</p>
             <div class="">
-                <p class="text-dark fs-5 fw-bold mb-0 d-flex justify-content-center">${{ product?.pro_price }} / {{ product?.pro_quantity }}</p>
+                <p class="text-dark fs-5 fw-bold mb-0 d-flex justify-content-center">${{ product?.pro_price }} / {{ product?.pro_quantity }}{{ product?.pro_measurement }}</p>
                 <div class="d-flex justify-content-center">
                     <button 
                     @click="handleAddToCart(product)"

@@ -5,13 +5,15 @@ import Footer from '../src/components/shared/Footer/Footer.vue';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import initilizationAuthentication from './firebase/firebase.init';
 import { useStore } from '../src/store/taskStore.js';
+import MobileMenu from '../src/components/shared/MobileMenu/MobileMenu.vue';
 initilizationAuthentication();
 const auth = getAuth();
 export default {
   name: 'App',
   components: {
     Navigation,
-    Footer
+    Footer,
+    MobileMenu
   },
   data() {
     return {
@@ -60,6 +62,7 @@ export default {
   <Navigation></Navigation>
   <RouterView></RouterView>
   <Footer></Footer>
+  <MobileMenu></MobileMenu>
 
   <!-- Back to Top -->
   <button 
@@ -73,4 +76,6 @@ export default {
 
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

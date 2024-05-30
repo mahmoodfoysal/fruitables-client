@@ -9,7 +9,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // import required modules
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
+import axios from 'axios';
 export default {
     name: 'ClientReview',
     components: {
@@ -18,7 +19,22 @@ export default {
     },
     data() {
         return {
-            modules: [ Navigation],
+            modules: [Navigation, Autoplay],
+            reviews: []
+        }
+    },
+    async mounted() {
+        await this.loadReviews();
+    },
+    methods: {
+        async loadReviews() {
+            try {
+                const result = await axios.get('http://localhost:5000/reviews');
+                this.reviews = result.data;
+            }
+            catch (error) {
+                console.log(error)
+            }
         }
     }
 }
@@ -33,11 +49,9 @@ export default {
                 <h4 class="text-primary">Our Testimonial</h4>
                 <h1 class="display-5 mb-5 text-dark">Our Client Saying!</h1>
             </div>
-            <swiper 
-            :pagination="{
+            <swiper :pagination="{
                 type: 'fraction',
-            }"
-            :breakpoints="{
+            }" :breakpoints="{
                 '640': {
                     slidesPerView: 1,
                     spaceBetween: 20,
@@ -62,134 +76,65 @@ export default {
                     slidesPerView: 4,
                     spaceBetween: 30,
                 },
-            }"
-            :navigation="true" :modules="modules" :autoplay="{
+            }" :navigation="true" :modules="modules" :autoplay="{
                 delay: 2500,
                 disableOnInteraction: false,
             }" class="mySwiper">
-                <swiper-slide v-for="n in 10">
-                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                    <div class="position-relative">
-                        <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
-                            style="bottom: 30px; right: 0;"></i>
-                        <div class="mb-4 pb-4 border-bottom border-secondary">
-                            <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the
-                                industry's standard dummy text ever since the 1500s,
-                            </p>
-                        </div>
-                        <div class="d-flex align-items-center flex-nowrap">
-                            <div class="bg-secondary rounded">
-                                <img src="/src/assets/img/testimonial-1.jpg" class="img-fluid rounded"
-                                    style="width: 100px; height: 100px;" alt="">
-                            </div>
-                            <div class="ms-4 d-block">
-                                <h4 class="text-dark">Client Name</h4>
-                                <p class="m-0 pb-3">Profession</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star"></i>
+                <swiper-slide v-for="(review, index) in reviews" :key="index">
+                    <div class="testimonial-item img-border-radius bg-light rounded p-4 review-card-style">
+                        <div class="position-relative">
+                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
+                                style="bottom: 30px; right: 0;"></i>
+
+                            <div class="d-flex align-items-center flex-nowrap border-bottom border-secondary mb-4 pb-4">
+                                <div class="bg-secondary rounded">
+                                    <img src="/src/assets/img/testimonial-1.jpg" class="img-fluid rounded"
+                                        style="width: 100px; height: 100px;" alt="">
                                 </div>
+                                <div class="ms-4 d-block">
+                                    <h4 class="text-dark">{{ review?.fullName }}</h4>
+                                    <!-- <p class="m-0 pb-3">Profession</p> -->
+                                    <div class="d-flex pe-5">
+                                        <template v-for="i in 5">
+                                            <i
+                                                :class="{ 'fa': true, 'fa-star': true, 'text-gray': i > review?.rating, 'text-yellow': i <= review?.rating }"></i>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" ">
+                                <p class="mb-0">{{ review?.comment }}
+                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
                 </swiper-slide>
 
             </swiper>
-
-
-            <div class="owl-carousel testimonial-carousel">
-                <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                    <div class="position-relative">
-                        <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
-                            style="bottom: 30px; right: 0;"></i>
-                        <div class="mb-4 pb-4 border-bottom border-secondary">
-                            <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the
-                                industry's standard dummy text ever since the 1500s,
-                            </p>
-                        </div>
-                        <div class="d-flex align-items-center flex-nowrap">
-                            <div class="bg-secondary rounded">
-                                <img src="/src/assets/img/testimonial-1.jpg" class="img-fluid rounded"
-                                    style="width: 100px; height: 100px;" alt="">
-                            </div>
-                            <div class="ms-4 d-block">
-                                <h4 class="text-dark">Client Name</h4>
-                                <p class="m-0 pb-3">Profession</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                    <div class="position-relative">
-                        <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
-                            style="bottom: 30px; right: 0;"></i>
-                        <div class="mb-4 pb-4 border-bottom border-secondary">
-                            <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the
-                                industry's standard dummy text ever since the 1500s,
-                            </p>
-                        </div>
-                        <div class="d-flex align-items-center flex-nowrap">
-                            <div class="bg-secondary rounded">
-                                <img src="/src/assets/img/testimonial-1.jpg" class="img-fluid rounded"
-                                    style="width: 100px; height: 100px;" alt="">
-                            </div>
-                            <div class="ms-4 d-block">
-                                <h4 class="text-dark">Client Name</h4>
-                                <p class="m-0 pb-3">Profession</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                    <div class="position-relative">
-                        <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
-                            style="bottom: 30px; right: 0;"></i>
-                        <div class="mb-4 pb-4 border-bottom border-secondary">
-                            <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the
-                                industry's standard dummy text ever since the 1500s,
-                            </p>
-                        </div>
-                        <div class="d-flex align-items-center flex-nowrap">
-                            <div class="bg-secondary rounded">
-                                <img src="/src/assets/img/testimonial-1.jpg" class="img-fluid rounded"
-                                    style="width: 100px; height: 100px;" alt="">
-                            </div>
-                            <div class="ms-4 d-block">
-                                <h4 class="text-dark">Client Name</h4>
-                                <p class="m-0 pb-3">Profession</p>
-                                <div class="d-flex pe-5">
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- Tastimonial End -->
 </template>
 
-<style scoped></style>
+<style scoped>
+.star {
+    color: gold;
+}
+
+.star-o {
+    color: gray;
+}
+
+.text-yellow {
+    color: #FFB524;
+}
+
+.text-gray {
+    color: gray !important;
+}
+
+.review-card-style {
+    height: 242px;
+    width: 100%;
+}
+</style>

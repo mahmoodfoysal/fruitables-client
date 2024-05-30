@@ -24,6 +24,9 @@ export default {
             }).catch((error) => {
 
             });
+        },
+        handleNavigate() {
+            this.$router.push('/')
         }
     },
     computed: {
@@ -37,7 +40,7 @@ export default {
 <template>
     <!-- Navbar start -->
     <div class="container-fluid fixed-top">
-        <div class="container topbar bg-primary d-none d-lg-block">
+        <div class="container topbar bg-primary d-none d-lg-block navbar-policy-style">
             <div class="d-flex justify-content-between">
                 <div class="top-info ps-2">
                     <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#"
@@ -54,12 +57,9 @@ export default {
         </div>
 
         <div class="container px-0">
-            <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                <RouterLink :to="{ name: 'Home' }">
-                    <a href="" class="navbar-brand">
-                        <h1 class="text-primary display-6">FruitBazar</h1>
-                    </a>
-                </RouterLink>
+            <nav class="navbar navbar-light bg-white navbar-expand-xl navbar-style">
+                <h1 @click="handleNavigate" class="text-primary display-6 logo-style">FruitBazar</h1>
+                <img v-if="this.store.user !== null" :src="store.user.photoURL" alt="Avatar" class="mobile-avatar">
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars text-primary"></span>
@@ -67,12 +67,12 @@ export default {
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
                         <RouterLink :to="{ name: 'Home' }">
-                            <a href="" class="nav-item nav-link">Home</a>
+                            <p class="nav-item nav-link">Home</p>
                         </RouterLink>
                         <RouterLink :to="{ name: 'Shop' }">
-                            <a href="" class="nav-item nav-link">Shop</a>
+                            <p class="nav-item nav-link">Shop</p>
                         </RouterLink>
-                        <a href="#" class="nav-item nav-link">About Us</a>
+                        <p class="nav-item nav-link">About Us</p>
                         <!-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -85,31 +85,33 @@ export default {
                             </div>
                         </div> -->
                         <RouterLink :to="{ name: 'Contact' }">
-                            <a href="" class="nav-item nav-link">Contact</a>
+                            <p class="nav-item nav-link">Contact</p>
                         </RouterLink>
                     </div>
                     <div class="d-flex m-3 me-0">
-                        <button
+
+                        <!-- <button
                             class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                             data-bs-toggle="modal" data-bs-target="#searchModal"><i
-                                class="fas fa-search text-primary"></i></button>
+                                class="fas fa-search text-primary"></i></button> -->
                         <a href="#" class="position-relative me-4 my-auto">
                             <RouterLink :to="{ name: 'Cart' }">
                                 <i class="fa fa-shopping-bag fa-2x"></i>
                             </RouterLink>
-                            <RouterLink :to="{name: 'Cart'}">
+                            <RouterLink :to="{ name: 'Cart' }">
                                 <span
-                                class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-                                style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{ cartCount }}</span>
+                                    class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                                    style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{ cartCount }}</span>
                             </RouterLink>
                         </a>
+                        <img v-if="this.store.user !== null" :src="store.user.photoURL" alt="Avatar" class="avatar">
                         <a href="#" class="my-auto">
                             <div v-if="this.store.user === null">
                                 <RouterLink :to="{ name: 'Login' }">
                                     <i class="fas fa-user fa-2x"></i>
                                 </RouterLink>
                             </div>
-                            
+
                             <h6 v-else @click="handleLogOut">Log Out</h6>
 
                         </a>
@@ -122,7 +124,129 @@ export default {
 </template>
 
 <style scoped>
-.active-link-style {
+.active-link-style p {
     color: #81c408 !important;
+}
+
+.logo-style {
+    cursor: pointer;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+
+@media only screen and (max-width: 2560px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-style {
+        line-height: 0 !important;
+    }
+
+    .mobile-avatar {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1920px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-style {
+        line-height: 0 !important;
+    }
+
+    .mobile-avatar {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-style {
+        line-height: 0 !important;
+    }
+
+    .mobile-avatar {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-style {
+        line-height: 0 !important;
+    }
+
+    .mobile-avatar {
+        display: none;
+        vertical-align: middle;
+        width: 41px;
+        height: 41px;
+        border-radius: 50%;
+        margin-right: 16px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-style {
+        line-height: 0 !important;
+        height: 62px !important;
+    }
+
+    .navbar-policy-style {
+        display: none;
+    }
+
+    .mobile-avatar {
+        display: block;
+        vertical-align: middle;
+        width: 41px;
+        height: 41px;
+        border-radius: 50%;
+        margin-right: 16px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-style {
+        line-height: 0 !important;
+        height: 62px !important;
+    }
+
+    .navbar-policy-style {
+        display: none;
+    }
+
+    .mobile-avatar {
+        display: block;
+        vertical-align: middle;
+        width: 41px;
+        height: 41px;
+        border-radius: 50%;
+        margin-right: 16px;
+    }
 }
 </style>

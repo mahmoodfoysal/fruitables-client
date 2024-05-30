@@ -42,6 +42,17 @@ export default {
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="d-flex flex-column text-start footer-item">
+                    <h4 class="text-light mb-3">Account</h4>
+                    <a class="btn-link" href="">My Account</a>
+                    <a class="btn-link" href="">Shop details</a>
+                    <a class="btn-link" href="">Shopping Cart</a>
+                    <a class="btn-link" href="">Wishlist</a>
+                    <a class="btn-link" href="">Order History</a>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="d-flex flex-column text-start footer-item">
                     <h4 class="text-light mb-3">Shop Info</h4>
                     <a class="btn-link" href="">About Us</a>
                     <a class="btn-link" href="">Contact Us</a>
@@ -51,17 +62,7 @@ export default {
                     <a class="btn-link" href="">FAQs & Help</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="d-flex flex-column text-start footer-item">
-                    <h4 class="text-light mb-3">Account</h4>
-                    <a class="btn-link" href="">My Account</a>
-                    <a class="btn-link" href="">Shop details</a>
-                    <a class="btn-link" href="">Shopping Cart</a>
-                    <a class="btn-link" href="">Wishlist</a>
-                    <a class="btn-link" href="">Order History</a>
-                    <a class="btn-link" href="">International Orders</a>
-                </div>
-            </div>
+
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="text-light mb-3">Contact</h4>
@@ -85,9 +86,6 @@ export default {
                 <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>FruitBazar</a>, All right reserved.</span>
             </div>
             <div class="col-md-6 my-auto text-center text-md-end text-white">
-                <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
                 Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Developed By <a class="border-bottom" href="https://foysal-portfolio.netlify.app/">Foysal Mahmood</a>
             </div>
         </div>

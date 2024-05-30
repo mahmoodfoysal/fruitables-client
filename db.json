@@ -8,8 +8,9 @@
       "pro_name": "Leafy vegetables",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 4.99,
-      "pro_quantity": "1KG",
-      "id": "2643"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 1,
@@ -19,8 +20,9 @@
       "pro_name": "Pumpkin",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 3.99,
-      "pro_quantity": "1KG",
-      "id": "52bf"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 1,
@@ -30,8 +32,9 @@
       "pro_name": "Root vegetables",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 5.2,
-      "pro_quantity": "1KG",
-      "id": "22d7"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 1,
@@ -41,8 +44,9 @@
       "pro_name": "Beetroot",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 5.99,
-      "pro_quantity": "1KG",
-      "id": "d66e"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 2,
@@ -52,8 +56,9 @@
       "pro_name": "Apple",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 2.99,
-      "pro_quantity": "1KG",
-      "id": "8bf3"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 2,
@@ -63,8 +68,9 @@
       "pro_name": "Orange",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 3.99,
-      "pro_quantity": "1KG",
-      "id": "5621"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 2,
@@ -74,8 +80,9 @@
       "pro_name": "Mango",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 6.99,
-      "pro_quantity": "1KG",
-      "id": "6309"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 2,
@@ -85,8 +92,9 @@
       "pro_name": "Grapes",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 3.5,
-      "pro_quantity": "1KG",
-      "id": "cf58"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 2,
@@ -96,8 +104,9 @@
       "pro_name": "Apricots",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 4.5,
-      "pro_quantity": "1KG",
-      "id": "ff66"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 3,
@@ -107,8 +116,9 @@
       "pro_name": "Bagels",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 1.5,
-      "pro_quantity": "1Pound",
-      "id": "ccb0"
+      "pro_quantity": 1,
+      "pro_measurement": "Pound",
+      "product_type": "R"
     },
     {
       "cat_id": 3,
@@ -118,8 +128,9 @@
       "pro_name": "Cakes",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 2.5,
-      "pro_quantity": "1Pound",
-      "id": "c0bb"
+      "pro_quantity": 1,
+      "pro_measurement": "Pound",
+      "product_type": "R"
     },
     {
       "cat_id": 3,
@@ -129,8 +140,9 @@
       "pro_name": "Muffins",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 7.5,
-      "pro_quantity": "1Pound",
-      "id": "645f"
+      "pro_quantity": 1,
+      "pro_measurement": "Pound",
+      "product_type": "R"
     },
     {
       "cat_id": 3,
@@ -140,8 +152,9 @@
       "pro_name": "Bread rolls",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 4.99,
-      "pro_quantity": "1Pound",
-      "id": "fec6"
+      "pro_quantity": 1,
+      "pro_measurement": "Pound",
+      "product_type": "R"
     },
     {
       "cat_id": 4,
@@ -151,8 +164,9 @@
       "pro_name": "Beef",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 4.99,
-      "pro_quantity": "1KG",
-      "id": "6203"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 4,
@@ -162,8 +176,9 @@
       "pro_name": "Mutton",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 5.99,
-      "pro_quantity": "1KG",
-      "id": "bebc"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     },
     {
       "cat_id": 4,
@@ -173,35 +188,31 @@
       "pro_name": "Checken",
       "pro_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt",
       "pro_price": 1.99,
-      "pro_quantity": "1KG",
-      "id": "bd69"
+      "pro_quantity": 1,
+      "pro_measurement": "KG",
+      "product_type": "R"
     }
   ],
   "category": [
     {
       "cat_id": 0,
-      "cat_name": "All Products",
-      "id": "7a6d"
+      "cat_name": "All Products"
     },
     {
       "cat_id": 1,
-      "cat_name": "vegetable",
-      "id": "cf81"
+      "cat_name": "vegetable"
     },
     {
       "cat_id": 2,
-      "cat_name": "Fruits",
-      "id": "07c5"
+      "cat_name": "Fruits"
     },
     {
       "cat_id": 3,
-      "cat_name": "Bread",
-      "id": "6828"
+      "cat_name": "Bread"
     },
     {
       "cat_id": 4,
-      "cat_name": "Meat",
-      "id": "baa7"
+      "cat_name": "Meat"
     }
   ],
   "orders": [],
