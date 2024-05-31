@@ -7,7 +7,7 @@ export default {
 <template>
 <!-- Bestsaler Product Start -->
 <div class="container-fluid py-5">
-    <div class="container py-5">
+    <div class="container py-5 container-style">
         <div class="text-center mx-auto mb-5" style="max-width: 700px;">
             <h1 class="display-4">Bestseller Products</h1>
             <p>Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
@@ -214,5 +214,40 @@ export default {
 </template>
 
 <style scoped>
-
+@media only screen and (max-width: 2560px) {
+    .container-style {
+        max-width: 2300px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1920px) {
+    .container-style {
+        max-width: 1800px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .container-style {
+        max-width: 1300px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .container-style {
+        max-width: 900px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .container-style {
+        width: 100%;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 540px) {
+    .container-style {
+        width: 100%;
+        margin: auto;
+    }
+}
 </style>

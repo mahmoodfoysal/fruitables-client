@@ -28,7 +28,7 @@ export default {
 <!-- Hero Start -->
 <div class="container-fluid py-5 mb-5 hero-header">
     <div class="container py-5">
-        <div class="row g-5 align-items-center">
+        <div class="row g-5 align-items-center ">
             <div class="col-md-12 col-lg-7">
                 <h4 class="mb-3 text-secondary">100% Organic Foods</h4>
                 <h1 class="mb-5 display-3 text-primary">Organic Veggies & Fruits Foods</h1>
@@ -66,5 +66,48 @@ export default {
 </template>
 
 <style scoped>
+.page-header {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/cart-page-header-img.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+@media only screen and (max-width: 2560px) {
+    .content-style {
+        max-width: 2300px !important;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1920px) {
+    .content-style {
+        max-width: 1800px !important;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .content-style {
+        max-width: 1300px !important;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .content-style {
+        width: 900px !important;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .content-style {
+        width: 100%;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 540px) {
+    .content-style {
+        width: 100%;
+        margin: auto;
+    }
+}
 </style>

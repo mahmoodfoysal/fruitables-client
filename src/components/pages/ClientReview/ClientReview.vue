@@ -44,7 +44,7 @@ export default {
 
     <!-- Tastimonial Start -->
     <div class="container-fluid testimonial py-5">
-        <div class="container py-5">
+        <div class="container py-5 container-style">
             <div class="testimonial-header text-center">
                 <h4 class="text-primary">Our Testimonial</h4>
                 <h1 class="display-5 mb-5 text-dark">Our Client Saying!</h1>
@@ -136,5 +136,43 @@ export default {
 .review-card-style {
     height: 242px;
     width: 100%;
+}
+
+
+@media only screen and (max-width: 2560px) {
+    .container-style {
+        max-width: 2300px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1920px) {
+    .container-style {
+        max-width: 1800px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .container-style {
+        max-width: 1300px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .container-style {
+        max-width: 900px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .container-style {
+        width: 100%;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 540px) {
+    .container-style {
+        width: 100%;
+        margin: auto;
+    }
 }
 </style>

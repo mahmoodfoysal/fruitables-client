@@ -40,7 +40,7 @@ export default {
 <template>
     <!-- Navbar start -->
     <div class="container-fluid fixed-top">
-        <div class="container topbar bg-primary d-none d-lg-block navbar-policy-style">
+        <div class="container topbar bg-primary d-none d-lg-block navbar-policy-style container-style">
             <div class="d-flex justify-content-between">
                 <div class="top-info ps-2">
                     <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#"
@@ -56,7 +56,7 @@ export default {
             </div>
         </div>
 
-        <div class="container px-0">
+        <div class="container px-0 container-style">
             <nav class="navbar navbar-light bg-white navbar-expand-xl navbar-style">
                 <h1 @click="handleNavigate" class="text-primary display-6 logo-style">FruitBazar</h1>
                 <img v-if="this.store.user !== null" :src="store.user.photoURL" alt="Avatar" class="mobile-avatar">
@@ -142,6 +142,10 @@ export default {
 
 
 @media only screen and (max-width: 2560px) {
+    .container-style {
+        max-width: 2300px;
+        margin: auto;
+    }
     .navbar-toggler {
         display: none;
     }
@@ -156,6 +160,10 @@ export default {
 }
 
 @media only screen and (max-width: 1920px) {
+    .container-style {
+        max-width: 1800px;
+        margin: auto;
+    }
     .navbar-toggler {
         display: none;
     }
@@ -170,6 +178,10 @@ export default {
 }
 
 @media only screen and (max-width: 1440px) {
+    .container-style {
+        max-width: 1300px;
+        margin: auto;
+    }
     .navbar-toggler {
         display: none;
     }
@@ -184,6 +196,10 @@ export default {
 }
 
 @media only screen and (max-width: 1024px) {
+    .container-style {
+        max-width: 900px !important;
+        margin: auto;
+    }
     .navbar-toggler {
         display: block;
     }
@@ -203,6 +219,9 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
+    .container-style {
+        width: 100%;
+    }
     .navbar-toggler {
         display: none;
     }
@@ -227,6 +246,9 @@ export default {
 }
 
 @media only screen and (max-width: 540px) {
+    .container-style {
+        width: 100%;
+    }
     .navbar-toggler {
         display: none;
     }

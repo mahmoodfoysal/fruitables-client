@@ -53,7 +53,7 @@ export default {
 <template>
     <!-- Vesitable Shop Start-->
     <div class="container-fluid vesitable py-5">
-        <div class="container py-5">
+        <div class="container py-5 container-style">
             <h1 class="mb-5">Fresh Organic Vegetables</h1>
             <swiper 
             :pagination="{
@@ -87,4 +87,41 @@ export default {
 
 </template>
 
-<style scoped></style>
+<style scoped>
+@media only screen and (max-width: 2560px) {
+    .container-style {
+        max-width: 2300px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1920px) {
+    .container-style {
+        max-width: 1800px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .container-style {
+        max-width: 1300px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .container-style {
+        max-width: 900px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .container-style {
+        width: 100%;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 540px) {
+    .container-style {
+        width: 100%;
+        margin: auto;
+    }
+}
+</style>

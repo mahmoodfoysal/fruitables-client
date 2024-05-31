@@ -7,7 +7,7 @@ export default {
 <template>
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
-    <div class="container py-5">
+    <div class="container py-5 container-style">
         <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
             <div class="row g-4">
                 <div class="col-lg-3">
@@ -95,5 +95,40 @@ export default {
 </template>
 
 <style scoped>
-
+@media only screen and (max-width: 2560px) {
+    .container-style {
+        max-width: 2300px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1920px) {
+    .container-style {
+        max-width: 1800px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .container-style {
+        max-width: 1300px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .container-style {
+        max-width: 900px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .container-style {
+        width: 100%;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 540px) {
+    .container-style {
+        width: 100%;
+        margin: auto;
+    }
+}
 </style>
