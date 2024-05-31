@@ -2,6 +2,10 @@
 import { RouterLink } from 'vue-router'
 import {useStore} from '../../../store/taskStore.js';
 import axios from 'axios';
+import { getAuth, signOut } from "firebase/auth";
+import initilizationAuthentication from '@/firebase/firebase.init';
+initilizationAuthentication();
+const auth = getAuth();
 export default {
     name: "MobileMenu",
     data() {
@@ -22,6 +26,14 @@ export default {
             catch(error) {
                 console.log(result);
             }
+        },
+        handleLogout() {
+            signOut(auth).then(() => {
+                sessionStorage.removeItem('user');
+                this.store.setUser(null);
+            }).catch((error) => {
+
+            });
         }
     }
 }

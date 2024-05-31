@@ -81,87 +81,74 @@ export default {
 </script>
 
 <template>
-    <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-5">
-        <h1 class="text-center text-white display-6">Registration</h1>
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+        <h1 class="text-center text-white display-6">Login</h1>
         <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Pages</a></li>
-            <li class="breadcrumb-item active text-white">Regostration</li>
+            <li class="breadcrumb-item active text-white">Login</li>
         </ol>
     </div>
     <!-- Single Page Header End -->
-    <!-- Contact Start -->
-    <div class="container-fluid contact py-2">
-        <div class="container py-5">
-            <div class="p-5 bg-light rounded">
-                <section class="login-section-style">
-                    <div class="d-flex justify-content-center mb-3 pt-3">
-                        <RouterLink :to="{ name: 'Registration' }">
-                            <h4 class="me-5">Registration</h4>
-                        </RouterLink>
-                        <RouterLink :to="{ name: 'Login' }">
-                            <h4>Login</h4>
-                        </RouterLink>
-                    </div>
-                    <!-- login form section  -->
-                    <div class="form-control-style">
-                        <p class="text-center">Register New Account</p>
-                        <label for="name">Full Name</label>
-                        <input v-model.trim="displayName" type="text" name="" id="name"
-                            placeholder="Enter Your Full Name">
-                        <label for="phone">Phone No</label>
-                        <input v-model="phoneNumber" type="number" name="" id="phone" placeholder="Enter Phone NO">
-                        <label for="photo">Photo Url</label>
-                        <input v-model.trim="photoURL" type="url" name="" id="photo" placeholder="Give Photo URL">
-                        <label for="Login">Email</label>
-                        <input v-model.trim="email" type="email" name="" id="Login" placeholder="Enter Your Email">
-                        <label for="password">Password</label>
-                        <input v-model.trim="password" type="password" name="" id="password"
-                            placeholder="Enter Your Password">
-                        <div v-if="getError !== null" class="alert alert-danger" role="alert">
-                            {{ getError }}
-                        </div>
-                        <button @click="handleSignUp" type="button" class="register-btn">
-                            Sign Up
-                        </button>
-                        <h6 class="text-center">Or</h6>
-                        <div class="text-center">
-                            <!-- google signin start -->
-                            <button @click="handleGoogleLogin" class="gsi-material-button">
-                                <div class="gsi-material-button-state"></div>
-                                <div class="gsi-material-button-content-wrapper">
-                                    <div class="gsi-material-button-icon">
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
-                                            <path fill="#EA4335"
-                                                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z">
-                                            </path>
-                                            <path fill="#4285F4"
-                                                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z">
-                                            </path>
-                                            <path fill="#FBBC05"
-                                                d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z">
-                                            </path>
-                                            <path fill="#34A853"
-                                                d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z">
-                                            </path>
-                                            <path fill="none" d="M0 0h48v48H0z"></path>
-                                        </svg>
-                                    </div>
-                                    <span class="gsi-material-button-contents">Continue with Google</span>
-                                    <span style="display: none;">Continue with Google</span>
-                                </div>
-                            </button>
-                            <!-- google signin end -->
-                        </div>
-
-                    </div>
-                </section>
-            </div>
+    <section class="login-section-style container">
+        <div class="d-flex justify-content-center mb-3 pt-3 component-nav-style">
+            <h4 class="me-5 text-primary">Registration</h4>
+            <RouterLink :to="{name: 'Login'}" style="text-decoration: none; color: black;">
+                <h4>Login</h4>
+            </RouterLink>
         </div>
-    </div>
-    <!-- Contact End -->
+        <!-- login form section  -->
+        <div class="form-control-style">
+            <p class="text-center">Register New Account</p>
+            <label for="name">Full Name</label>
+            <input v-model.trim="fullName" type="text" name="" id="name" placeholder="Enter Your Full Name">
+            <label for="phone">Phone No</label>
+            <input v-model.number="phoneNo" type="number" name="" id="phone" placeholder="Enter Phone NO">
+            <label for="photo">Photo Url</label>
+            <input v-model.trim="photoURL" type="url" name="" id="photo" placeholder="Give Photo URL">
+            <label for="Login">Email</label>
+            <input v-model.trim="email" type="email" name="" id="Login" placeholder="Enter Your Email">
+            <label for="password">Password</label>
+            <input v-model.trim="password" type="password" name="" id="password" placeholder="Enter Your Password">
+            <!-- <div v-if="getError !== null" class="alert alert-danger" role="alert">
+                {{ getError }}
+            </div> -->
+            <button @click="handleSignUp" type="button" class="register-btn">
+                Sign Up
+            </button>
+            <h6 class="text-center or-text-style">Or</h6>
+            <div class="text-center">
+                <!-- google signin start -->
+                <button @click="handleGoogleLogin" class="gsi-material-button">
+                    <div class="gsi-material-button-state"></div>
+                    <div class="gsi-material-button-content-wrapper">
+                        <div class="gsi-material-button-icon">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
+                                <path fill="#EA4335"
+                                    d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z">
+                                </path>
+                                <path fill="#4285F4"
+                                    d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z">
+                                </path>
+                                <path fill="#FBBC05"
+                                    d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z">
+                                </path>
+                                <path fill="#34A853"
+                                    d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z">
+                                </path>
+                                <path fill="none" d="M0 0h48v48H0z"></path>
+                            </svg>
+                        </div>
+                        <span class="gsi-material-button-contents">Continue with Google</span>
+                    </div>
+                </button>
+                <!-- google signin end -->
+            </div>
+            <p class="mt-3">Already Registered? please <RouterLink :to="{name: 'Login'}" style="text-decoration: none;">Login</RouterLink></p>
+        </div>
+    </section>
 </template>
 
 <style scoped>
@@ -190,11 +177,35 @@ export default {
     border: 1px solid #DDDDDD;
     border-radius: 5px;
     padding-left: 5px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.form-control-style p,
+label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.component-nav-style h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 .form-control-style input:focus {
     border: 2px solid #1F5DA0 !important;
     outline: none;
+}
+
+.or-text-style {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .register-btn {
@@ -204,8 +215,9 @@ export default {
     border-radius: 5px;
     background: #1F5DA0;
     color: #FFFFFF;
-    font-weight: 400;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .register-btn:hover {
@@ -271,11 +283,12 @@ export default {
 .gsi-material-button .gsi-material-button-contents {
     -webkit-flex-grow: 1;
     flex-grow: 1;
-    font-family: 'Roboto', arial, sans-serif;
-    font-weight: 500;
     overflow: hidden;
     text-overflow: ellipsis;
     vertical-align: top;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .gsi-material-button .gsi-material-button-state {
@@ -317,5 +330,70 @@ export default {
 .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
     background-color: #303030;
     opacity: 8%;
+}
+
+/* google sign in end css code  */
+
+@media only screen and (max-width: 2560px) {
+    .login-section-style {
+        max-width: 2300px !important;
+        margin: auto;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 1920px) {
+    .login-section-style {
+        max-width: 1800px !important;
+        margin: auto;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .login-section-style {
+        max-width: 1300px !important;
+        margin: auto;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .login-section-style {
+        max-width: 950px !important;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .login-section-style {
+        max-width: 100% !important;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+}
+
+@media only screen and (max-width: 540px) {
+    .login-section-style {
+        max-width: 100% !important;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+    .form-control-style {
+        box-sizing: border-box;
+        background: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        padding: 42px 28px;
+        margin: auto;
+        border-radius: 10px;
+        z-index: 22;
+    }
 }
 </style>
