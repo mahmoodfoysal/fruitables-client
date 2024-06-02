@@ -117,11 +117,11 @@ export default {
             this.updateDB(cart);
         },
         getDB() {
-            const cartData = localStorage.getItem('shopping_cart');
+            const cartData = localStorage.getItem('fruit_cart');
             return cartData ? JSON.parse(cartData) : null;
         },
         updateDB(cart) {
-            localStorage.setItem('shopping_cart', JSON.stringify(cart));
+            localStorage.setItem('fruit_cart', JSON.stringify(cart));
             this.store.setCartItem(cart);
         },
         rate(rating) {
@@ -349,7 +349,7 @@ export default {
                         </div>
                         <form action="#">
                             <h4 class="mb-5 fw-bold">Leave a Review</h4>
-                            <div class="row g-4">
+                            <div class="row g-4 form-style">
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
                                         <input :value="store.user ? store.user.displayName : ''" type="text"
@@ -459,6 +459,23 @@ export default {
 </template>
 
 <style scoped>
+
+.form-style input {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.form-style textarea {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.form-style button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
 .rating-style {
     cursor: pointer;
 }

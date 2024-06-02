@@ -1,6 +1,7 @@
 <script>
 export default {
-    name: 'BestProductSell'
+    name: 'BestProductSell',
+
 }
 </script>
 
@@ -14,7 +15,7 @@ export default {
         </div>
         <div class="row g-4">
             <div class="col-lg-6 col-xl-4">
-                <div class="p-4 rounded bg-light">
+                <div class="p-4 rounded card-style">
                     <div class="row align-items-center">
                         <div class="col-6">
                             <img src="/src/assets/img/best-product-1.jpg" class="img-fluid rounded-circle w-100" alt="">
@@ -35,7 +36,7 @@ export default {
                 </div>
             </div>
             <div class="col-lg-6 col-xl-4">
-                <div class="p-4 rounded bg-light">
+                <div class="p-4 rounded card-style">
                     <div class="row align-items-center">
                         <div class="col-6">
                             <img src="/src/assets/img/best-product-2.jpg" class="img-fluid rounded-circle w-100" alt="">
@@ -56,7 +57,7 @@ export default {
                 </div>
             </div>
             <div class="col-lg-6 col-xl-4">
-                <div class="p-4 rounded bg-light">
+                <div class="p-4 rounded card-style">
                     <div class="row align-items-center">
                         <div class="col-6">
                             <img src="/src/assets/img/best-product-3.jpg" class="img-fluid rounded-circle w-100" alt="">
@@ -77,7 +78,7 @@ export default {
                 </div>
             </div>
             <div class="col-lg-6 col-xl-4">
-                <div class="p-4 rounded bg-light">
+                <div class="p-4 rounded card-style">
                     <div class="row align-items-center">
                         <div class="col-6">
                             <img src="/src/assets/img/best-product-4.jpg" class="img-fluid rounded-circle w-100" alt="">
@@ -98,7 +99,7 @@ export default {
                 </div>
             </div>
             <div class="col-lg-6 col-xl-4">
-                <div class="p-4 rounded bg-light">
+                <div class="p-4 rounded card-style">
                     <div class="row align-items-center">
                         <div class="col-6">
                             <img src="/src/assets/img/best-product-5.jpg" class="img-fluid rounded-circle w-100" alt="">
@@ -119,7 +120,7 @@ export default {
                 </div>
             </div>
             <div class="col-lg-6 col-xl-4">
-                <div class="p-4 rounded bg-light">
+                <div class="p-4 rounded card-style">
                     <div class="row align-items-center">
                         <div class="col-6">
                             <img src="/src/assets/img/best-product-6.jpg" class="img-fluid rounded-circle w-100" alt="">
@@ -214,6 +215,9 @@ export default {
 </template>
 
 <style scoped>
+.card-style {
+    background: #f9f9f9;
+}
 @media only screen and (max-width: 2560px) {
     .container-style {
         max-width: 2300px;

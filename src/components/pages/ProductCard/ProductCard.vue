@@ -30,11 +30,11 @@ export default {
             this.updateDB(cart);
         },
         getDB() {
-            const cartData = localStorage.getItem('shopping_cart');
+            const cartData = localStorage.getItem('fruit_cart');
             return cartData ? JSON.parse(cartData) : null;
         },
         updateDB(cart) {
-            localStorage.setItem('shopping_cart', JSON.stringify(cart));
+            localStorage.setItem('fruit_cart', JSON.stringify(cart));
             this.store.setCartItem(cart)
         }
     }
@@ -57,10 +57,10 @@ export default {
             <p>{{ product?.pro_description }}</p>
             <div class="">
                 <p class="text-dark fs-5 fw-bold mb-0 d-flex justify-content-center">${{ product?.pro_price }} / {{ product?.pro_quantity }}{{ product?.pro_measurement }}</p>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center mt-3">
                     <button 
                     @click="handleAddToCart(product)"
-                    href="" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
                         class="fa fa-shopping-bag me-2 text-primary"></i> Add to
                     cart</button>
                 </div>

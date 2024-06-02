@@ -53,7 +53,7 @@ export default {
                         </a>
                     </div>
                     <div class="col-lg-6">
-                        <div class="position-relative mx-auto">
+                        <div class="position-relative mx-auto form-style">
                             <input v-model="email" class="form-control border-0 w-100 py-3 px-4 rounded-pill"
                                 type="email" placeholder="Your Email">
                             <button @click="handleSubscribe" type="submit"
@@ -132,7 +132,9 @@ export default {
                         All right reserved.</span>
                 </div>
                 <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Developed By <a
+                    <!-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>  -->
+                    
+                    Developed By <a
                         class="border-bottom" href="https://foysal-portfolio.netlify.app/">Foysal Mahmood</a>
                 </div>
             </div>
@@ -142,6 +144,11 @@ export default {
 </template>
 
 <style scoped>
+.form-style input {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 @media only screen and (max-width: 2560px) {
     .container-style {
         max-width: 2300px;

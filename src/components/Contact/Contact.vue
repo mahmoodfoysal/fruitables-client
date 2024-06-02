@@ -2,43 +2,43 @@
 import emailjs from 'emailjs-com';
 
 export default {
-  name: 'Contact',
-  data() {
-    return {
-      name: '',
-      subject: '',
-      email: '',
-      phone: '',
-      message: ''
-    };
-  },
-  methods: {
-    sendEmail(e) {
-        e.preventDefault()
-      const templateParams = {
-        name: this.name,
-        email: this.email,
-        subject: this.subject,
-        phone: this.phone,
-        message: this.message
-      };
-
-      console.log('Template Params:', templateParams);
-
-      emailjs.sendForm('service_8velmx9', 'template_a0wk1gc', e.target, 'Fxn081CAW6lcRjYKl')
-        .then((result) => {
-          this.name = '';
-          this.subject = '';
-          this.email = '';
-          this.phone = '';
-          this.message = '';
-          alert("Sent Message Successfully");
-        })
-        .catch((error) => {
-          console.error('Error sending email:', error.text);
-        });
+    name: 'Contact',
+    data() {
+        return {
+            name: '',
+            subject: '',
+            email: '',
+            phone: '',
+            message: ''
+        };
     },
-  }
+    methods: {
+        sendEmail(e) {
+            e.preventDefault()
+            const templateParams = {
+                name: this.name,
+                email: this.email,
+                subject: this.subject,
+                phone: this.phone,
+                message: this.message
+            };
+
+            console.log('Template Params:', templateParams);
+
+            emailjs.sendForm('service_8velmx9', 'template_a0wk1gc', e.target, 'Fxn081CAW6lcRjYKl')
+                .then((result) => {
+                    this.name = '';
+                    this.subject = '';
+                    this.email = '';
+                    this.phone = '';
+                    this.message = '';
+                    alert("Sent Message Successfully");
+                })
+                .catch((error) => {
+                    console.error('Error sending email:', error.text);
+                });
+        },
+    }
 };
 </script>
 
@@ -71,35 +71,38 @@ export default {
                         </div>
                     </div>
                     <div class="col-lg-7">
-                        <form @submit.prevent="sendEmail">
-                            <input v-model="name" type="text" class="w-100 form-control border-0 py-3 mb-4" name="name" placeholder="Your Name">
-                            <input v-model="subject" type="text" class="w-100 form-control border-0 py-3 mb-4" name="subject" placeholder="Please Enter Subject">
-                            <input v-model="phone" type="number" class="w-100 form-control border-0 py-3 mb-4" name ="phone" placeholder="Enter Your Phone Number">
-                            <input v-model="email" type="email" class="w-100 form-control border-0 py-3 mb-4" name="email"
-                                placeholder="Enter Your Email">
-                            <textarea v-model="message" class="w-100 form-control border-0 mb-4" rows="5" cols="10" name="message"
-                                placeholder="Your Message"></textarea>
+                        <form class="form-style" @submit.prevent="sendEmail">
+                            <input v-model="name" type="text" class="w-100 form-control border-0 py-3 mb-4" name="name"
+                                placeholder="Your Name">
+                            <input v-model="subject" type="text" class="w-100 form-control border-0 py-3 mb-4"
+                                name="subject" placeholder="Please Enter Subject">
+                            <input v-model="phone" type="number" class="w-100 form-control border-0 py-3 mb-4"
+                                name="phone" placeholder="Enter Your Phone Number">
+                            <input v-model="email" type="email" class="w-100 form-control border-0 py-3 mb-4"
+                                name="email" placeholder="Enter Your Email">
+                            <textarea v-model="message" class="w-100 form-control border-0 mb-4" rows="5" cols="10"
+                                name="message" placeholder="Your Message"></textarea>
                             <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary "
                                 type="submit">Submit</button>
                         </form>
                     </div>
                     <div class="col-lg-5">
-                        <div class="d-flex p-4 rounded mb-4 bg-white">
-                            <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
+                        <div class="d-flex p-4 rounded mb-4 bg-white address-info-style">
+                            <i class="fas fa-map-marker-alt fa-2x text-primary me-2"></i>
                             <div>
                                 <h4>Address</h4>
                                 <p class="mb-2">Dhaka, Bangladesh</p>
                             </div>
                         </div>
-                        <div class="d-flex p-4 rounded mb-4 bg-white">
-                            <i class="fas fa-envelope fa-2x text-primary me-4"></i>
+                        <div class="d-flex p-4 rounded mb-4 bg-white address-info-style">
+                            <i class="fas fa-envelope fa-2x text-primary me-2"></i>
                             <div>
                                 <h4>Mail Us</h4>
                                 <p class="mb-2">foysalcse033@gmail.com</p>
                             </div>
                         </div>
-                        <div class="d-flex p-4 rounded bg-white">
-                            <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
+                        <div class="d-flex p-4 rounded bg-white address-info-style">
+                            <i class="fa fa-phone-alt fa-2x text-primary me-2"></i>
                             <div>
                                 <h4>Telephone</h4>
                                 <p class="mb-2">+8801714226177</p>
@@ -114,40 +117,75 @@ export default {
 </template>
 
 <style scoped>
+.form-style input {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.form-style textarea {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 @media only screen and (max-width: 2560px) {
     .container-style {
         max-width: 2300px;
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 1920px) {
     .container-style {
         max-width: 1800px;
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 1440px) {
     .container-style {
         max-width: 1300px;
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 1024px) {
     .container-style {
         max-width: 900px;
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 768px) {
     .container-style {
         width: 100%;
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 540px) {
     .container-style {
         width: 100%;
         margin: auto;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .container-style {
+        width: 100%;
+        margin: auto;
+    }
+
+    .address-info-style i {
+        font-size: 24px;
+    }
+
+    .address-info-style h4 {
+        font-size: 14px;
+    }
+
+    .address-info-style p {
+        font-size: 10px;
     }
 }
 </style>

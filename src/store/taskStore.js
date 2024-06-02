@@ -5,7 +5,7 @@ export const useStore = defineStore({
     state: () => ({
         // user: JSON.parse(window.localStorage.getItem('user-info')) || null,
         user: JSON.parse(sessionStorage.getItem('user')) || null,
-        cartItem: JSON.parse(localStorage.getItem('shopping_cart')) || [],
+        cartItem: JSON.parse(localStorage.getItem('fruit_cart')) || [],
     }),
     actions: {
         setUser(userData) {

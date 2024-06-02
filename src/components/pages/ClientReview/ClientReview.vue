@@ -61,7 +61,7 @@ export default {
                     spaceBetween: 20,
                 },
                 '1024': {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                     spaceBetween: 30,
                 },
                 '1440': {
@@ -81,7 +81,7 @@ export default {
                 disableOnInteraction: false,
             }" class="mySwiper">
                 <swiper-slide v-for="(review, index) in reviews" :key="index">
-                    <div class="testimonial-item img-border-radius bg-light rounded p-4 review-card-style">
+                    <div class="testimonial-item img-border-radius rounded p-4 review-card-style">
                         <div class="position-relative">
                             <i class="fa fa-quote-right fa-2x text-secondary position-absolute"
                                 style="bottom: 30px; right: 0;"></i>
@@ -136,6 +136,7 @@ export default {
 .review-card-style {
     height: 242px;
     width: 100%;
+    background: #f9f9f9;
 }
 
 

@@ -39,11 +39,11 @@ export default {
             this.updateDB(cartData);
         },
         getDB() {
-            const cartData = localStorage.getItem('shopping_cart')
+            const cartData = localStorage.getItem('fruit_cart')
             return cartData ? JSON.parse(cartData) : null
         },
         updateDB(cart) {
-            localStorage.setItem('shopping_cart', JSON.stringify(cart));
+            localStorage.setItem('fruit_cart', JSON.stringify(cart));
             this.store.setCartItem(cart);
         }
     },

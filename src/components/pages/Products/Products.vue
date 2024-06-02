@@ -128,7 +128,7 @@ export default {
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     <div v-for="(product, index) in paginatedProducts" :key="index"
-                                        class="col-md-6 col-lg-4 col-xl-3">
+                                        class="col-md-6 col-lg-4 col-xl-3 col-sm-12">
                                         <ProductCard :product="product"></ProductCard>
                                     </div>
                                 </div>

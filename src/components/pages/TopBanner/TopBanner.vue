@@ -27,7 +27,7 @@ export default {
 
 <!-- Hero Start -->
 <div class="container-fluid py-5 mb-5 hero-header">
-    <div class="container py-5">
+    <div class="container py-5 container-style">
         <div class="row g-5 align-items-center ">
             <div class="col-md-12 col-lg-7">
                 <h4 class="mb-3 text-secondary">100% Organic Foods</h4>
@@ -75,37 +75,37 @@ export default {
 }
 
 @media only screen and (max-width: 2560px) {
-    .content-style {
-        max-width: 2300px !important;
+    .container-style {
+        max-width: 2300px;
         margin: auto;
     }
 }
 @media only screen and (max-width: 1920px) {
-    .content-style {
-        max-width: 1800px !important;
+    .container-style {
+        max-width: 1800px;
         margin: auto;
     }
 }
 @media only screen and (max-width: 1440px) {
-    .content-style {
-        max-width: 1300px !important;
+    .container-style {
+        max-width: 1300px;
         margin: auto;
     }
 }
 @media only screen and (max-width: 1024px) {
-    .content-style {
-        width: 900px !important;
+    .container-style {
+        max-width: 900px;
         margin: auto;
     }
 }
 @media only screen and (max-width: 768px) {
-    .content-style {
+    .container-style {
         width: 100%;
         margin: auto;
     }
 }
 @media only screen and (max-width: 540px) {
-    .content-style {
+    .container-style {
         width: 100%;
         margin: auto;
     }

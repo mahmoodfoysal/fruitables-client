@@ -303,7 +303,7 @@ ul {
         display: block;
     }
 
-    .active-link {
+    .active-link h6 {
         opacity: .8;
     }
 }
@@ -324,7 +324,7 @@ ul {
         display: block;
     }
 
-    .active-link {
+    .active-link h6 {
         opacity: .8;
     }
 }

@@ -10,7 +10,7 @@ export default {
     <div class="container py-5 container-style">
         <div class="row g-4">
             <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
+                <div class="featurs-item text-center rounded card-back-style p-4">
                     <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
                         <i class="fas fa-car-side fa-3x text-white"></i>
                     </div>
@@ -21,7 +21,7 @@ export default {
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
+                <div class="featurs-item text-center rounded card-back-style p-4">
                     <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
                         <i class="fas fa-user-shield fa-3x text-white"></i>
                     </div>
@@ -32,7 +32,7 @@ export default {
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
+                <div class="featurs-item text-center rounded card-back-style p-4">
                     <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
                         <i class="fas fa-exchange-alt fa-3x text-white"></i>
                     </div>
@@ -43,7 +43,7 @@ export default {
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
+                <div class="featurs-item text-center rounded card-back-style p-4">
                     <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
                         <i class="fa fa-phone-alt fa-3x text-white"></i>
                     </div>
@@ -60,6 +60,10 @@ export default {
 </template>
 
 <style scoped>
+
+.card-back-style {
+    background: #f9f9f9;
+}
 
 @media only screen and (max-width: 2560px) {
     .container-style {

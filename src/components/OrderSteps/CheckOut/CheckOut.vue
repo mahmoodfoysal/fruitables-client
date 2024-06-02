@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         async handlePlaceOrder() {
-            if (!this.store?.user?.displayName, !this.store?.user?.email, !this.city, !this.zip, !this.country, !this.phoneNumber, !this.email) {
+            if (!this.store?.user?.displayName, !this.store?.user?.email, !this.city, !this.zip, !this.country, !this.phoneNumber) {
                 alert("Please Fill All Required Field");
                 return;
             }
@@ -55,7 +55,7 @@ export default {
                     this.email='';
                     this.notes='';
                     this.$router.push({name: 'Home'})
-                    localStorage.removeItem('shopping_cart');
+                    localStorage.removeItem('fruit_cart');
                     this.store.setCartItem([])
                 }
             }
@@ -105,7 +105,7 @@ export default {
             <h1 class="mb-4">Billing details</h1>
             <form action="#">
                 <div class="row g-5">
-                    <div class="col-md-12 col-lg-6 col-xl-7">
+                    <div class="col-md-12 col-lg-6 col-xl-7 form-style">
                         <div class="row">
                             <div class="col-md-12 col-lg-12">
                                 <div class="form-item w-100">
@@ -255,6 +255,18 @@ export default {
 </template>
 
 <style scoped>
+
+.form-style input {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.form-style textarea {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .table-style {
     height: 450px;
 }
