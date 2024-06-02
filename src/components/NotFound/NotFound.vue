@@ -1,6 +1,8 @@
 <script>
+import { RouterLink } from 'vue-router';
 export default {
-    name: 'NotFound'
+    name: 'NotFound',
+    
 }
 </script>
 
@@ -26,7 +28,11 @@ export default {
                         <h1 class="display-1">404</h1>
                         <h1 class="mb-4">Page Not Found</h1>
                         <p class="mb-4">We’re sorry, the page you have looked for does not exist in our website! Maybe go to our home page or try to use a search?</p>
-                        <a class="btn border-secondary rounded-pill py-3 px-5" href="index.html">Go Back To Home</a>
+                        <RouterLink
+                        :to="{name: 'Home'}"
+                        >
+                            <button class="btn border-secondary rounded-pill py-3 px-5" href="#">Go Back To Home</button>
+                        </RouterLink>
                     </div>
                 </div>
             </div>
