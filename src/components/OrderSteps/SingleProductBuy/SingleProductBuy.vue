@@ -24,7 +24,7 @@ export default {
     methods: {
         async loadOfferProduct() {
             try {
-                const result = await axios.get('http://localhost:5000/bannerOffer');
+                const result = await axios.get('https://fruitable.onrender.com/bannerOffer');
                 this.product = result.data;
             }
             catch (error) {
@@ -43,7 +43,7 @@ export default {
             else {
                 const text = "Are Sure Want To Confirm Order?";
                 if (confirm(text) === true) {
-                    const result = await axios.post('http://localhost:5000/orders', {
+                    const result = await axios.post('https://fruitable.onrender.com/orders', {
                         fullName: this.store?.user?.displayName,
                         companyName: this.companyName,
                         address: this.address,
@@ -154,8 +154,56 @@ export default {
                                 rows="11" placeholder="Oreder Notes (Optional)"></textarea>
                         </div>
                     </div>
+
                     <div class="col-md-12 col-lg-6 col-xl-5">
-                        <div class="table-responsive">
+
+
+
+
+
+
+
+
+                        <section v-if="product.length === 0" class="d-flex justify-content-center" role="status">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div v-else class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>

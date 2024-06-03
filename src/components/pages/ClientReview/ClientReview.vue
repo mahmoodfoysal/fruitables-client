@@ -29,7 +29,7 @@ export default {
     methods: {
         async loadReviews() {
             try {
-                const result = await axios.get('http://localhost:5000/reviews');
+                const result = await axios.get('https://fruitable.onrender.com/reviews');
                 this.reviews = result.data;
             }
             catch (error) {

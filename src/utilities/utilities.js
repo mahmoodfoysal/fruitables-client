@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const loadCategory = async (result) => {
     try {
-        const result = await axios.get('http://localhost:5000/category');
+        const result = await axios.get('https://fruitable.onrender.com/category');
         // this.categoryData = result.data;
         return result.data;
         // console.log(result.data);
@@ -15,7 +15,7 @@ export const loadCategory = async (result) => {
 
 export const loadProducts = async () => {
     try {
-        const result = await axios.get('http://localhost:5000/products');
+        const result = await axios.get('https://fruitable.onrender.com/products');
         const shuffledProducts = this.shuffleArray(result.data); // Shuffle the array
         // this.productsData = shuffledProducts;
     }
@@ -35,7 +35,7 @@ export const shuffleArray = (array) => {
 
 export const loadPosterProduct = async (result) => {
     try {
-        const result = await axios.get('http://localhost:5000/bannerOffer');
+        const result = await axios.get('https://fruitable.onrender.com/bannerOffer');
         return result.data;
     }
     catch(error) {

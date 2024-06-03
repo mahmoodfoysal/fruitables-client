@@ -20,7 +20,7 @@ export default {
     methods: {
         async loadCategories() {
             try {
-                const result = await axios.get('http://localhost:5000/category');
+                const result = await axios.get('https://fruitable.onrender.com/category');
                 this.categories = result.data;
             }
             catch(error) {

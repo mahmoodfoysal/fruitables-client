@@ -27,7 +27,7 @@ export default {
             }
             const text = "Are Sure Want To Confirm Order?";
             if (confirm(text) == true) {
-                const result = await axios.post('http://localhost:5000/orders', {
+                const result = await axios.post('https://fruitable.onrender.com/orders', {
                     fullName: this.store?.user?.displayName,
                     address: this.store?.user?.email,
                     city: this.city,
@@ -97,7 +97,6 @@ export default {
         </ol>
     </div>
     <!-- Single Page Header End -->
-
 
     <!-- Checkout Page Start -->
     <div class="container-fluid py-5">

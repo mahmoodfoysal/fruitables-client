@@ -5,8 +5,8 @@ export default {
     name: 'Categories',
     data() {
         return {
-            categoriesData: null,
-            productsData: null
+            categoriesData: [],
+            productsData: []
         }
     },
     mounted() {
@@ -16,7 +16,7 @@ export default {
     methods: {
         async loadCategories() {
             try {
-                const result = await axios.get('http://localhost:5000/category');
+                const result = await axios.get('https://fruitable.onrender.com/category');
                 this.categoriesData = result.data;
             } catch (error) {
                 console.error('Error loading categories:', error);
@@ -24,7 +24,7 @@ export default {
         },
         async loadProducts() {
             try {
-                const result = await axios.get('http://localhost:5000/products');
+                const result = await axios.get('https://fruitable.onrender.com/products');
                 this.productsData = result.data;
             } catch (error) {
                 console.error('Error loading products:', error);
@@ -59,6 +59,32 @@ export default {
 <template>
     <div>
         <h4>Categories</h4>
+        <section v-if="categoriesData.length === 0" class="d-flex justify-content-center" role="status">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </section>
         <ul class="list-unstyled fruite-categorie">
             <li>
                 <div

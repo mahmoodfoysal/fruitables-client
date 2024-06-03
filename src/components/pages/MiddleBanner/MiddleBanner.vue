@@ -14,7 +14,7 @@ export default {
     methods: {
         async loadPosterProduct() {
             try {
-                const result = await axios.get('http://localhost:5000/bannerOffer');
+                const result = await axios.get('https://fruitable.onrender.com/bannerOffer');
                 this.posterData = result.data;
             }
             catch (error) {
