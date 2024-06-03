@@ -29,7 +29,7 @@ export default {
 <div class="container-fluid py-5 mb-5 hero-header">
     <div class="container py-5 container-style">
         <div class="row g-5 align-items-center ">
-            <div class="col-md-12 col-lg-7">
+            <div class="col-md-12 col-lg-7 banner-text-style">
                 <h4 class="mb-3 text-secondary">100% Organic Foods</h4>
                 <h1 class="mb-5 display-3 text-primary">Organic Veggies & Fruits Foods</h1>
                 <!-- <div class="position-relative mx-auto">
@@ -40,13 +40,13 @@ export default {
             <div class="col-md-12 col-lg-5">
                 <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                     <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active rounded">
+                        <div class="carousel-item active rounded banner-text-style">
                             <img src="/src/assets/img/hero-img-1.png" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
                             <a href="#" class="btn px-4 py-2 text-white rounded">Fruites</a>
                         </div>
-                        <div class="carousel-item rounded">
+                        <div class="carousel-item rounded banner-text-style">
                             <img src="/src/assets/img/hero-img-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Second slide">
-                            <a href="#" class="btn px-4 py-2 text-white rounded">vegetables</a>
+                            <a href="#" class="btn px-4 py-2 text-white rounded">Vegetables</a>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
@@ -72,6 +72,23 @@ export default {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.banner-text-style h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.banner-text-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.banner-text-style {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
 }
 
 @media only screen and (max-width: 2560px) {

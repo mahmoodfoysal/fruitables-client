@@ -115,7 +115,7 @@ export default {
                                 @click="handleChangeTab(category?.cat_id)">
                                 <a :class="{ 'active': isActive }" class="d-flex m-2 py-2 bg-light rounded-pill"
                                     data-bs-toggle="pill" href="#tab-3">
-                                    <span class="text-dark" style="width: 130px;">{{ category?.cat_name }}</span>
+                                    <span class="text-dark cat-text-style" style="width: 130px;">{{ category?.cat_name }}</span>
                                 </a>
                             </li>
 
@@ -174,6 +174,12 @@ export default {
 .pagination-style {
     display: flex;
     justify-content: center;
+}
+
+.cat-text-style {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 @media only screen and (max-width: 2560px) {

@@ -48,19 +48,23 @@ export default {
             <img :src="product?.pro_image" class="img-fluid w-100 rounded-top" alt="" style="object-fit: unset;">
         </div>
         </RouterLink>
-        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{ product?.cat_name }}
+        <div 
+        class="text-white bg-secondary px-3 py-1 rounded position-absolute cat-name-style" 
+        style="top: 10px; left: 10px;">
+        {{ product?.cat_name }}
         </div>
         <div 
         
         class="p-4 border border-secondary border-top-0 rounded-bottom">
             <h4>{{ product?.pro_name }}</h4>
-            <p>{{ product?.pro_description }}</p>
+            <p class="pro-description">{{ product?.pro_description }}</p>
             <div class="">
-                <p class="text-dark fs-5 fw-bold mb-0 d-flex justify-content-center">${{ product?.pro_price }} / {{ product?.pro_quantity }}{{ product?.pro_measurement }}</p>
+                <p 
+                class="text-dark fs-5 mb-0 d-flex justify-content-center price-quantity-style">${{ product?.pro_price }} / {{ product?.pro_quantity }}{{ product?.pro_measurement }}</p>
                 <div class="d-flex justify-content-center mt-3">
                     <button 
                     @click="handleAddToCart(product)"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                    class="btn border border-secondary rounded-pill px-3 text-primary cart-btn-style"><i
                         class="fa fa-shopping-bag me-2 text-primary"></i> Add to
                     cart</button>
                 </div>
@@ -75,6 +79,30 @@ export default {
     width: 100%;
     object-fit: contain;
     cursor: pointer;
+}
+
+.cat-name-style {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pro-description {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.price-quantity-style {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.cart-btn-style {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 </style>@/store/taskStore

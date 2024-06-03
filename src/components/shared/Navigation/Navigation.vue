@@ -42,13 +42,13 @@ export default {
     <div class="container-fluid fixed-top">
         <div class="container topbar bg-primary d-none d-lg-block navbar-policy-style container-style">
             <div class="d-flex justify-content-between">
-                <div class="top-info ps-2">
+                <div class="top-info ps-2 topbar-style">
                     <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#"
                             class="text-white">Dhaka, Bangladesh</a></small>
                     <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#"
                             class="text-white">foysalcse033@gmail.com</a></small>
                 </div>
-                <div class="top-link pe-2">
+                <div class="top-link pe-2 topbar-style">
                     <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
                     <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
                     <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
@@ -65,7 +65,7 @@ export default {
                     <span class="fa fa-bars text-primary"></span>
                 </button>
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                    <div class="navbar-nav mx-auto">
+                    <div class="navbar-nav mx-auto navbar-style">
                         <RouterLink :to="{ name: 'Home' }">
                             <p class="nav-item nav-link">Home</p>
                         </RouterLink>
@@ -73,22 +73,11 @@ export default {
                             <p class="nav-item nav-link">Shop</p>
                         </RouterLink>
                         <p class="nav-item nav-link">About Us</p>
-                        <!-- <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <a href="cart.html" class="dropdown-item">Cart</a>
-                                <a href="chackout.html" class="dropdown-item">Chackout</a>
-                                <RouterLink :to="{ name: 'Testimonial' }">
-                                    <a href="" class="dropdown-item">Testimonial</a>
-                                </RouterLink>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div> -->
                         <RouterLink :to="{ name: 'Contact' }">
                             <p class="nav-item nav-link">Contact</p>
                         </RouterLink>
                     </div>
-                    <div class="d-flex m-3 me-0">
+                    <div class="d-flex m-3 me-0 navbar-style">
 
                         <!-- <button
                             class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
@@ -130,6 +119,29 @@ export default {
 
 .logo-style {
     cursor: pointer;
+}
+
+.topbar-style small {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navbar-style p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.navbar-style h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.navbar-style h6:hover {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #81c408;
 }
 
 .avatar {

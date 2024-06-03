@@ -14,7 +14,7 @@ export default {
                     <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
                         <i class="fas fa-car-side fa-3x text-white"></i>
                     </div>
-                    <div class="featurs-content text-center">
+                    <div class="featurs-content text-center features-text-style">
                         <h5>Free Shipping</h5>
                         <p class="mb-0">Free on order over $300</p>
                     </div>
@@ -25,7 +25,7 @@ export default {
                     <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
                         <i class="fas fa-user-shield fa-3x text-white"></i>
                     </div>
-                    <div class="featurs-content text-center">
+                    <div class="featurs-content text-center features-text-style">
                         <h5>Security Payment</h5>
                         <p class="mb-0">100% security payment</p>
                     </div>
@@ -36,7 +36,7 @@ export default {
                     <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
                         <i class="fas fa-exchange-alt fa-3x text-white"></i>
                     </div>
-                    <div class="featurs-content text-center">
+                    <div class="featurs-content text-center features-text-style">
                         <h5>30 Day Return</h5>
                         <p class="mb-0">30 day money guarantee</p>
                     </div>
@@ -47,7 +47,7 @@ export default {
                     <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
                         <i class="fa fa-phone-alt fa-3x text-white"></i>
                     </div>
-                    <div class="featurs-content text-center">
+                    <div class="featurs-content text-center features-text-style">
                         <h5>24/7 Support</h5>
                         <p class="mb-0">Support every time fast</p>
                     </div>
@@ -63,6 +63,12 @@ export default {
 
 .card-back-style {
     background: #f9f9f9;
+}
+
+.features-text-style p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 @media only screen and (max-width: 2560px) {

@@ -31,7 +31,7 @@ export default {
         <div class="container py-5 container-style">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6">
-                    <div class="py-4">
+                    <div class="py-4 poster-text-style">
                         <h1 class="display-3 text-white">{{ posterData[0]?.posterText1 }}</h1>
                         <p class="fw-normal display-3 text-dark mb-4">{{ posterData[0]?.posterText2 }}</p>
                         <p class="mb-4 text-dark">{{ posterData[0]?.posterDescription }}</p>
@@ -62,6 +62,21 @@ export default {
 </template>
 
 <style scoped>
+
+.poster-text-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.poster-text-style p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.poster-text-style button {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+
 @media only screen and (max-width: 2560px) {
     .container-style {
         max-width: 2300px;
