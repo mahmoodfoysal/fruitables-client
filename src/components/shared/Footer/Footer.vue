@@ -46,7 +46,7 @@ export default {
         <div class="container py-5 container-style">
             <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
                 <div class="row g-4">
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 text-style">
                         <a href="#">
                             <h1 class="text-primary mb-0">FruitBazar</h1>
                             <p class="text-secondary mb-0">Fresh products</p>
@@ -61,7 +61,7 @@ export default {
                                 style="top: 0; right: 0;">Subscribe Now</button>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 text-style">
                         <div class="d-flex justify-content-end pt-3">
                             <a target="_blank" class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
                                 href="https://www.facebook.com/foysal.mahmood.1/"><i class="fab fa-facebook-f"></i></a>
@@ -77,7 +77,7 @@ export default {
             </div>
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <div class="footer-item">
+                    <div class="footer-item text-style">
                         <h4 class="text-light mb-3">Why People Like us!</h4>
                         <p class="mb-4">FruitBazar is one of most popular and authentic e-commerce site for selling
                             fruits and vegetables. We sell organic fruits and vegetables. We delever our product in the
@@ -86,7 +86,7 @@ export default {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="d-flex flex-column text-start footer-item">
+                    <div class="d-flex flex-column text-start footer-item text-style">
                         <h4 class="text-light mb-3">Account</h4>
                         <a class="btn-link" href="">My Account</a>
                         <a class="btn-link" href="">Shop details</a>
@@ -97,7 +97,7 @@ export default {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="d-flex flex-column text-start footer-item">
+                    <div class="d-flex flex-column text-start footer-item text-style">
                         <h4 class="text-light mb-3">Shop Info</h4>
                         <a class="btn-link" href="">About Us</a>
                         <a class="btn-link" href="">Contact Us</a>
@@ -109,7 +109,7 @@ export default {
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="footer-item">
+                    <div class="footer-item text-style">
                         <h4 class="text-light mb-3">Contact</h4>
                         <p>Address: Dhaka, Bangladesh</p>
                         <p>Email: foysalcse033@gmail.com</p>
@@ -146,9 +146,30 @@ export default {
 <style scoped>
 .form-style input {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
+.form-style button {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.form-style a {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.text-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.text-style h4 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.text-style p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
 @media only screen and (max-width: 2560px) {
     .container-style {
         max-width: 2300px;

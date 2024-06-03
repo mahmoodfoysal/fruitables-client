@@ -127,6 +127,11 @@ export default {
     font-weight: 400;
     font-style: normal;
 }
+.form-style button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
 
 @media only screen and (max-width: 2560px) {
     .container-style {

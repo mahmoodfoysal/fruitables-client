@@ -61,11 +61,11 @@ export default {
         <h4>Categories</h4>
         <ul class="list-unstyled fruite-categorie">
             <li>
-                <div 
+                <div
                 v-for="(category, index) in categoriesData" 
                 :key="index"
                 @click="handleSpecificCategory(category.cat_id)"
-                    class="d-flex justify-content-between fruite-name">
+                    class="d-flex justify-content-between fruite-name category-text-style">
                     <a href="#"><i class="fas fa-apple-alt me-2"></i>{{ category?.cat_name }}</a>
                     <span>({{ getCategoryProductLength(category.cat_id) }})</span>
                 </div>
@@ -74,4 +74,9 @@ export default {
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.category-text-style {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+</style>

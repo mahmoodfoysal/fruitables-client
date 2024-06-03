@@ -116,7 +116,7 @@ export default {
                         </div>
                         <div class="col-6"></div>
                         <div class="col-xl-3">
-                            <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
+                            <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4 sorting-style">
                                 <label for="fruits">Default Sorting:</label>
                                 <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3"
                                     form="fruitform">
@@ -203,6 +203,17 @@ export default {
 .pagination-style {
     display: flex;
     justify-content: center;
+}
+
+.sorting-style label {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.sorting-style select {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    border: none;
+    outline: none;
 }
 
 @media only screen and (max-width: 2560px) {
