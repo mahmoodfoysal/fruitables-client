@@ -53,7 +53,7 @@ export default {
 <template>
     <!-- Vesitable Shop Start-->
     <div class="container-fluid vesitable py-5">
-        <div class="container py-5 container-style">
+        <div class="container py-5 container-style comp-intro-style">
             <h1 class="mb-5">Fresh Organic Vegetables</h1>
             <swiper 
             :pagination="{
@@ -88,6 +88,11 @@ export default {
 </template>
 
 <style scoped>
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
 @media only screen and (max-width: 2560px) {
     .container-style {
         max-width: 2300px;

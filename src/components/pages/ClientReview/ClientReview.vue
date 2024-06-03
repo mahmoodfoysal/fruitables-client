@@ -45,7 +45,7 @@ export default {
     <!-- Tastimonial Start -->
     <div class="container-fluid testimonial py-5">
         <div class="container py-5 container-style">
-            <div class="testimonial-header text-center">
+            <div class="testimonial-header text-center comp-intro-style">
                 <h4 class="text-primary">Our Testimonial</h4>
                 <h1 class="display-5 mb-5 text-dark">Our Client Saying!</h1>
             </div>
@@ -91,7 +91,7 @@ export default {
                                     <img src="/src/assets/img/testimonial-1.jpg" class="img-fluid rounded"
                                         style="width: 100px; height: 100px;" alt="">
                                 </div>
-                                <div class="ms-4 d-block">
+                                <div class="ms-4 d-block card-text-style">
                                     <h4 class="text-dark">{{ review?.fullName }}</h4>
                                     <!-- <p class="m-0 pb-3">Profession</p> -->
                                     <div class="d-flex pe-5">
@@ -102,7 +102,7 @@ export default {
                                     </div>
                                 </div>
                             </div>
-                            <div class=" ">
+                            <div class="card-text-style">
                                 <p class="mb-0">{{ review?.comment }}
                                 </p>
                             </div>
@@ -137,6 +137,24 @@ export default {
     height: 242px;
     width: 100%;
     background: #f9f9f9;
+}
+
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.comp-intro-style h4 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.card-text-style h4 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.card-text-style p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
 }
 
 

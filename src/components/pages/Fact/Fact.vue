@@ -50,6 +50,12 @@ export default {
     background: #f9f9f9;
 }
 
+.card-style h4 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+
 @media only screen and (max-width: 2560px) {
     .container-style {
         max-width: 2300px;

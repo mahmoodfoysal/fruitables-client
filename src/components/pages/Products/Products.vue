@@ -106,7 +106,7 @@ export default {
         <div class="container py-5 container-style">
             <div class="tab-class text-center">
                 <div class="row g-4">
-                    <div class="col-lg-4 text-start">
+                    <div class="col-lg-4 text-start comp-intro-style">
                         <h1>Our Organic Products</h1>
                     </div>
                     <div class="col-lg-8 text-end">
@@ -178,7 +178,11 @@ export default {
 
 .cat-text-style {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
+    font-style: normal;
+}
+
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
     font-style: normal;
 }
 

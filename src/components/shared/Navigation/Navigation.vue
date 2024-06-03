@@ -57,7 +57,7 @@ export default {
         </div>
 
         <div class="container px-0 container-style">
-            <nav class="navbar navbar-light bg-white navbar-expand-xl navbar-style">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl navbar-style topbar-style">
                 <h1 @click="handleNavigate" class="text-primary display-6 logo-style">FruitBazar</h1>
                 <img v-if="this.store.user !== null" :src="store.user.photoURL" alt="Avatar" class="mobile-avatar">
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
@@ -121,25 +121,26 @@ export default {
     cursor: pointer;
 }
 
+.topbar-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
 .topbar-style small {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
 
 .navbar-style p {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
     font-style: normal;
+    font-weight: 500;
 }
 .navbar-style h6 {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
 .navbar-style h6:hover {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
     font-style: normal;
     color: #81c408;
 }

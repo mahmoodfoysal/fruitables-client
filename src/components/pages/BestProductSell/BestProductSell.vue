@@ -9,7 +9,7 @@ export default {
 <!-- Bestsaler Product Start -->
 <div class="container-fluid py-5">
     <div class="container py-5 container-style">
-        <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+        <div class="text-center mx-auto mb- comp-intro-style" style="max-width: 700px;">
             <h1 class="display-4">Bestseller Products</h1>
             <p>Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
         </div>
@@ -215,6 +215,14 @@ export default {
 </template>
 
 <style scoped>
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.comp-intro-style p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
 .card-style {
     background: #f9f9f9;
 }
