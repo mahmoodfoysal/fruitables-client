@@ -88,7 +88,7 @@ export default {
 
 <template>
     <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-5">
+    <div class="container-fluid page-header py-5 comp-intro-style">
         <h1 class="text-center text-white display-6">Checkout</h1>
         <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -150,7 +150,7 @@ export default {
                     </div>
                     <div class="col-md-12 col-lg-6 col-xl-5">
                         <div class="table-responsive table-style">
-                            <table class="table">
+                            <table class="table table-text-style">
                                 <thead>
                                     <tr>
                                         <th scope="col">Products</th>
@@ -178,7 +178,7 @@ export default {
                         </div>
                         <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
                             <div class="col-12">
-                                <div class="bg-light rounded">
+                                <div class="bg-light rounded checkout-calculation-style">
                                     <div class="p-4">
                                         <h1 class="display-6 mb-4">Total <span class="fw-normal">Payable</span>
                                         </h1>
@@ -201,7 +201,7 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3 transection-style">
                             <div class="col-12">
                                 <div class="form-check text-start my-3">
                                     <input type="checkbox" class="form-check-input bg-primary border-0" id="Transfer-1"
@@ -213,7 +213,7 @@ export default {
                                     funds have cleared in our account.</p>
                             </div>
                         </div>
-                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3 transection-style">
                             <div class="col-12">
                                 <div class="form-check text-start my-3">
                                     <input type="checkbox" class="form-check-input bg-primary border-0" id="Payments-1"
@@ -222,7 +222,7 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3 transection-style">
                             <div class="col-12">
                                 <div class="form-check text-start my-3">
                                     <input type="checkbox" class="form-check-input bg-primary border-0" id="Delivery-1"
@@ -231,7 +231,7 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                        <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3 transection-style">
                             <div class="col-12">
                                 <div class="form-check text-start my-3">
                                     <input type="checkbox" class="form-check-input bg-primary border-0" id="Paypal-1"
@@ -240,7 +240,7 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <div class="row g-4 text-center align-items-center justify-content-center pt-4">
+                        <div class="row g-4 text-center align-items-center justify-content-center pt-4 order-btn-div">
                             <button @click="handlePlaceOrder" type="button"
                                 class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">Place
                                 Order
@@ -256,19 +256,68 @@ export default {
 
 <style scoped>
 
+
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.comp-intro-style li {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
 .form-style input {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
 .form-style textarea {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
 
 .table-style {
     height: 450px;
+}
+
+.table-text-style th {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.table-text-style td {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.checkout-calculation-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.checkout-calculation-style h5 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.checkout-calculation-style p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.checkout-calculation-style button {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.transection-style label {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.transection-style p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.order-btn-div button {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
 }
 
 @media only screen and (max-width: 2560px) {

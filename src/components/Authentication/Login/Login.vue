@@ -72,7 +72,7 @@ export default {
 
 <template>
     <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-5">
+    <div class="container-fluid page-header py-5 comp-intro-style">
         <h1 class="text-center text-white display-6">Login</h1>
         <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -148,6 +148,15 @@ export default {
 </template>
 
 <style scoped>
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.comp-intro-style li {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
 .login-section-style {
     background: #F1F1F1;
     width: 100%;

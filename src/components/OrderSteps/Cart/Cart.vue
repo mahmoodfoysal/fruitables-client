@@ -72,7 +72,7 @@ export default {
 
 <template>
     <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-5">
+    <div class="container-fluid page-header py-5 comp-intro-style">
         <h1 class="text-center text-white display-6">Cart</h1>
         <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -89,7 +89,7 @@ export default {
     <div v-else class="container-fluid py-5">
         <div class="container py-5 container-style">
             <div class="table-responsive">
-                <table class="table">
+                <table class="table table-text-style">
                     <thead>
                         <tr>
                             <th scope="col">Products</th>
@@ -146,7 +146,7 @@ export default {
                     </tbody>
                 </table>
             </div>
-            <div class="mt-5">
+            <div class="mt-5 coupon-style">
                 <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="Coupon Code">
                 <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">Apply
                     Coupon</button>
@@ -154,7 +154,7 @@ export default {
             <div class="row g-4 justify-content-end">
                 <div class="col-8"></div>
                 <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
-                    <div class="bg-light rounded">
+                    <div class="bg-light rounded cart-calculation-style">
                         <div class="p-4">
                             <h1 class="display-6 mb-4">Cart <span class="fw-normal">Total</span></h1>
                             <div class="d-flex justify-content-between mb-4">
@@ -187,6 +187,52 @@ export default {
 </template>
 
 <style scoped>
+
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.comp-intro-style li {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.table-text-style th {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.table-text-style td {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.coupon-style input {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.coupon-style button {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.cart-calculation-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.cart-calculation-style h5 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.cart-calculation-style p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.cart-calculation-style button {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
 @media only screen and (max-width: 2560px) {
     .container-style {
         max-width: 2300px;

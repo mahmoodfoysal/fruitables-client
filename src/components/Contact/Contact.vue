@@ -44,7 +44,7 @@ export default {
 
 <template>
     <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-5">
+    <div class="container-fluid page-header py-5 comp-intro-style">
         <h1 class="text-center text-white display-6">Contact</h1>
         <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -59,7 +59,7 @@ export default {
             <div class="p-5 bg-light rounded">
                 <div class="row g-4">
                     <div class="col-12">
-                        <div class="text-center mx-auto" style="max-width: 700px;">
+                        <div class="text-center mx-auto comp-intro-style" style="max-width: 700px;">
                             <h1 class="text-primary">Get in touch</h1>
                         </div>
                     </div>
@@ -130,6 +130,15 @@ export default {
 .form-style button {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
+    font-style: normal;
+}
+
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.comp-intro-style li {
+    font-family: "Poppins", sans-serif;
     font-style: normal;
 }
 
