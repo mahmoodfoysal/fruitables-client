@@ -53,14 +53,12 @@ export default {
         style="top: 10px; left: 10px;">
         {{ product?.cat_name }}
         </div>
-        <div 
-        
-        class="p-4 border border-secondary border-top-0 rounded-bottom">
+        <div class="p-4 border border-secondary border-top-0 rounded-bottom card-text-style">
             <h4>{{ product?.pro_name }}</h4>
             <p class="pro-description">{{ product?.pro_description }}</p>
             <div class="">
                 <p 
-                class="text-dark fs-5 mb-0 d-flex justify-content-center price-quantity-style">${{ product?.pro_price }} / {{ product?.pro_quantity }}{{ product?.pro_measurement }}</p>
+                class="text-dark fs-5 mb-0 d-flex justify-content-center price-quantity-style fw-bold">${{ product?.pro_price }} / {{ product?.pro_quantity }}{{ product?.pro_measurement }}</p>
                 <div class="d-flex justify-content-center mt-3">
                     <button 
                     @click="handleAddToCart(product)"
@@ -83,26 +81,27 @@ export default {
 
 .cat-name-style {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
 
 .pro-description {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
 
 .price-quantity-style {
     font-family: "Poppins", sans-serif;
-    font-weight: 600;
     font-style: normal;
 }
 
 .cart-btn-style {
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
     font-style: normal;
 }
 
-</style>@/store/taskStore
+.card-text-style h4, p, button {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+</style>

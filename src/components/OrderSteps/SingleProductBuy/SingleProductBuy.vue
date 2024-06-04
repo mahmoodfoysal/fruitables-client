@@ -96,7 +96,7 @@ export default {
 <template>
 
     <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-5">
+    <div class="container-fluid page-header py-5 comp-intro-style">
         <h1 class="text-center text-white display-6">Buy Now</h1>
         <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -105,11 +105,37 @@ export default {
         </ol>
     </div>
     <!-- Single Page Header End -->
-
+    <!-- loading  -->
+    <section v-if="product.length === 0" class="d-flex justify-content-center mt-5" role="status">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </section>
     <!-- Checkout Page Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <h1 class="mb-4">Billing details</h1>
+    <div v-else class="container-fluid py-5">
+        <div class="container py-5 content-text-style">
+            <h1 class="mb-4">Billing Details</h1>
             <form action="#">
                 <div class="row g-5">
                     <div class="col-md-12 col-lg-6 col-xl-7">
@@ -157,53 +183,7 @@ export default {
 
                     <div class="col-md-12 col-lg-6 col-xl-5">
 
-
-
-
-
-
-
-
-                        <section v-if="product.length === 0" class="d-flex justify-content-center" role="status">
-        <div class="spinner-grow text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-secondary" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-success" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-danger" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-warning" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-info" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-light" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-dark" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <div v-else class="table-responsive">
+                        <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -312,5 +292,19 @@ export default {
 <style scoped>
 .table-style {
     height: 450px;
+}
+
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.comp-intro-style li {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.content-text-style h1, label, input, textarea, th, td, h5, p, button{
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
 }
 </style>

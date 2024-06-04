@@ -42,8 +42,35 @@ export default {
 
 <template>
 
+<section v-if="reviews.length === 0" class="d-flex justify-content-center mt-5" role="status">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </section>
+
     <!-- Tastimonial Start -->
-    <div class="container-fluid testimonial py-5">
+    <div v-else class="container-fluid testimonial py-5">
         <div class="container py-5 container-style">
             <div class="testimonial-header text-center comp-intro-style">
                 <h4 class="text-primary">Our Testimonial</h4>

@@ -101,8 +101,36 @@ export default {
 </script>
 
 <template>
+
+<section v-if="productsData.length === 0" class="d-flex justify-content-center mt-5" role="status">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </section>
+
     <!-- Fruits Shop Start-->
-    <div class="container-fluid fruite py-5">
+    <div v-else class="container-fluid fruite py-5">
         <div class="container py-5 container-style">
             <div class="tab-class text-center">
                 <div class="row g-4">

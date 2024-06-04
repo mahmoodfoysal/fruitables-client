@@ -104,8 +104,40 @@ export default {
         </ol>
     </div>
     <!-- Single Page Header End -->
+
+    <!-- loader  -->
+
+    <section v-if="paginatedProducts.length === 0" class="d-flex justify-content-center mt-5" role="status">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </section>
+
+
+
     <!-- Fruits Shop Start-->
-    <div class="container-fluid fruite py-5">
+    <div v-else class="container-fluid fruite py-5">
         <div class="container py-5 container-style">
             <h1 class="mb-4">Fresh fruits shop</h1>
             <div class="row g-4">
@@ -156,6 +188,14 @@ export default {
                         </div>
 
                         <div class="col-lg-9">
+
+
+
+                            
+
+
+
+
                             <div class="row g-4 justify-content-center">
                                 <div v-for="(product, index) in paginatedProducts" :key="index"
                                     class="col-md-6 col-lg-6 col-xl-4">

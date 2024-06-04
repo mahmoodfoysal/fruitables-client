@@ -59,7 +59,7 @@ export default {
 <template>
     <div>
         <h4>Categories</h4>
-        <section v-if="categoriesData.length === 0" class="d-flex justify-content-center" role="status">
+        <section v-if="categoriesData.length === 0" class="d-flex justify-content-center mt-5" role="status">
         <div class="spinner-grow text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>

@@ -186,19 +186,47 @@ export default {
 
 <template>
     <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-5">
-        <h1 class="text-center text-white display-6">Shop Detail</h1>
+    <div class="container-fluid page-header py-5 comp-intro-style">
+        <h1 class="text-center text-white display-6">Product Detail</h1>
         <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Pages</a></li>
-            <li class="breadcrumb-item active text-white">Shop Detail</li>
+            <li class="breadcrumb-item active text-white">Product Detail</li>
         </ol>
     </div>
     <!-- Single Page Header End -->
 
+    <!-- loader  -->
+
+    <section v-if="productsData.length === 0" class="d-flex justify-content-center mt-5" role="status">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </section>
 
     <!-- Single Product Start -->
-    <div class="container-fluid py-5 mt-5">
+    <div v-else class="container-fluid py-5 mt-5">
         <div class="container py-5 container-style">
             <div class="row g-4 mb-5">
                 <div class="col-lg-8 col-xl-9">
@@ -210,7 +238,7 @@ export default {
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 pro-text-style">
                             <h4 class="fw-bold mb-3">{{ filterData[0]?.pro_name }}</h4>
                             <p class="mb-3">Category: {{ filterData[0]?.cat_name }}</p>
                             <h5 class="fw-bold mb-3">${{ filterData[0]?.pro_price }}</h5>
@@ -253,7 +281,7 @@ export default {
                                         aria-controls="nav-mission" aria-selected="false">Reviews</button>
                                 </div>
                             </nav>
-                            <div class="tab-content mb-5">
+                            <div class="tab-content mb-5 pro-text-style">
                                 <div class="tab-pane active" id="nav-about" role="tabpanel"
                                     aria-labelledby="nav-about-tab">
                                     <p>The generated Lorem Ipsum is therefore always free from repetition injected
@@ -272,7 +300,7 @@ export default {
                                                         <p class="mb-0">Weight</p>
                                                     </div>
                                                     <div class="col-6">
-                                                        <p class="mb-0">1 kg</p>
+                                                        <p class="mb-0">{{ filterData[0]?.pro_quantity }} {{ filterData[0]?.pro_measurement }}</p>
                                                     </div>
                                                 </div>
                                                 <div
@@ -347,7 +375,7 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <form action="#">
+                        <form action="#" class="pro-text-style">
                             <h4 class="mb-5 fw-bold">Leave a Review</h4>
                             <div class="row g-4 form-style">
                                 <div class="col-lg-6">
@@ -404,7 +432,7 @@ export default {
                     </div>
                 </div>
             </div>
-            <h1 class="fw-bold mb-0">Related products</h1>
+            <h1 class="fw-bold mb-0 releted-text">Related products</h1>
             <div class="vesitable">
                 <swiper :pagination="{
                                         type: 'fraction',
@@ -426,7 +454,7 @@ export default {
                                         disableOnInteraction: false,
                                     }" class="mySwiper">
                     <swiper-slide v-for="(product, index) in filterRelatedData" :key="index">
-                        <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="border border-primary rounded position-relative vesitable-item pro-text-style">
                             <RouterLink :to="{ name: 'ProductDetails', params: { id: product?.pro_id } }">
                                 <div class="vesitable-img">
                                     <img :src="product?.pro_image" class="img-fluid w-100 rounded-top" alt="">
@@ -440,8 +468,9 @@ export default {
                                 <p>{{ product?.pro_description }}</p>
                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                     <p class="text-dark fs-5 fw-bold mb-0">${{ product?.pro_price }} / {{
-                                        product?.pro_quantity }}</p>
-                                    <button @click="handleAddToCart(product)" href=""
+                                        product?.pro_quantity }}{{
+                                        product?.pro_measurement }}</p>
+                                    <button @click="handleAddToCart(product)"
                                         class="btn border border-secondary rounded-pill px-3 text-primary">
                                         <i class="fa fa-shopping-bag me-2 text-primary">
                                         </i>
@@ -460,6 +489,25 @@ export default {
 
 <style scoped>
 
+.comp-intro-style h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.comp-intro-style li {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.pro-text-style h4, h5, p, input, button {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.releted-text {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
 .form-style input {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
@@ -472,7 +520,6 @@ export default {
 }
 .form-style button {
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
     font-style: normal;
 }
 
