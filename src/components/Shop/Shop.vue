@@ -78,6 +78,9 @@ export default {
             if (newPage >= 1 && newPage <= this.totalPages) {
                 this.page = newPage;
             }
+        },
+        handleSearchValue(searchValue) {
+            console.log(searchValue);
         }
     },
     computed: {
@@ -144,7 +147,9 @@ export default {
                 <div class="col-lg-12">
                     <div class="row g-4">
                         <div class="col-xl-3">
-                            <SearchBar></SearchBar>
+                            <SearchBar
+                            @search-value="handleSearchValue"
+                            ></SearchBar>
                         </div>
                         <div class="col-6"></div>
                         <div class="col-xl-3">
