@@ -13,8 +13,9 @@ export default {
     data() {
         return {
             productsData: [],
-            catID: 0,
             filterData: [],
+            searchKey: '',
+            catID: 0,
             page: 1,
             itemsPerPage: 8,
             priceRange: { min: 0, max: Infinity } // Added priceRange data property
@@ -39,7 +40,6 @@ export default {
                 const result = await axios.get('https://fruitable.onrender.com/products');
                 const shuffledProducts = this.shuffleArray(result.data); // Shuffle the array
                 this.productsData = shuffledProducts;
-                this.filterProducts();
             }
             catch (error) {
                 console.error('Error loading products:', error);
@@ -55,13 +55,25 @@ export default {
         },
         handleSpecificCategory(id) {
             this.catID = parseInt(id);
-            this.filterProducts();
         },
         handlePriceRange(range) {
             this.priceRange = range; // Update priceRange
-            this.filterProducts();
         },
-        filterProducts() {
+        goToPage(newPage) {
+            if (newPage >= 1 && newPage <= this.totalPages) {
+                this.page = newPage;
+            }
+        },
+        handleSearchValue(searchValue) {
+            console.log(searchValue);
+            this.searchKey = searchValue;
+        }
+    },
+    computed: {
+        totalPages() {
+            return Math.ceil(this.filterData.length / this.itemsPerPage);
+        },
+        paginatedProducts() {
             let filtered = this.productsData;
 
             if (this.catID !== 0) {
@@ -72,25 +84,14 @@ export default {
                 filtered = filtered.filter((product) => product.pro_price >= this.priceRange.min && product.pro_price <= this.priceRange.max);
             }
 
-            this.filterData = filtered;
-        },
-        goToPage(newPage) {
-            if (newPage >= 1 && newPage <= this.totalPages) {
-                this.page = newPage;
+            if (this.searchKey.length > 0) {
+                const searchKeyword = this.searchKey.toLocaleLowerCase();
+                filtered = filtered.filter(product => product.pro_name.toLowerCase().includes(searchKeyword))
             }
-        },
-        handleSearchValue(searchValue) {
-            console.log(searchValue);
-        }
-    },
-    computed: {
-        totalPages() {
-            return Math.ceil(this.filterData.length / this.itemsPerPage);
-        },
-        paginatedProducts() {
+
             const startIndex = (this.page - 1) * this.itemsPerPage;
             const endIndex = startIndex + this.itemsPerPage;
-            return this.filterData.slice(startIndex, endIndex);
+            return filtered.slice(startIndex, endIndex);
         }
     }
 }
@@ -109,8 +110,7 @@ export default {
     <!-- Single Page Header End -->
 
     <!-- loader  -->
-
-    <section v-if="paginatedProducts.length === 0" class="d-flex justify-content-center mt-5" role="status">
+    <section v-if="productsData.length === 0" class="d-flex justify-content-center mt-5" role="status">
         <div class="spinner-grow text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -137,8 +137,6 @@ export default {
         </div>
     </section>
 
-
-
     <!-- Fruits Shop Start-->
     <div v-else class="container-fluid fruite py-5">
         <div class="container py-5 container-style">
@@ -147,9 +145,7 @@ export default {
                 <div class="col-lg-12">
                     <div class="row g-4">
                         <div class="col-xl-3">
-                            <SearchBar
-                            @search-value="handleSearchValue"
-                            ></SearchBar>
+                            <SearchBar @search-value="handleSearchValue"></SearchBar>
                         </div>
                         <div class="col-6"></div>
                         <div class="col-xl-3">
@@ -194,14 +190,11 @@ export default {
 
                         <div class="col-lg-9">
 
+                            <div v-if="paginatedProducts.length === 0" class="text-center mt-5 mb-5">
+                                <h1>No Data Found</h1>
+                            </div>
 
-
-                            
-
-
-
-
-                            <div class="row g-4 justify-content-center">
+                            <div v-else class="row g-4 justify-content-center">
                                 <div v-for="(product, index) in paginatedProducts" :key="index"
                                     class="col-md-6 col-lg-6 col-xl-4">
                                     <ProductCard :product="product"></ProductCard>
@@ -254,6 +247,7 @@ export default {
     font-family: "Poppins", sans-serif;
     font-style: normal;
 }
+
 .sorting-style select {
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -265,6 +259,7 @@ export default {
     font-family: "Poppins", sans-serif;
     font-style: normal;
 }
+
 .comp-intro-style li {
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -276,30 +271,35 @@ export default {
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 1920px) {
     .container-style {
         max-width: 1800px;
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 1440px) {
     .container-style {
         max-width: 1300px;
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 1024px) {
     .container-style {
         max-width: 900px;
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 768px) {
     .container-style {
         width: 100%;
         margin: auto;
     }
 }
+
 @media only screen and (max-width: 540px) {
     .container-style {
         width: 100%;
