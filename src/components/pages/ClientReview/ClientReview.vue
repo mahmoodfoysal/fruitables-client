@@ -115,7 +115,7 @@ export default {
 
                             <div class="d-flex align-items-center flex-nowrap border-bottom border-secondary mb-4 pb-4">
                                 <div class="bg-secondary rounded">
-                                    <img src="/src/assets/img/testimonial-1.jpg" class="img-fluid rounded"
+                                    <img :src="review?.photo" class="img-fluid rounded"
                                         style="width: 100px; height: 100px;" alt="">
                                 </div>
                                 <div class="ms-4 d-block card-text-style">
