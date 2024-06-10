@@ -102,9 +102,9 @@ export default {
         <div class="form-control-style">
             <p class="text-center">Register New Account</p>
             <label for="name">Full Name</label>
-            <input v-model.trim="fullName" type="text" name="" id="name" placeholder="Enter Your Full Name">
+            <input v-model.trim="displayName" type="text" name="" id="name" placeholder="Enter Your Full Name">
             <label for="phone">Phone No</label>
-            <input v-model.number="phoneNo" type="number" name="" id="phone" placeholder="Enter Phone NO">
+            <input v-model.number="phoneNumber" type="number" name="" id="phone" placeholder="Enter Phone NO">
             <label for="photo">Photo Url</label>
             <input v-model.trim="photoURL" type="url" name="" id="photo" placeholder="Give Photo URL">
             <label for="Login">Email</label>
@@ -348,6 +348,7 @@ label {
         max-width: 2300px !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 }
 
@@ -356,6 +357,7 @@ label {
         max-width: 1800px !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 }
 
@@ -364,6 +366,7 @@ label {
         max-width: 1300px !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 }
 
@@ -372,6 +375,7 @@ label {
         max-width: 950px !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 
 }
@@ -381,6 +385,7 @@ label {
         max-width: 100% !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 
 }
@@ -390,6 +395,7 @@ label {
         max-width: 100% !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 
     .form-control-style {

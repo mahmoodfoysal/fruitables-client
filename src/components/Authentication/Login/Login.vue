@@ -355,6 +355,7 @@ label {
         max-width: 2300px !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 }
 
@@ -363,6 +364,7 @@ label {
         max-width: 1800px !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 }
 
@@ -371,6 +373,7 @@ label {
         max-width: 1300px !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 }
 
@@ -379,6 +382,7 @@ label {
         max-width: 950px !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 
 }
@@ -388,6 +392,7 @@ label {
         max-width: 100% !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 
 }
@@ -397,6 +402,7 @@ label {
         max-width: 100% !important;
         margin: auto;
         margin-top: 30px;
+        padding-bottom: 30px;
     }
 
     .form-control-style {
