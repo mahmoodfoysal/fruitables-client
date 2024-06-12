@@ -85,7 +85,7 @@ export default {
             }
 
             if (this.searchKey.length > 0) {
-                const searchKeyword = this.searchKey.toLocaleLowerCase();
+                const searchKeyword = this.searchKey.toLowerCase();
                 filtered = filtered.filter(product => product.pro_name.toLowerCase().includes(searchKeyword))
             }
 
