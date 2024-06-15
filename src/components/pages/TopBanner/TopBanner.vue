@@ -120,11 +120,17 @@ export default {
         width: 100%;
         margin: auto;
     }
+    .hero-header {
+        margin-top: 62px !important;
+    }
 }
 @media only screen and (max-width: 540px) {
     .container-style {
         width: 100%;
         margin: auto;
+    }
+    .hero-header {
+        margin-top: 62px !important;
     }
 }
 </style>

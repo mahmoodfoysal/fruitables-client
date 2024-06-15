@@ -59,7 +59,20 @@ export default {
         <div class="container px-0 container-style">
             <nav class="navbar navbar-light bg-white navbar-expand-xl navbar-style topbar-style">
                 <h1 @click="handleNavigate" class="text-primary display-6 logo-style">FruitBazar</h1>
-                <img v-if="this.store.user !== null" :src="store.user.photoURL" alt="Avatar" class="mobile-avatar">
+                <div class="d-flex">
+                    <a href="#" class="position-relative my-auto mobile-cart">
+                            <RouterLink :to="{ name: 'Cart' }">
+                                <i class="fa fa-shopping-bag fa-2x"></i>
+                            </RouterLink>
+                            <RouterLink :to="{ name: 'Cart' }">
+                                <span
+                                    class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                                    style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{ cartCount }}</span>
+                            </RouterLink>
+                        </a>
+                <img v-if="this.store.user !== null" :src="store.user.photoURL" alt="Avatar" class="mobile-avatar ms-4">
+                </div>
+                
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars text-primary"></span>
@@ -170,6 +183,9 @@ export default {
     .mobile-avatar {
         display: none;
     }
+    .mobile-cart {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 1920px) {
@@ -188,6 +204,9 @@ export default {
     .mobile-avatar {
         display: none;
     }
+    .mobile-cart {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 1440px) {
@@ -204,6 +223,9 @@ export default {
     }
 
     .mobile-avatar {
+        display: none;
+    }
+    .mobile-cart {
         display: none;
     }
 }
@@ -228,6 +250,9 @@ export default {
         height: 41px;
         border-radius: 50%;
         margin-right: 16px;
+    }
+    .mobile-cart {
+        display: none;
     }
 }
 
@@ -256,6 +281,9 @@ export default {
         border-radius: 50%;
         margin-right: 16px;
     }
+    .mobile-cart {
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 540px) {
@@ -282,6 +310,9 @@ export default {
         height: 41px;
         border-radius: 50%;
         margin-right: 16px;
+    }
+    .mobile-cart {
+        display: block;
     }
 }
 </style>
