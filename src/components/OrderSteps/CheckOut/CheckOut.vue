@@ -17,11 +17,13 @@ export default {
             email: null,
             notes: null,
             orderList: null,
+            isValidation: false
         }
     },
     methods: {
         async handlePlaceOrder() {
             if (!this.store?.user?.displayName, !this.store?.user?.email, !this.city, !this.zip, !this.country, !this.phoneNumber) {
+                this.isValidation = true
                 alert("Please Fill All Required Field");
                 return;
             }
@@ -57,6 +59,7 @@ export default {
                     this.$router.push({name: 'Home'})
                     localStorage.removeItem('fruit_cart');
                     this.store.setCartItem([])
+                    this.isValidation = false;
                 }
             }
 
@@ -109,42 +112,85 @@ export default {
                             <div class="col-md-12 col-lg-12">
                                 <div class="form-item w-100">
                                     <label class="form-label my-3">Full Name<sup>*</sup></label>
-                                    <input :value="this.store?.user?.displayName" type="text" class="form-control" disabled >
+                                    <input 
+                                    :value="this.store?.user?.displayName" 
+                                    type="text" 
+                                    class="form-control"
+                                    :class="{'is-validate': isValidation && !this.store?.user?.displayName}"
+                                    disabled >
                                 </div>
                             </div>
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Email Address<sup>*</sup></label>
-                            <input :value="this.store?.user?.email" type="email" class="form-control" disabled >
+                            <input 
+                            :value="this.store?.user?.email" 
+                            type="email" 
+                            class="form-control" 
+                            :class="{'is-validate': isValidation && !this.store?.user?.email}"
+                            disabled >
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Address <sup>*</sup></label>
-                            <input v-model="address" type="text" class="form-control"
-                                placeholder="House Number Street Name">
+                            <input 
+                            v-model="address" 
+                            type="text" 
+                            class="form-control"
+                            :class="{'is-validate': isValidation && !this.address}"
+                            placeholder="House Number Street Name">
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Town/City<sup>*</sup></label>
-                            <input v-model="city" type="text" class="form-control">
+                            <input 
+                            v-model="city" 
+                            type="text" 
+                            class="form-control"
+                            :class="{'is-validate': isValidation && !this.city}"
+                            placeholder="Enter city"
+                            >
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Country<sup>*</sup></label>
-                            <input v-model="country" type="text" class="form-control">
+                            <input 
+                            v-model="country" 
+                            type="text" 
+                            class="form-control"
+                            :class="{'is-validate': isValidation && !this.country}"
+                            placeholder="Enter country"
+                            >
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Postcode/Zip<sup>*</sup></label>
-                            <input v-model.number="zip" type="text" class="form-control">
+                            <input 
+                            v-model.number="zip" 
+                            type="text" 
+                            class="form-control"
+                            :class="{'is-validate': isValidation && !this.zip}"
+                            placeholder="Enter zip code"
+                            >
                         </div>
                         <div class="form-item">
                             <label class="form-label my-3">Mobile<sup>*</sup></label>
-                            <input v-model.number="phoneNumber" type="tel" class="form-control">
+                            <input 
+                            v-model.number="phoneNumber" 
+                            type="tel" 
+                            class="form-control"
+                            :class="{'is-validate': isValidation && !this.phoneNumber}"
+                            placeholder="Enter phone no"
+                            >
                         </div>
-
-
 
                         <div class="form-item">
                             <label class="form-label my-3">Order Notes<sup></sup></label>
-                            <textarea v-model="notes" name="text" class="form-control" spellcheck="false" cols="30"
-                                rows="11" placeholder="Oreder Notes (Optional)"></textarea>
+                            <textarea 
+                            v-model="notes" 
+                            name="text" 
+                            class="form-control" 
+                            spellcheck="false" 
+                            cols="30"
+                            rows="11" 
+                            placeholder="Oreder Notes (Optional)">
+                            </textarea>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-6 col-xl-5">
@@ -317,6 +363,9 @@ export default {
 .order-btn-div button {
     font-family: "Poppins", sans-serif;
     font-style: normal;
+}
+.is-validate {
+    border: 1px solid red !important;
 }
 
 @media only screen and (max-width: 2560px) {
