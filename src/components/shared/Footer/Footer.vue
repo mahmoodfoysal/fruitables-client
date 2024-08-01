@@ -113,7 +113,7 @@ export default {
                         <h4 class="text-light mb-3">Contact</h4>
                         <p>Address: Dhaka, Bangladesh</p>
                         <p>Email: foysalcse033@gmail.com</p>
-                        <p>Phone: 01714226177</p>
+                        <p>Phone: +8801911756854</p>
                         <p>Payment Accepted</p>
                         <img src="/src/assets/img/payment.png" class="img-fluid" alt="">
                     </div>

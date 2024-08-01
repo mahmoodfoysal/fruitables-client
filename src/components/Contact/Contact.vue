@@ -9,12 +9,21 @@ export default {
             subject: '',
             email: '',
             phone: '',
-            message: ''
+            message: '',
+            isValidation: false
         };
     },
     methods: {
         sendEmail(e) {
             e.preventDefault()
+            if(!this.name || !this.email || !this.subject || !this.message) {
+                this.isValidation = true;
+                alert("Please fill all required field");
+                return;
+            }
+            const text = 'Are you want to sure? sent message!!!'
+            if(confirm(text) == true) {
+                this.isValidation = false;
             const templateParams = {
                 name: this.name,
                 email: this.email,
@@ -37,6 +46,8 @@ export default {
                 .catch((error) => {
                     console.error('Error sending email:', error.text);
                 });
+
+            }
         },
     }
 };
@@ -66,24 +77,53 @@ export default {
                     <div class="col-lg-12">
                         <div class="h-100 rounded">
                             <iframe class="rounded w-100" style="height: 400px;"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.120228378651!2d90.39338887402643!3d23.74309168905929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8616c79536d%3A0xef5ed4a1110af709!2sJMI%20GROUP!5e0!3m2!1sen!2sbd!4v1716287534924!5m2!1sen!2sbd"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7302.140426151845!2d90.41380043316553!3d23.780513939734664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c79c005238e3%3A0x6f442e19863b0cf8!2sGulshan%201!5e0!3m2!1sen!2sbd!4v1722503435227!5m2!1sen!2sbd"
                                 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <div class="col-lg-7">
                         <form class="form-style" @submit.prevent="sendEmail">
-                            <input v-model="name" type="text" class="w-100 form-control border-0 py-3 mb-4" name="name"
-                                placeholder="Your Name">
-                            <input v-model="subject" type="text" class="w-100 form-control border-0 py-3 mb-4"
-                                name="subject" placeholder="Please Enter Subject">
-                            <input v-model="phone" type="number" class="w-100 form-control border-0 py-3 mb-4"
-                                name="phone" placeholder="Enter Your Phone Number">
-                            <input v-model="email" type="email" class="w-100 form-control border-0 py-3 mb-4"
-                                name="email" placeholder="Enter Your Email">
-                            <textarea v-model="message" class="w-100 form-control border-0 mb-4" rows="5" cols="10"
-                                name="message" placeholder="Your Message"></textarea>
-                            <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary "
-                                type="submit">Submit</button>
+                            <input 
+                            v-model="name" 
+                            type="text" 
+                            :class="{'is-validate': isValidation && !this.name}" 
+                            class="w-100 form-control border-0 py-3 mb-4" 
+                            name="name"
+                            placeholder="Your Name">
+                            <input 
+                            v-model="subject" 
+                            type="text" 
+                            :class="{'is-validate': isValidation && !this.subject}"
+                            class="w-100 form-control border-0 py-3 mb-4"
+                            name="subject" 
+                            placeholder="Please Enter Subject">
+                            <input 
+                            v-model="phone" 
+                            type="number" 
+                            class="w-100 form-control border-0 py-3 mb-4"
+                            name="phone" 
+                            placeholder="Enter Your Phone Number">
+                            <input 
+                            v-model="email" 
+                            type="email" 
+                            class="w-100 form-control border-0 py-3 mb-4"
+                            :class="{'is-validate': isValidation && !this.email}"
+                            name="email" 
+                            placeholder="Enter Your Email">
+                            <textarea 
+                            v-model="message" 
+                            class="w-100 form-control border-0 mb-4"
+                            :class="{'is-validate': isValidation && !this.message}" 
+                            rows="5" 
+                            cols="10"
+                            name="message" 
+                            placeholder="Your Message">
+                            </textarea>
+                            <button 
+                            class="w-100 btn form-control border-secondary py-3 bg-white text-primary "
+                            type="submit">
+                            Submit
+                            </button>
                         </form>
                     </div>
                     <div class="col-lg-5">
@@ -105,7 +145,7 @@ export default {
                             <i class="fa fa-phone-alt fa-2x text-primary me-2"></i>
                             <div>
                                 <h4>Telephone</h4>
-                                <p class="mb-2">+8801714226177</p>
+                                <p class="mb-2">+8801911756854</p>
                             </div>
                         </div>
                     </div>
@@ -140,6 +180,9 @@ export default {
 .comp-intro-style li {
     font-family: "Poppins", sans-serif;
     font-style: normal;
+}
+.is-validate {
+    border: 1px solid red !important;
 }
 
 @media only screen and (max-width: 2560px) {
