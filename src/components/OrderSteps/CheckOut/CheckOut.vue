@@ -17,7 +17,10 @@ export default {
             email: null,
             notes: null,
             orderList: null,
-            isValidation: false
+            isValidation: false,
+            coupon: null,
+            couponNo: 'fruitbazar',
+            discount: 0
         }
     },
     methods: {
@@ -63,6 +66,12 @@ export default {
                 }
             }
 
+        },
+        handleCoupon() {
+            if (this.couponNo === this.coupon) {
+            alert('Coupon applied successfully!');
+            this.discount = 5
+        }
         }
     },
     computed: {
@@ -82,7 +91,12 @@ export default {
             return 2
         },
         grossTotal() {
-            return this.subTotal + this.shipping;
+            
+            let total = this.subTotal + this.shipping;
+        if (this.couponNo === this.coupon) {
+            total -= this.discount; // Subtract 10 when the coupon is valid
+        }
+        return total;
         }
 
     }
@@ -215,12 +229,26 @@ export default {
                                         </th>
                                         <td class="py-5">{{ item?.pro_name }}</td>
                                         <td class="py-5">${{ item?.pro_price }}</td>
-                                        <td class="py-5">{{ item?.quantity }}</td>
+                                        <td class="py-5 text-center">{{ item?.quantity }}</td>
                                         <td class="py-5">${{ (item?.pro_price * item?.quantity).toFixed(2) }}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <div class="mt-5 coupon-style">
+                <input 
+                v-model="coupon"
+                type="text" 
+                class="border-0 border-bottom rounded me-5 py-3 mb-4" 
+                placeholder="Coupon Code">
+                <button 
+                @click="handleCoupon"
+                :disabled="discount > 0"
+                class="btn border-secondary rounded-pill px-4 py-3 text-primary" 
+                type="button">
+                Apply Coupon
+                </button>
+            </div>
                         <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
                             <div class="col-12">
                                 <div class="bg-light rounded checkout-calculation-style">
@@ -239,6 +267,9 @@ export default {
                                         </div>
                                         <!-- <p class="mb-0 text-end">Shipping to Ukraine.</p> -->
                                     </div>
+                                    <div class="py-2 mb-4">
+                            <p v-if="discount > 0" class="ps-4 pe-4">Coupon Applied!!!</p>
+                        </div>
                                     <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                                         <h5 class="mb-0 ps-4 me-4">Total</h5>
                                         <p class="mb-0 pe-4">${{ grossTotal.toFixed(2) }}</p>

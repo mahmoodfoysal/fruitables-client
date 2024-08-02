@@ -38,7 +38,8 @@ export default {
             photo: null,
             comment: null,
             reviewData: [],
-            filterReviewData: []
+            filterReviewData: [],
+            isValidation: false
         }
     },
     async mounted() {
@@ -131,11 +132,18 @@ export default {
             // You can also emit an event here if needed
         },
         async handlePostReview() {
-            if (!this.store?.user?.displayName, !this.store?.user?.email, !this.comment, !this.currentRating) {
-                alert('Please Fill The Required Field');
+            if (!this.store?.user?.displayName || !this.store?.user?.email) {
+                alert('Please Login First');
+                this.isValidation = true;
                 return;
             }
-            const text = 'Are You Sure? Want To Post This Review';
+            else if (!this.store?.user?.displayName || !this.store?.user?.email || !this.comment || !this.currentRating) {
+                alert('Please Fill The Required Field');
+                this.isValidation = true;
+                return;
+            }
+            else {
+                const text = 'Are You Sure? Want To Post This Review';
             if (confirm(text) == true) {
                 const result = await axios.post('https://fruitable.onrender.com/reviews', {
                     fullName: this.store?.user?.displayName,
@@ -150,11 +158,13 @@ export default {
                 console.log(result)
                 if (result.status === 200) {
                     alert('Thanks For Your Review!!!');
+                    this.isValidation = false;
                     this.fullName = '';
                     this.email = '';
                     this.comment = '';
                     this.currentRating = '';
                 }
+            }
             }
         },
         async loadReview() {
@@ -380,29 +390,48 @@ export default {
                             <div class="row g-4 form-style">
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input :value="store.user ? store.user.displayName : ''" type="text"
-                                            class="form-control border-0 me-4" placeholder="Enter Your Full Name *"
-                                            required disabled>
+                                        <input 
+                                        :value="store.user ? store.user.displayName : ''" 
+                                        type="text"
+                                        class="form-control border-0 me-4"
+                                        :class="{'is-validate': isValidation && !this.store?.user?.displayName}"
+                                        placeholder="Enter Your Full Name *"
+                                        required 
+                                        disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="border-bottom rounded">
-                                        <input :value="store.user ? store.user.email : ''" type="email"
-                                            class="form-control border-0" placeholder="Enter Your Email *" required
-                                            disabled>
+                                        <input 
+                                        :value="store.user ? store.user.email : ''" 
+                                        type="email"
+                                        class="form-control border-0"
+                                        :class="{'is-validate': isValidation && !this.store?.user?.email}"
+                                        placeholder="Enter Your Email *" 
+                                        required
+                                        disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="border-bottom rounded my-4">
-                                        <textarea v-model="comment" name="" id="" class="form-control border-0"
-                                            cols="30" rows="8" placeholder="Please Enter Your Valuable Comment *"
-                                            spellcheck="false"></textarea>
+                                        <textarea 
+                                        v-model="comment" 
+                                        class="form-control border-0"
+                                        :class="{'is-validate': isValidation && !this.comment}"
+                                        cols="30" 
+                                        rows="8" 
+                                        placeholder="Please Enter Your Valuable Comment *"
+                                        spellcheck="false">
+                                    </textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="d-flex justify-content-between py-3 mb-5">
                                         <div class="d-flex align-items-center">
-                                            <p class="mb-0 me-3">Please rate:</p>
+                                            <p 
+                                            class="mb-0 me-3"
+                                            :class="{'is-rating': isValidation && !this.currentRating}"
+                                            >Please rate: *</p>
                                             <div class="d-flex align-items-center rating-style"
                                                 style="font-size: 12px;">
                                                 <i v-for="index in 5" :key="index" class="fa fa-star" :class="{
@@ -546,6 +575,14 @@ export default {
 
 .text-gray {
     color: gray !important;
+}
+
+.is-validate {
+    border: 1px solid red !important;
+}
+
+.is-rating {
+    color: red !important;
 }
 
 @media only screen and (max-width: 2560px) {

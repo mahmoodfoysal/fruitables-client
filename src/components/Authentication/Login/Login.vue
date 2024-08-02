@@ -10,14 +10,24 @@ export default {
     data() {
         return {
             store: useStore(),
+            isValidation: false,
+            email: null,
+            password: null
         }
     },
     methods: {
         handleLogin() {
-            signInWithEmailAndPassword(auth, this.email, this.password)
+            if(!this.email || !this.password) {
+                this.isValidation=true;
+                alert("Please fill up required field");
+                return;
+            }
+            else {
+                signInWithEmailAndPassword(auth, this.email, this.password)
                 .then((userCredential) => {
                     const user = userCredential.user;
                     // console.log(user)
+                    this.isValidation=false;
                     this.store.setUser(user);
                     sessionStorage.setItem('user', JSON.stringify(user));
                     this.$router.push({ name: 'Home' })
@@ -26,6 +36,7 @@ export default {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                 });
+            }
         },
         handleGoogleLogin() {
             signInWithPopup(auth, googleProvider)
@@ -93,11 +104,21 @@ export default {
         <div class="form-control-style">
             <p class="text-center">Login Your Account</p>
             <label for="Login">Email</label>
-            <input v-model.trim="email" type="email" name="" id="Login" required placeholder="Enter Your Email">
+            <input 
+            v-model.trim="email" 
+            :class="{'is-validate': isValidation && !this.email}"
+            type="email" 
+            id="Login" 
+            required 
+            placeholder="Enter Your Email">
 
             <label for="password">Password</label>
-            <input v-model.trim="password" type="password" name="" id="password" required
-                placeholder="Enter Your Password">
+            <input v-model.trim="password" 
+            type="password" 
+            id="password" 
+            :class="{'is-validate': isValidation && !this.password}"
+            required
+            placeholder="Enter Your Password">
             <!-- <div v-if="getError !== null" class="alert alert-danger" role="alert">
                 {{ getError }}
             </div> -->
@@ -348,6 +369,10 @@ label {
 .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
     background-color: #303030;
     opacity: 8%;
+}
+
+.is-validate {
+    border: 1px solid red !important;
 }
 
 @media only screen and (max-width: 2560px) {

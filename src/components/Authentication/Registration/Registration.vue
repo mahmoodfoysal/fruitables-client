@@ -16,11 +16,19 @@ export default {
             email: null,
             password: null,
             store: useStore(),
+            isValidation: false,
         }
     },
     methods: {
         handleSignUp() {
-            createUserWithEmailAndPassword(auth, this.email, this.password)
+            console.log()
+            if(!this.email || !this.password || !this.displayName) {
+                this.isValidation=true;
+                alert("Please fill all up required field");
+                return;
+            }
+            else {
+                createUserWithEmailAndPassword(auth, this.email, this.password)
                 .then((userCredential) => {
                     const user = userCredential.user;
                     updateProfile(auth.currentUser, {
@@ -29,6 +37,7 @@ export default {
                         photoURL: this.photoURL
                     })
                     this.store.setUser(user);
+                    this.isValidation=false;
                     sessionStorage.setItem('user', JSON.stringify(user));
                     this.$router.push({ name: 'Home' })
                     console.log(user);
@@ -37,6 +46,7 @@ export default {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                 });
+            }
         },
         handleGoogleLogin() {
             signInWithPopup(auth, googleProvider)
@@ -101,16 +111,41 @@ export default {
         <!-- login form section  -->
         <div class="form-control-style">
             <p class="text-center">Register New Account</p>
-            <label for="name">Full Name</label>
-            <input v-model.trim="displayName" type="text" name="" id="name" placeholder="Enter Your Full Name">
+            <label for="name">Full Name *</label>
+            <input 
+            v-model.trim="displayName" 
+            type="text" 
+            id="name" 
+            :class="{'is-validate': isValidation && !this.displayName}"
+            placeholder="Enter Your Full Name">
             <label for="phone">Phone No</label>
-            <input v-model.number="phoneNumber" type="number" name="" id="phone" placeholder="Enter Phone NO">
+            <input 
+            v-model.number="phoneNumber" 
+            type="number" 
+            name="" 
+            id="phone" 
+            placeholder="Enter Phone NO">
             <label for="photo">Photo Url</label>
-            <input v-model.trim="photoURL" type="url" name="" id="photo" placeholder="Give Photo URL">
-            <label for="Login">Email</label>
-            <input v-model.trim="email" type="email" name="" id="Login" placeholder="Enter Your Email">
-            <label for="password">Password</label>
-            <input v-model.trim="password" type="password" name="" id="password" placeholder="Enter Your Password">
+            <input 
+            v-model.trim="photoURL" 
+            type="url" 
+            name="" 
+            id="photo" 
+            placeholder="Give Photo URL">
+            <label for="Login">Email *</label>
+            <input 
+            v-model.trim="email" 
+            type="email" 
+            :class="{'is-validate': isValidation && !this.email}"
+            id="Login" 
+            placeholder="Enter Your Email">
+            <label for="password">Password *</label>
+            <input 
+            v-model.trim="password" 
+            type="password" 
+            :class="{'is-validate': isValidation && !this.password}"
+            id="password" 
+            placeholder="Enter Your Password">
             <!-- <div v-if="getError !== null" class="alert alert-danger" role="alert">
                 {{ getError }}
             </div> -->
@@ -339,6 +374,10 @@ label {
 .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
     background-color: #303030;
     opacity: 8%;
+}
+
+.is-validate {
+    border: 1px solid red !important;
 }
 
 /* google sign in end css code  */
