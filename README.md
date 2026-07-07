@@ -1,6 +1,6 @@
 # Fruitable - Ecommerce project
 
-Organic fruit and vegetable shop built with Vue 3 and Pinia. Features complex filtering and newsletter integration
+FruitBazar is a high-performance, full-stack e-commerce application tailored for the organic retail sector. Engineered with a deep focus on speed, structural data filtering, and secure user sessions, the platform provides a friction-free pipeline from farm-fresh discovery to secure checkout. The interface is optimized to drive user engagement through immersive landing modules, dynamic state-driven cart systems, and authenticated customer feedback loops.
 
 ## Live Demo
 
@@ -27,9 +27,19 @@ Organic fruit and vegetable shop built with Vue 3 and Pinia. Features complex fi
 
 ## Key Features
 
-- Price-range and category filtering for organic items
-- Footer subscription system and client satisfaction testimonials
-- Related product suggestions on the details page
+- Architected an immersive landing experience featuring modular carousels for promotional offers, dedicated rows for organic greens and seasonal fruits, a high-visibility bestseller showcase, and data-driven customer testimonial boards.
+
+- Engineered a universal product routing system accessible via a central navigation portal, serving the entire storefront's catalog within a clean, performant grid.
+
+- Implemented highly responsive client-side filtering logic that allows shoppers to effortlessly narrow down inventories using price-range boundaries and category taxonomies simultaneously.
+
+- Designed a dedicated checkout basket featuring inline reactive state management, allowing users to increment/decrement quantities or purge items with instant, subtotal-accurate price calculations.
+
+- Built a secure, route-protected checkout interface that mandates user session verification before opening a dedicated form to capture critical client delivery metadata.
+
+- Architected a dedicated shopping cart hub featuring reactive state coordination, enabling shoppers to instantly review all selected items and track itemized price breakdowns in real time.
+
+- Engineered an automated, route-guarded order placement interface that mandates secure user authentication before processing transactions to protect system integrity.
 
 ## Setup and Installation
 
